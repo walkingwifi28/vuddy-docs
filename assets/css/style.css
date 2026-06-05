@@ -218,7 +218,7 @@ h3::before {
 h4 {
     position: relative;
     margin: 2.2rem 0 0.65rem;
-    padding: 0.45rem 0 0.45rem 2.2rem;
+    padding: 0.45rem 0 0.45rem 2.6rem;
     color: var(--vuddy-black);
     font-size: clamp(1.05rem, 2vw, 1.3rem);
     line-height: 1.45;
@@ -748,7 +748,7 @@ body.page-toc-open .page-toc-overlay {
 
     h4 {
         margin-top: 1.8rem;
-        padding-left: 1.85rem;
+        padding-left: 2.15rem;
     }
 
     h4::before {
