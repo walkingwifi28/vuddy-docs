@@ -15,71 +15,84 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 #### ボタン分岐
 
 動画上に表示されたボタンを押下することで、次の動画へ自動的に遷移します。
-![ボタン分岐の例](./img/button_branching.dio.png)
+
+![ボタン分岐の例](./assets/images/button_branching.dio.png)
 
 #### 訪問回数分岐
 
-訪れた回数に応じて表示内容を変化します。
-![訪問回数分岐の例](./img/visit_count_branching.dio.png)
+訪れた回数に応じて表示内容が変化します。
+
+![訪問回数分岐の例](./assets/images/visit_count_branching.dio.png)
 
 #### 訪問時刻分岐
 
 訪れた日時に応じて表示内容を変化します。
-![訪問時刻分岐の例](./img/visit_time_branching.dio.png)
+
+![訪問時刻分岐の例](./assets/images/visit_time_branching.dio.png)
 
 ### 編集
 
 #### テンプレ機能
 
 あらかじめVuddyで用意されているテンプレートを使用して、動画の内容を簡単に編集できます。
-![テンプレ機能の例](./img/template_function.dio.png)
+
+![テンプレ機能の例](./assets/images/template_function.dio.png)
 
 #### 入力フォーム設置
 
 動画中に入力フォームを設置し、視聴者の入力を収集することができます。
-![入力フォーム設置の例](./img/input_form.dio.png)
+
+![入力フォーム設置の例](./assets/images/input_form.dio.png)
 
 #### ボタン分岐設定
 
 動画上に表示されたボタンを押下することで、次の動画へ自動的に遷移するための設定を行います。
-![ボタン分岐設定の例](./img/button_branching_setting.dio.png)
+
+![ボタン分岐設定の例](./assets/images/button_branching_setting.dio.png)
 
 #### 訪問回数分岐設定
 
 訪れた回数に応じて表示内容を変化するための設定を行います。
-![訪問回数分岐設定の例](./img/visit_count_branching_setting.dio.png)
+
+![訪問回数分岐設定の例](./assets/images/visit_count_branching_setting.dio.png)
 
 #### 訪問時刻分岐設定
 
 訪れた日時に応じて表示内容を変化するための設定を行います。
-![訪問時刻分岐設定の例](./img/visit_time_branching_setting.dio.png)
+
+![訪問時刻分岐設定の例](./assets/images/visit_time_branching_setting.dio.png)
 
 ### 分析
 
 #### 選択肢遷移率
 
 動画中の選択肢を押下した際の遷移率を分析するためのデータを表示します。
-![選択肢遷移率の例](./img/choice_transition_rate.dio.png)
+![選択肢遷移率の例](./assets/images/choice_transition_rate.dio.png)
+
 
 #### 視聴完了率
 
 視聴者が動画を完了した割合を分析するためのデータを表示します。
-![視聴完了率の例](./img/view_completion_rate.dio.png)
+
+![視聴完了率の例](./assets/images/view_completion_rate.dio.png)
 
 #### 離脱ポイント
 
 視聴者が動画を離脱したポイントを分析するためのデータを表示します。
-![離脱ポイントの例](./img/exit_point.dio.png)
+
+![離脱ポイントの例](./assets/images/exit_point.dio.png)
 
 #### エンゲージメントグラフ
 
 視聴者のエンゲージメントを分析するためのグラフを表示します。
-![エンゲージメントグラフの例](./img/engagement_graph.dio.png)
+
+![エンゲージメントグラフの例](./assets/images/engagement_graph.dio.png)
 
 #### 入力フォーム収集
 
 視聴者からの入力フォームの収集データを表示します。
-![入力フォーム収集の例](./img/input_form_collection.dio.png)
+
+![入力フォーム収集の例](./assets/images/input_form_collection.dio.png)
 
 ## ユースケース
 
@@ -108,17 +121,17 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 5. 再訪時には、前回の視聴内容に応じてFAQや選考フローを案内する
 6. 採用担当者は、選択率・離脱ポイント・面談予約率を分析して内容を改善する
 
-#### Before/Experience/After
+#### 導入前/利用体験/導入後
 
-##### Before
+##### 導入前
 
 一律の会社紹介では候補者の関心に応えられない
 
-##### Experience
+##### 利用体験
 
 候補者が選択する動画分岐
 
-##### After
+##### 導入後
 
 面談予約、応募、採用ミスマッチの改善
 
@@ -160,17 +173,17 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 5. 再訪時には、前回の視聴状況に応じて復習コンテンツを表示する
 6. 教育担当者が視聴完了率、離脱ポイント、回答内容を分析し、教材を改善する
 
-#### Before/Experience/After
+#### 導入前/利用体験/導入後
 
-##### Before
+##### 導入前
 
 一律の研修動画では、受講者ごとの理解度やつまずきが分からない
 
-##### Experience
+##### 利用体験
 
 顧客自身が知りたい情報を選択する
 
-##### After
+##### 導入後
 
 研修の定着率向上、フォロー工数削減、教材改善
 
@@ -230,17 +243,17 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 5. 営業担当者が視聴内容を確認し、関心事項に合わせて商談を行う
 6. 選択率や離脱ポイントを分析し、営業コンテンツを改善する
 
-#### Before/Experience/After
+#### 導入前/利用体験/導入後
 
-##### Before
+##### 導入前
 
 すべての顧客に同じ営業資料を送り、関心度が分からない
 
-##### Experience
+##### 利用体験
 
 受講者が自分の理解度や関心に応じて学習ルートを選べる
 
-##### After
+##### 導入後
 
 説明時間の短縮、商談の質向上、案件化率向上
 
