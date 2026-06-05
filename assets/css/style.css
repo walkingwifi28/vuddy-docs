@@ -398,6 +398,32 @@ code {
     font-weight: 700;
 }
 
+pre {
+    margin: 1.5rem 0;
+    padding: 1.15rem 1.25rem;
+    overflow-x: auto;
+    border: 1px solid rgba(35, 35, 35, 0.12);
+    border-left: 0.35rem solid var(--vuddy-mint);
+    background: rgba(1, 187, 151, 0.12);
+    box-shadow: 0.55rem 0.55rem 0 rgba(1, 187, 151, 0.18);
+}
+
+pre code {
+    display: block;
+    min-width: max-content;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--vuddy-black);
+    font-family:
+        "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono",
+        monospace;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.75;
+    white-space: pre;
+}
+
 iframe {
     display: block;
     width: 100%;
