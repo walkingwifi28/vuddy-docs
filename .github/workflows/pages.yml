@@ -33,10 +33,12 @@ jobs:
           {
             cat assets/css/reset.css
             printf '\n'
-            sed '/^@import "reset.css";$/d' assets/css/style.css
+            sed '/^@import "reset.css";$/d; s#../images/#assets/images/#g' assets/css/style.css
           } > /tmp/md2vhtml-style.css
           npx --yes md2vhtml@latest -i index.md -c /tmp/md2vhtml-style.css -s assets/js/main.js -o _site/index.html
           cp assets/favicon.png _site/favicon.png
+          mkdir -p _site/assets
+          cp -R assets/images _site/assets/images
           node <<'NODE'
           const fs = require('fs');
           const htmlPath = '_site/index.html';

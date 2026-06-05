@@ -14,7 +14,7 @@
 }
 
 html {
-    background: var(--vuddy-black);
+    background: var(--vuddy-light);
     scroll-behavior: smooth;
 }
 
@@ -47,19 +47,14 @@ body::before {
     position: absolute;
     inset: 0 0 auto;
     z-index: 0;
-    display: grid;
     height: 4.75rem;
-    place-items: center;
     background:
         linear-gradient(90deg, var(--vuddy-mint), var(--vuddy-blue)) center
             bottom / 100% 0.2rem no-repeat,
-        var(--vuddy-black);
-    color: var(--vuddy-white);
-    content: "VARISTA Inc.";
-    font-family: "Chakra Petch", "Arial Black", sans-serif;
-    font-size: 1.65rem;
-    font-weight: 800;
-    letter-spacing: -0.04em;
+        url("../assets/images/VARISTA_logo.png") center / auto 2.6rem no-repeat,
+        var(--vuddy-light);
+    content: "";
+    box-shadow: 0 0.35rem 1.2rem rgba(35, 35, 35, 0.06);
 }
 
 body::after {
@@ -710,6 +705,10 @@ body.page-toc-open .page-toc-overlay {
 @media (max-width: 48rem) {
     body::before {
         height: 3.75rem;
+        background-size:
+            100% 0.2rem,
+            auto 2rem,
+            auto;
     }
 
     main {
