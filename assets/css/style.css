@@ -350,6 +350,8 @@ ol::before {
 
 ol li {
     position: relative;
+    display: flex;
+    align-items: center;
     min-height: 4.2rem;
     margin: 0;
     padding: 1.2rem 1.5rem 1.2rem 5.4rem;
@@ -362,6 +364,7 @@ ol li::before {
     top: 50%;
     left: calc(var(--step-center) - 1rem);
     z-index: 1;
+    box-sizing: border-box;
     display: grid;
     width: 2rem;
     aspect-ratio: 1;
