@@ -36,6 +36,22 @@ jobs:
             sed '/^@import "reset.css";$/d' assets/css/style.css
           } > /tmp/md2vhtml-style.css
           npx --yes md2vhtml@latest -i index.md -c /tmp/md2vhtml-style.css -s assets/js/main.js -o _site/index.html
+          cp assets/favicon.svg _site/favicon.svg
+          node <<'NODE'
+          const fs = require('fs');
+          const htmlPath = '_site/index.html';
+          let html = fs.readFileSync(htmlPath, 'utf8');
+
+          if (!/<title>/i.test(html)) {
+            html = html.replace('</head>', '    <title>Vuddyサービス資料</title>\n  </head>');
+          }
+
+          if (!/rel=["']icon["']/i.test(html)) {
+            html = html.replace('</head>', '    <link rel="icon" type="image/svg+xml" href="favicon.svg">\n  </head>');
+          }
+
+          fs.writeFileSync(htmlPath, html);
+          NODE
           if [ -d img ]; then
             cp -R img _site/img
           fi
