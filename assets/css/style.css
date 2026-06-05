@@ -1,0 +1,769 @@
+@charset "utf-8";
+@import "reset.css";
+
+:root {
+    --vuddy-mint: #01bb97;
+    --vuddy-blue: #6fcce4;
+    --vuddy-coral: #ff6644;
+    --vuddy-black: #232323;
+    --vuddy-ink: #303336;
+    --vuddy-muted: #676d70;
+    --vuddy-line: #dce4e2;
+    --vuddy-light: #f4f7f6;
+    --vuddy-white: #ffffff;
+}
+
+html {
+    background: var(--vuddy-black);
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    background:
+        radial-gradient(
+            circle at 8% 36%,
+            rgba(1, 187, 151, 0.1),
+            transparent 25rem
+        ),
+        radial-gradient(
+            circle at 92% 63%,
+            rgba(111, 204, 228, 0.13),
+            transparent 28rem
+        ),
+        var(--vuddy-light);
+    color: var(--vuddy-ink);
+    font-family:
+        "DM Sans", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+        sans-serif;
+    font-size: 100%;
+    font-weight: 500;
+    letter-spacing: 0.035em;
+}
+
+body::before {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 0;
+    display: grid;
+    height: 4.75rem;
+    place-items: center;
+    background:
+        linear-gradient(90deg, var(--vuddy-mint), var(--vuddy-blue)) center
+            bottom / 100% 0.2rem no-repeat,
+        var(--vuddy-black);
+    color: var(--vuddy-white);
+    content: "VARISTA Inc.";
+    font-family: "Chakra Petch", "Arial Black", sans-serif;
+    font-size: 1.65rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+body::after {
+    position: fixed;
+    right: -0.12em;
+    bottom: -0.3em;
+    z-index: 0;
+    color: rgba(1, 187, 151, 0.045);
+    content: "V";
+    font-family: Impact, "Arial Black", sans-serif;
+    font-size: min(68vw, 60rem);
+    font-weight: 900;
+    line-height: 0.8;
+    pointer-events: none;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 3rem, 74rem);
+    margin-inline: auto;
+    padding: 4.75rem 0 8rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+th {
+    color: var(--vuddy-black);
+    font-family:
+        "Chakra Petch", "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+        "Yu Gothic", sans-serif;
+    font-weight: 800;
+}
+
+h1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34rem;
+    margin: 0 calc(50% - 50vw) 0;
+    padding-block: clamp(4rem, 8vw, 6.5rem);
+    padding-inline: max(calc((100vw - 74rem) / 2), 1.5rem);
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            transparent 0 62%,
+            rgba(255, 255, 255, 0.3) 62% 63%,
+            transparent 63%
+        ),
+        linear-gradient(135deg, var(--vuddy-mint), var(--vuddy-blue));
+    font-size: clamp(3.3rem, 7.2vw, 6.8rem);
+    line-height: 0.98;
+    letter-spacing: -0.075em;
+    text-align: center;
+    isolation: isolate;
+}
+
+h1::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    color: transparent;
+    content: "Vuddy";
+    font-family: Impact, "Arial Black", sans-serif;
+    font-size: clamp(10rem, 26vw, 25rem);
+    font-weight: 900;
+    line-height: 0.72;
+    letter-spacing: -0.07em;
+    opacity: 0.78;
+    transform: translate(-49%, -48%) rotate(-9deg);
+    -webkit-text-stroke: clamp(0.65rem, 1.5vw, 1.35rem)
+        rgba(255, 255, 255, 0.92);
+}
+
+h2 {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: end;
+    gap: 0.8rem 1.5rem;
+    margin: clamp(6rem, 12vw, 10rem) 0 2.25rem;
+    font-size: clamp(2.45rem, 5.5vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.055em;
+}
+
+h2::before {
+    grid-column: 1 / -1;
+    color: var(--vuddy-mint);
+    content: "VUDDY";
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.24em;
+}
+
+h2::after {
+    align-self: center;
+    height: 0.2rem;
+    background: linear-gradient(
+        90deg,
+        var(--vuddy-mint),
+        var(--vuddy-blue),
+        transparent
+    );
+    content: "";
+}
+
+h2:nth-of-type(1)::before {
+    content: "WHAT IS VUDDY?";
+}
+
+h2:nth-of-type(2)::before {
+    content: "FEATURE";
+}
+
+h2:nth-of-type(3)::before {
+    content: "USE CASES";
+}
+
+h2:nth-of-type(4)::before {
+    content: "HOW TO START";
+}
+
+h2:nth-of-type(5)::before {
+    content: "PLAN & PRICE";
+}
+
+h3 {
+    position: relative;
+    margin: 2rem 0 1rem;
+    padding: 1.45rem 1.6rem 1.45rem 2.3rem;
+    border: 1px solid var(--vuddy-line);
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0.55rem 0.55rem 0 var(--vuddy-mint);
+    font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+    line-height: 1.35;
+}
+
+h3::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0.45rem;
+    background: linear-gradient(var(--vuddy-mint), var(--vuddy-blue));
+    content: "";
+}
+
+h4 {
+    position: relative;
+    margin: 2.2rem 0 0.65rem;
+    padding: 0.45rem 0 0.45rem 2.2rem;
+    color: var(--vuddy-black);
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.45;
+    letter-spacing: 0.02em;
+}
+
+h4::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 1.3rem;
+    aspect-ratio: 1;
+    border: 0.28rem solid var(--vuddy-mint);
+    background: var(--vuddy-white);
+    box-shadow: 0.25rem 0.25rem 0 var(--vuddy-blue);
+    content: "";
+    transform: translateY(-50%) rotate(45deg);
+}
+
+h4::after {
+    display: block;
+    width: min(100%, 32rem);
+    height: 1px;
+    margin-top: 0.6rem;
+    background: linear-gradient(90deg, var(--vuddy-line), transparent);
+    content: "";
+}
+
+h5 {
+    margin: 1.5rem 0 0.65rem;
+    padding: 0.45rem 0.75rem;
+    border-left: 0.3rem solid var(--vuddy-mint);
+    background: linear-gradient(90deg, rgba(1, 187, 151, 0.1), transparent);
+    color: var(--vuddy-black);
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
+
+p,
+li,
+td,
+th {
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+main > p {
+    /*max-width: 54rem;*/
+    margin: 0.85rem 0;
+    color: var(--vuddy-muted);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 2;
+}
+
+ul,
+ol {
+    margin: 1.5rem 0;
+}
+
+main > ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: feature;
+}
+
+main > ul > li {
+    position: relative;
+    min-height: 100%;
+    padding: 4.8rem 2rem 2rem;
+    overflow: hidden;
+    border-top: 0.35rem solid var(--vuddy-mint);
+    background: var(--vuddy-white);
+    box-shadow: 0 1.2rem 3rem rgba(35, 35, 35, 0.08);
+    counter-increment: feature;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+main > ul > li::before {
+    position: absolute;
+    top: 0.9rem;
+    right: 1.3rem;
+    color: var(--vuddy-mint);
+    content: "0" counter(feature);
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+main > ul ul {
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+    color: var(--vuddy-muted);
+    font-weight: 500;
+}
+
+main > ul ul li {
+    margin: 0.35rem 0;
+    padding-left: 0.25rem;
+}
+
+main > ul ul li::marker {
+    color: var(--vuddy-mint);
+}
+
+ol {
+    --step-center: 2.6rem;
+
+    position: relative;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+}
+
+ol::before {
+    position: absolute;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    left: var(--step-center);
+    width: 0.16rem;
+    background: linear-gradient(var(--vuddy-mint), var(--vuddy-blue));
+    content: "";
+    transform: translateX(-50%);
+}
+
+ol li {
+    position: relative;
+    min-height: 4.2rem;
+    margin: 0;
+    padding: 1.2rem 1.5rem 1.2rem 5.4rem;
+    /*border-bottom: 1px solid var(--vuddy-line);*/
+    counter-increment: step;
+}
+
+ol li::before {
+    position: absolute;
+    top: 50%;
+    left: calc(var(--step-center) - 1rem);
+    z-index: 1;
+    display: grid;
+    width: 2rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 0.18rem solid var(--vuddy-mint);
+    background: var(--vuddy-white);
+    content: "";
+    transform: translateY(-50%) rotate(45deg);
+}
+
+ol li::after {
+    position: absolute;
+    top: 50%;
+    left: calc(var(--step-center) - 1rem);
+    z-index: 2;
+    display: grid;
+    width: 2rem;
+    aspect-ratio: 1;
+    place-items: center;
+    color: var(--vuddy-black);
+    content: counter(step, decimal-leading-zero);
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    line-height: 1;
+    transform: translateY(-50%);
+}
+
+code {
+    padding: 0.2em 0.45em;
+    border-radius: 0.2rem;
+    background: rgba(1, 187, 151, 0.12);
+    color: #007e67;
+    font-weight: 700;
+}
+
+iframe {
+    display: block;
+    width: 100%;
+    max-width: 36rem;
+    aspect-ratio: 9 / 16;
+    margin: 2rem auto;
+    border: 0;
+}
+
+table {
+    width: 100%;
+    margin-top: 2rem;
+    overflow: hidden;
+    border: 1px solid var(--vuddy-black);
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--vuddy-white);
+    box-shadow: 1rem 1rem 0 var(--vuddy-mint);
+}
+
+th,
+td {
+    padding: 1rem 1.15rem;
+    border-right: 1px solid var(--vuddy-line);
+    border-bottom: 1px solid var(--vuddy-line);
+    text-align: left;
+    vertical-align: middle;
+}
+
+thead th {
+    border-color: #484848;
+    background: var(--vuddy-black);
+    color: var(--vuddy-white);
+    font-size: 1.05rem;
+}
+
+thead th:first-child {
+    background: linear-gradient(135deg, var(--vuddy-mint), var(--vuddy-blue));
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(1, 187, 151, 0.065);
+}
+
+tbody td:first-child {
+    width: 38%;
+    color: var(--vuddy-black);
+    font-weight: 800;
+}
+
+th:last-child,
+td:last-child {
+    border-right: 0;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+main h1,
+main h2,
+main h3 {
+    scroll-margin-top: 5.75rem;
+}
+
+.page-toc {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    width: min(88vw, 20rem);
+    height: 100dvh;
+    padding: 0 1.25rem 2rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-left: 0.25rem solid var(--vuddy-mint);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: -1.2rem 0 3rem rgba(35, 35, 35, 0.18);
+    visibility: hidden;
+    transform: translateX(105%);
+    transition:
+        transform 180ms ease,
+        visibility 180ms ease;
+}
+
+.page-toc-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 -1.25rem 1rem;
+    padding: 1.2rem 1.25rem 1rem;
+    border-bottom: 1px solid var(--vuddy-line);
+    background: rgba(255, 255, 255, 0.98);
+}
+
+.page-toc-title {
+    color: var(--vuddy-black);
+    font-family: "Chakra Petch", "Noto Sans JP", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.page-toc-close,
+.page-toc-toggle {
+    border: 0;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.page-toc-close {
+    padding: 0.45rem 0.7rem;
+    background: var(--vuddy-light);
+    color: var(--vuddy-black);
+}
+
+.page-toc-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.page-toc-item {
+    margin: 0;
+}
+
+.page-toc-link {
+    display: block;
+    margin: 0.15rem 0;
+    padding: 0.52rem 0.65rem;
+    border-left: 0.22rem solid transparent;
+    color: var(--vuddy-muted);
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.45;
+    text-decoration: none;
+    transition:
+        border-color 150ms ease,
+        background-color 150ms ease,
+        color 150ms ease;
+}
+
+.page-toc-link--h1 {
+    margin-bottom: 0.45rem;
+    border-bottom: 1px solid var(--vuddy-line);
+    color: var(--vuddy-black);
+    font-weight: 800;
+}
+
+.page-toc-link--h3 {
+    padding-left: 1.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.page-toc-link:hover,
+.page-toc-link:focus-visible {
+    background: rgba(111, 204, 228, 0.08);
+    color: var(--vuddy-black);
+}
+
+.page-toc-link:focus-visible,
+.page-toc-close:focus-visible,
+.page-toc-toggle:focus-visible {
+    outline: 0.18rem solid var(--vuddy-blue);
+    outline-offset: 0.18rem;
+}
+
+.page-toc-link.is-active {
+    border-left-color: var(--vuddy-mint);
+    background: linear-gradient(90deg, rgba(1, 187, 151, 0.14), transparent);
+    color: var(--vuddy-black);
+    font-weight: 800;
+}
+
+.page-toc-toggle {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 21;
+    display: grid;
+    width: 4rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--vuddy-black);
+    box-shadow: 0.35rem 0.35rem 0 var(--vuddy-mint);
+    color: var(--vuddy-white);
+    font-family: "Chakra Petch", "Noto Sans JP", sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+}
+
+.page-toc-toggle[aria-expanded="true"] {
+    background: var(--vuddy-mint);
+    color: var(--vuddy-black);
+}
+
+.page-toc-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 19;
+    background: rgba(35, 35, 35, 0.55);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 180ms ease,
+        visibility 180ms ease;
+}
+
+body.page-toc-open {
+    overflow: hidden;
+}
+
+body.page-toc-open .page-toc {
+    visibility: visible;
+    transform: translateX(0);
+}
+
+body.page-toc-open .page-toc-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (min-width: 80rem) {
+    main {
+        width: min(calc(100% - 29rem), 74rem);
+    }
+
+    .page-toc {
+        top: 5.75rem;
+        right: 1rem;
+        width: 12.5rem;
+        height: auto;
+        max-height: calc(100vh - 6.75rem);
+        padding: 0 0.35rem 0.75rem;
+        border: 1px solid var(--vuddy-line);
+        border-top: 0.25rem solid var(--vuddy-mint);
+        box-shadow: 0.5rem 0.5rem 0 rgba(1, 187, 151, 0.2);
+        visibility: visible;
+        transform: none;
+    }
+
+    .page-toc-header {
+        position: static;
+        margin: 0 -0.35rem 0.35rem;
+        padding: 0.85rem 0.65rem 0.65rem;
+    }
+
+    .page-toc-title {
+        font-size: 1.15rem;
+    }
+
+    .page-toc-link {
+        padding: 0.5rem 0.5rem;
+        font-size: 1rem;
+        overflow-wrap: anywhere;
+    }
+
+    .page-toc-link--h3 {
+        padding-left: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .page-toc-toggle,
+    .page-toc-overlay,
+    .page-toc-close {
+        display: none;
+    }
+
+    body.page-toc-open {
+        overflow: visible;
+    }
+}
+
+@media (max-width: 48rem) {
+    body::before {
+        height: 3.75rem;
+    }
+
+    main {
+        width: min(100% - 2rem, 74rem);
+        padding-top: 3.75rem;
+    }
+
+    h1 {
+        min-height: 27rem;
+        padding-inline: 1rem;
+        font-size: clamp(2.65rem, 13vw, 4.2rem);
+    }
+
+    h1::after {
+        top: 1.4rem;
+        left: 1rem;
+    }
+
+    h2 {
+        grid-template-columns: 1fr;
+        margin-top: 5rem;
+        font-size: clamp(2.35rem, 13vw, 4rem);
+    }
+
+    h2::after {
+        width: 100%;
+    }
+
+    main > ul {
+        grid-template-columns: 1fr;
+    }
+
+    h3 {
+        box-shadow: 0.35rem 0.35rem 0 var(--vuddy-mint);
+    }
+
+    h4 {
+        margin-top: 1.8rem;
+        padding-left: 1.85rem;
+    }
+
+    h4::before {
+        width: 1.05rem;
+        border-width: 0.22rem;
+        box-shadow: 0.18rem 0.18rem 0 var(--vuddy-blue);
+    }
+
+    p,
+    li,
+    td,
+    th {
+        line-height: 1.75;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        box-shadow: 0.45rem 0.45rem 0 var(--vuddy-mint);
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        padding: 0.8rem;
+        font-size: 0.82rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-toc,
+    .page-toc-link,
+    .page-toc-overlay {
+        transition: none;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    h1::before {
+        animation: drift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift {
+        to {
+            transform: translate(-51%, -52%) rotate(-6deg);
+        }
+    }
+}
