@@ -124,13 +124,19 @@ Vuddyの視聴数、視聴ユーザー数、全視聴者の視聴時間の総和
 
 ![エンゲージメントグラフの例](./assets/images/exit_point.png)
 
+#### ユーザー分析
+
+各視聴者視聴者の訪問回数・総視聴時間・直近訪問日時を表示します。
+
+![入力フォーム設置の例](./assets/images/user_analytics.png)
+
 #### 入力フォーム収集
 
-視聴者からの入力フォームの収集データを表示します。
+入力フォームの収集データを表示します。
 
 名前：Vuddy 太郎, メールアドレス：taro@vuddy.jpからの入力と、名前：Vuddy 三郎, メールアドレス：saburo@vuddy.jpからの入力が収集できています。
 
-![入力フォーム設置の例](./assets/images/input_form_collection.png)
+![入力フォーム収集の例](./assets/images/input_form_collection.png)
 
 ## ユースケース
 
