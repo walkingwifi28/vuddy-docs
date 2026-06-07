@@ -425,6 +425,8 @@ pre code {
 main img {
     display: block;
     max-width: 100%;
+    max-height: 50vh;
+    max-height: 50dvh;
     height: auto;
     margin-block: 2rem;
     margin-inline: auto;
