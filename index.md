@@ -86,29 +86,43 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 ### 分析
 
+#### 視聴数・視聴ユーザー数・総視聴時間
+
+Vuddyの視聴数、視聴ユーザー数、全視聴者の視聴時間の総和を表示します。
+
+![視聴数・視聴ユーザー数・総視聴時間の例](./assets/images/analytics.png)
+
 #### 選択肢遷移率
 
 動画中の選択肢を押下した際の遷移率を分析するためのデータを表示します。
-![選択肢遷移率の例](./assets/images/choice_transition_rate.dio.png)
 
+02_A社向け.mp4から伸びている4つの矢印に、それぞれの遷移率が表示されています。
+
+![選択肢遷移率の例](./assets/images/choice_transition_rate.png)
 
 #### 視聴完了率
 
 視聴者が動画を完了した割合を分析するためのデータを表示します。
 
-![視聴完了率の例](./assets/images/view_completion_rate.dio.png)
+02_A社向け.mp4の場合は、全視聴者平均して19%のところまで視聴されています。
+
+![視聴完了率の例](./assets/images/choice_transition_rate.png)
 
 #### 離脱ポイント
 
 視聴者が動画を離脱したポイントを分析するためのデータを表示します。
 
-![離脱ポイントの例](./assets/images/exit_point.dio.png)
+赤い折れ線グラフが離脱ポイントを示しており、値が高い地点でより多くの視聴者が視聴をやめています。
+
+![離脱ポイントの例](./assets/images/exit_point.png)
 
 #### エンゲージメントグラフ
 
 視聴者のエンゲージメントを分析するためのグラフを表示します。
 
-![エンゲージメントグラフの例](./assets/images/engagement_graph.dio.png)
+視聴者が繰り返し再生しているところを緑の折れ線グラフで示しています。
+
+![エンゲージメントグラフの例](./assets/images/exit_point.png)
 
 #### 入力フォーム収集
 
