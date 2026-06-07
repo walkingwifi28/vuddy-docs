@@ -36,18 +36,24 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 あらかじめVuddyで用意されているテンプレートを使用して、動画の内容を簡単に編集できます。
 
-![テンプレ機能の例1](./assets/images/template_function_1.dio.png)
+##### テンプレートを選択
 
-![テンプレ機能の例2](./assets/images/template_function_2.dio.png)
+![テンプレ機能の例1](./assets/images/template_function_1.png)
+
+##### 指定したテンプレートを編集してVuddyを作成
+
+![テンプレ機能の例2](./assets/images/template_function_2.png)
 
 #### 入力フォーム設置
 
 動画中に入力フォームを設置し、視聴者の入力を収集することができます。
 
 ##### 入力フォームをVuddyに設定
+
 ![入力フォーム設置の例](./assets/images/input_form_1.png)
 
 ##### 視聴者からの入力を収集・分析
+
 ![入力フォーム設置の例](./assets/images/input_form_2.png)
 
 #### ボタン分岐設定
