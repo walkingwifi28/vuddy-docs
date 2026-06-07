@@ -56,17 +56,9 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 動画中に入力フォームを設置し、視聴者の入力を収集することができます。
 
-##### 入力フォームをVuddyに設定
-
 名前とメールアドレス部分に入力フォームを設定します。
 
-![入力フォーム設置の例](./assets/images/input_form_1.png)
-
-##### 視聴者からの入力を収集・分析
-
-名前：Vuddy 太郎, メールアドレス：taro@vuddy.jpからの入力と、名前：Vuddy 三郎, メールアドレス：saburo@vuddy.jpからの入力が収集できています。
-
-![入力フォーム設置の例](./assets/images/input_form_2.png)
+![入力フォーム設置の例](./assets/images/input_form.png)
 
 #### ボタン分岐設定
 
@@ -122,7 +114,9 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 視聴者からの入力フォームの収集データを表示します。
 
-![入力フォーム収集の例](./assets/images/input_form_collection.dio.png)
+名前：Vuddy 太郎, メールアドレス：taro@vuddy.jpからの入力と、名前：Vuddy 三郎, メールアドレス：saburo@vuddy.jpからの入力が収集できています。
+
+![入力フォーム設置の例](./assets/images/input_form_collection.png)
 
 ## ユースケース
 
