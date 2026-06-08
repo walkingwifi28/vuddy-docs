@@ -16,19 +16,19 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 動画上に表示されたボタンを押下することで、次の動画へ自動的に遷移します。
 
-![ボタン分岐の例](./assets/images/button_branching.dio.png)
+![ボタン分岐の例](/assets/images/button_branching.dio.png)
 
 #### 訪問回数分岐
 
 訪れた回数に応じて表示内容が変化します。
 
-![訪問回数分岐の例](./assets/images/visit_count_branching.dio.png)
+![訪問回数分岐の例](/assets/images/visit_count_branching.dio.png)
 
 #### 訪問時刻分岐
 
 訪れた日時に応じて表示内容を変化します。
 
-![訪問時刻分岐の例](./assets/images/visit_time_branching.dio.png)
+![訪問時刻分岐の例](/assets/images/visit_time_branching.dio.png)
 
 ### 編集
 
@@ -40,7 +40,7 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 シンプルA、シンプルA1 - スタンダードプラン、シンプルA1 - フリープランがテンプレートとして選択可能です。
 
-![テンプレ機能の例1](./assets/images/template_function_1.png)
+![テンプレ機能の例1](/assets/images/template_function_1.png)
 
 ##### 指定したテンプレートを編集してVuddyを作成
 
@@ -50,7 +50,7 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 テキストと色が変更可能です。
 
-![テンプレ機能の例2](./assets/images/template_function_2.png)
+![テンプレ機能の例2](/assets/images/template_function_2.png)
 
 #### 入力フォーム設置
 
@@ -58,7 +58,7 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 名前とメールアドレス部分に入力フォームを設定します。
 
-![入力フォーム設置の例](./assets/images/input_form.png)
+![入力フォーム設置の例](/assets/images/input_form.png)
 
 #### ボタン分岐設定
 
@@ -66,7 +66,7 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 ボタン6押下時は「コンテンツ1」の動画へ、ボタン7押下時は「コンテンツ2」の動画へ、ボタン8押下時は「コンテンツ3」の動画へ遷移します。
 
-![ボタン分岐設定の例](./assets/images/button_branching_setting.png)
+![ボタン分岐設定の例](/assets/images/button_branching_setting.png)
 
 #### 訪問回数分岐設定
 
@@ -74,7 +74,7 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 初回表示は「初回あいさつ」動画に遷移し、2回目以降の表示は「再会あいさつ」動画に遷移します。
 
-![訪問回数分岐設定の例](./assets/images/visit_count_branching_setting.png)
+![訪問回数分岐設定の例](/assets/images/visit_count_branching_setting.png)
 
 #### 訪問時刻分岐設定
 
@@ -82,7 +82,7 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 05:00-11:59の間は「朝*あいさつ」、12:00-16:59の間は「昼*あいさつ」、17:00-04:59の間は「夜\_あいさつ」の動画に遷移します。
 
-![訪問時刻分岐設定の例](./assets/images/visit_time_branching_setting.png)
+![訪問時刻分岐設定の例](/assets/images/visit_time_branching_setting.png)
 
 ### 分析
 
@@ -90,7 +90,7 @@ Vuddyは、動画内にボタン、選択肢、入力フォーム、外部リン
 
 Vuddyの視聴数、視聴ユーザー数、全視聴者の視聴時間の総和を表示します。
 
-![視聴数・視聴ユーザー数・総視聴時間の例](./assets/images/analytics.png)
+![視聴数・視聴ユーザー数・総視聴時間の例](/assets/images/analytics.png)
 
 #### 選択肢遷移率
 
@@ -98,7 +98,7 @@ Vuddyの視聴数、視聴ユーザー数、全視聴者の視聴時間の総和
 
 02_A社向け.mp4から伸びている4つの矢印に、それぞれの遷移率が表示されています。
 
-![選択肢遷移率の例](./assets/images/choice_transition_rate.png)
+![選択肢遷移率の例](/assets/images/choice_transition_rate.png)
 
 #### 視聴完了率
 
@@ -106,7 +106,7 @@ Vuddyの視聴数、視聴ユーザー数、全視聴者の視聴時間の総和
 
 02_A社向け.mp4の場合は、全視聴者平均して19%のところまで視聴されています。
 
-![視聴完了率の例](./assets/images/choice_transition_rate.png)
+![視聴完了率の例](/assets/images/choice_transition_rate.png)
 
 #### 離脱ポイント
 
@@ -114,7 +114,7 @@ Vuddyの視聴数、視聴ユーザー数、全視聴者の視聴時間の総和
 
 赤い折れ線グラフが離脱ポイントを示しており、値が高い地点でより多くの視聴者が視聴をやめています。
 
-![離脱ポイントの例](./assets/images/exit_point.png)
+![離脱ポイントの例](/assets/images/exit_point.png)
 
 #### エンゲージメントグラフ
 
@@ -122,13 +122,13 @@ Vuddyの視聴数、視聴ユーザー数、全視聴者の視聴時間の総和
 
 視聴者が繰り返し再生しているところを緑の折れ線グラフで示しています。
 
-![エンゲージメントグラフの例](./assets/images/exit_point.png)
+![エンゲージメントグラフの例](/assets/images/exit_point.png)
 
 #### ユーザー分析
 
 各視聴者視聴者の訪問回数・総視聴時間・直近訪問日時を表示します。
 
-![入力フォーム設置の例](./assets/images/user_analytics.png)
+![入力フォーム設置の例](/assets/images/user_analytics.png)
 
 #### 入力フォーム収集
 
@@ -136,7 +136,7 @@ Vuddyの視聴数、視聴ユーザー数、全視聴者の視聴時間の総和
 
 名前：Vuddy 太郎, メールアドレス：taro@vuddy.jpからの入力と、名前：Vuddy 三郎, メールアドレス：saburo@vuddy.jpからの入力が収集できています。
 
-![入力フォーム収集の例](./assets/images/input_form_collection.png)
+![入力フォーム収集の例](/assets/images/input_form_collection.png)
 
 ## ユースケース
 

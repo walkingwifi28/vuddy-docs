@@ -51,7 +51,7 @@ body::before {
     background:
         linear-gradient(90deg, var(--vuddy-mint), var(--vuddy-blue)) center
             bottom / 100% 0.2rem no-repeat,
-        url("assets/images/VARISTA_logo.png") center / auto 2.6rem no-repeat,
+        url("/assets/images/VARISTA_logo.png") center / auto 2.6rem no-repeat,
         var(--vuddy-light);
     content: "";
     box-shadow: 0 0.35rem 1.2rem rgba(35, 35, 35, 0.06);
