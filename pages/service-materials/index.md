@@ -214,12 +214,14 @@ QRコードアクセス率、視聴完了率、選択肢クリック率、SNSフ
 
 #### ビジネス名刺としてのVuddy活用例
 
-<iframe
+準備中
+
+<!--<iframe
   src="https://app.refeel.m-varista.com/watch/itoyuki"
   title="ビジネス名刺向けインタラクティブ動画"
   allowfullscreen
 >
-</iframe>
+</iframe>-->
 
 ### 採用活動
 
@@ -287,12 +289,14 @@ QRコードアクセス率、視聴完了率、選択肢クリック率、SNSフ
 
 #### 採用活動としてのVuddy活用例
 
-<iframe
+準備中
+
+<!--<iframe
   src="https://app.refeel.m-varista.com/watch/itoyuki"
   title="採用活動向けインタラクティブ動画"
   allowfullscreen
 >
-</iframe>
+</iframe>-->
 
 ### 営業
 
@@ -358,12 +362,14 @@ QRコードアクセス率、視聴完了率、選択肢クリック率、SNSフ
 
 #### 営業としてのVuddy活用例
 
-<iframe
+準備中
+
+<!--<iframe
   src="https://app.refeel.m-varista.com/watch/itoyuki"
   title="営業向けインタラクティブ動画"
   allowfullscreen
 >
-</iframe>
+</iframe>-->
 
 ### 教育コンテンツ
 
@@ -430,12 +436,14 @@ QRコードアクセス率、視聴完了率、選択肢クリック率、SNSフ
 
 #### 教育コンテンツとしてのVuddy活用例
 
-<iframe
+準備中
+
+<!--<iframe
   src="https://app.refeel.m-varista.com/watch/itoyuki"
   title="教育コンテンツ向けインタラクティブ動画"
   allowfullscreen
 >
-</iframe>
+</iframe>-->
 
 ### 不動産事業
 
@@ -503,12 +511,14 @@ QRコードアクセス率、視聴完了率、選択肢クリック率、SNSフ
 
 #### 不動産事業としてのVuddy活用例
 
-<iframe
+準備中
+
+<!--<iframe
   src="https://app.refeel.m-varista.com/watch/itoyuki"
   title="不動産事業向けインタラクティブ動画"
   allowfullscreen
 >
-</iframe>
+</iframe>-->
 
 ## 導入までの流れ
 
