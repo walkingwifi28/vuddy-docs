@@ -138,6 +138,12 @@ Vuddyの視聴数、視聴ユーザー数、全視聴者の視聴時間の総和
 
 ![入力フォーム収集の例](/assets/images/input_form_collection.png)
 
+#### AI分析レポート (開発中)
+
+各分析結果の解説と、分析結果を元にした改善ポイントを出力します。
+
+![AI分析レポートの例](/assets/images/ai_analysis_report.png)
+
 ## ユースケース
 
 ### 採用活動
