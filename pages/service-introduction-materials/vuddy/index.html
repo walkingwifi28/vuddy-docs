@@ -793,7 +793,98 @@
                 color: var(--vuddy-mint);
             }
 
+            .pdf-download {
+                position: fixed;
+                top: 18px;
+                right: 18px;
+                z-index: 100;
+                display: inline-flex;
+                height: 44px;
+                align-items: center;
+                gap: 8px;
+                padding: 0 15px;
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: var(--vuddy-white);
+                box-shadow: 0 5px 14px rgba(35, 35, 35, 0.12);
+                color: var(--vuddy-black);
+                font-size: 14px;
+                font-weight: 850;
+                line-height: 1;
+                text-decoration: none;
+                transition:
+                    border-color 160ms ease,
+                    box-shadow 160ms ease,
+                    transform 160ms ease;
+            }
+            .pdf-download svg {
+                width: 20px;
+                height: 20px;
+                flex: 0 0 auto;
+            }
+            .pdf-download:hover {
+                border-color: rgba(1, 187, 151, 0.58);
+                box-shadow: 0 7px 18px rgba(1, 187, 151, 0.18);
+                transform: translateY(-1px);
+            }
+            .pdf-download:focus-visible {
+                outline: 3px solid rgba(1, 187, 151, 0.32);
+                outline-offset: 3px;
+            }
+
+            @media print {
+                @page {
+                    size: 13.333333in 7.5in;
+                    margin: 0;
+                }
+
+                html,
+                body {
+                    width: 1280px !important;
+                    height: auto !important;
+                    overflow: visible !important;
+                    background: var(--vuddy-white) !important;
+                }
+
+                .pdf-download {
+                    display: none !important;
+                }
+
+                .reveal {
+                    width: 1280px !important;
+                    height: auto !important;
+                    overflow: visible !important;
+                }
+
+                .reveal .slides {
+                    position: static !important;
+                    width: 1280px !important;
+                    height: auto !important;
+                    inset: auto !important;
+                    transform: none !important;
+                }
+
+                .reveal .slides > section {
+                    position: relative !important;
+                    display: block !important;
+                    width: 1280px !important;
+                    height: 720px !important;
+                    min-height: 720px !important;
+                    margin: 0 !important;
+                    break-after: page;
+                    opacity: 1 !important;
+                    transform: none !important;
+                    visibility: visible !important;
+                }
+            }
+
             @media (max-width: 900px) {
+                .pdf-download {
+                    top: 12px;
+                    right: 12px;
+                    height: 40px;
+                    padding: 0 12px;
+                }
                 .reveal .slides section {
                     padding: 28px 24px;
                 }
@@ -857,6 +948,27 @@
         </style>
     </head>
     <body>
+        <a
+            class="pdf-download"
+            href="vuddy-service-introduction.pdf"
+            download="vuddy-service-introduction.pdf"
+            aria-label="Vuddyサービス紹介資料のPDFをダウンロード"
+        >
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+            >
+                <path d="M12 3v12" />
+                <path d="m7 10 5 5 5-5" />
+                <path d="M5 21h14" />
+            </svg>
+            <span>PDF</span>
+        </a>
         <div class="reveal">
             <div class="slides">
                 <section class="cover">
@@ -1702,6 +1814,8 @@
                 width: 1280,
                 height: 720,
                 margin: 0.05,
+                pdfMaxPagesPerSlide: 1,
+                pdfSeparateFragments: false,
             });
         </script>
     </body>

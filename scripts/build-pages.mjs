@@ -28,7 +28,7 @@ function findIndexMarkdownFiles(dir) {
   return files;
 }
 
-function findStaticHtmlFiles(dir) {
+function findStaticFiles(dir) {
   const entries = readdirSync(dir, { withFileTypes: true });
   const files = [];
 
@@ -36,8 +36,11 @@ function findStaticHtmlFiles(dir) {
     const fullPath = join(dir, entry.name);
 
     if (entry.isDirectory()) {
-      files.push(...findStaticHtmlFiles(fullPath));
-    } else if (entry.isFile() && entry.name === 'index.html') {
+      files.push(...findStaticFiles(fullPath));
+    } else if (
+      entry.isFile()
+      && (entry.name === 'index.html' || entry.name.endsWith('.pdf'))
+    ) {
       files.push(fullPath);
     }
   }
@@ -111,7 +114,7 @@ for (const input of inputs) {
   writeFileSync(output, html);
 }
 
-const staticFiles = findStaticHtmlFiles(pagesDir).sort();
+const staticFiles = findStaticFiles(pagesDir).sort();
 for (const input of staticFiles) {
   const output = join(siteDir, relative(pagesDir, input));
   mkdirSync(dirname(output), { recursive: true });
