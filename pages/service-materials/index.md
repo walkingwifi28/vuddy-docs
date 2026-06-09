@@ -298,7 +298,7 @@ QRコードアクセス率、視聴完了率、選択肢クリック率、SNSフ
 >
 </iframe>-->
 
-### 営業
+### 教育コンテンツ
 
 #### ペルソナ例
 
@@ -360,18 +360,18 @@ QRコードアクセス率、視聴完了率、選択肢クリック率、SNSフ
 └─ 担当者に質問を送る
 ```
 
-#### 営業としてのVuddy活用例
+#### 教育コンテンツとしてのVuddy活用例
 
 準備中
 
 <!--<iframe
   src="https://app.refeel.m-varista.com/watch/itoyuki"
-  title="営業向けインタラクティブ動画"
+  title="教育コンテンツ向けインタラクティブ動画"
   allowfullscreen
 >
 </iframe>-->
 
-### 教育コンテンツ
+### 営業コンテンツ
 
 #### ペルソナ例
 
@@ -434,13 +434,13 @@ QRコードアクセス率、視聴完了率、選択肢クリック率、SNSフ
 └─ 営業担当者と相談する
 ```
 
-#### 教育コンテンツとしてのVuddy活用例
+#### 営業としてのVuddy活用例
 
 準備中
 
 <!--<iframe
   src="https://app.refeel.m-varista.com/watch/itoyuki"
-  title="教育コンテンツ向けインタラクティブ動画"
+  title="営業向けインタラクティブ動画"
   allowfullscreen
 >
 </iframe>-->
