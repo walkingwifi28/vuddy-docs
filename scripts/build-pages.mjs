@@ -99,7 +99,7 @@ for (const input of inputs) {
   const siteRoot = relativeFromOutputToSiteRoot(output);
 
   if (!/<title>/i.test(html)) {
-    html = html.replace('</head>', '    <title>Vuddyサービス資料</title>\n  </head>');
+    html = html.replace('</head>', '    <title>Vuddy サービス資料</title>\n  </head>');
   }
 
   if (!/rel=["']icon["']/i.test(html)) {
