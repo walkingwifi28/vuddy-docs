@@ -53,6 +53,7 @@ const mimeTypes = new Map([
     [".png", "image/png"],
     [".svg", "image/svg+xml"],
     [".webp", "image/webp"],
+    [".woff2", "font/woff2"],
 ]);
 
 class CdpConnection {
@@ -334,7 +335,13 @@ try {
                 if (!(window.Reveal && Reveal.isReady())) {
                     throw new Error("Reveal.js did not initialize");
                 }
+                const fontDescriptor = '16px "Vuddy Noto Sans JP"';
+                const fontSample = "自分会社名刺交換";
+                await document.fonts.load(fontDescriptor, fontSample);
                 await document.fonts.ready;
+                if (!document.fonts.check(fontDescriptor, fontSample)) {
+                    throw new Error("Bundled Japanese font did not load");
+                }
                 await Promise.all(
                     [...document.images].map((image) =>
                         image.complete
@@ -365,11 +372,30 @@ try {
                         ),
                     );
                     const slide = allSlides[index];
+                    const slideRect = slide.getBoundingClientRect();
                     slideLayouts.push({
                         top: Number.parseFloat(slide.style.top) || 0,
                         width: slide.offsetWidth,
                         height: slide.offsetHeight,
                         padding: getComputedStyle(slide).padding,
+                        elements: [...slide.querySelectorAll("*")].map(
+                            (element) => {
+                                const rect = element.getBoundingClientRect();
+                                const style = getComputedStyle(element);
+                                return {
+                                    tag: element.tagName.toLowerCase(),
+                                    className:
+                                        typeof element.className === "string"
+                                            ? element.className
+                                            : "",
+                                    x: rect.x - slideRect.x,
+                                    y: rect.y - slideRect.y,
+                                    width: rect.width,
+                                    height: rect.height,
+                                    display: style.display,
+                                };
+                            },
+                        ),
                     });
                 }
                 Reveal.slide(0);
@@ -397,6 +423,7 @@ try {
     if (desktopLayout.result.value.slides.length === 0) {
         throw new Error("Presentation contains no slides.");
     }
+    console.log("Verified bundled Japanese font");
 
     await cdp.send(
         "Emulation.setEmulatedMedia",
@@ -423,7 +450,15 @@ try {
                 if (!(window.Reveal && Reveal.isReady())) {
                     throw new Error("Reveal.js did not initialize");
                 }
+                const fontDescriptor = '16px "Vuddy Noto Sans JP"';
+                const fontSample = "自分会社名刺交換";
+                await document.fonts.load(fontDescriptor, fontSample);
                 await document.fonts.ready;
+                if (!document.fonts.check(fontDescriptor, fontSample)) {
+                    throw new Error(
+                        "Bundled Japanese font did not load in print layout",
+                    );
+                }
                 await Promise.all(
                     [...document.images].map((image) =>
                         image.complete
@@ -459,6 +494,16 @@ try {
                         "Print layout slide count does not match desktop layout",
                     );
                 }
+
+                const pageSizeStyle = document.createElement("style");
+                pageSizeStyle.id = "vuddy-pdf-page-size";
+                pageSizeStyle.textContent =
+                    "@page { size: " +
+                    desktop.width / 96 +
+                    "in " +
+                    desktop.height / 96 +
+                    "in; margin: 0; }";
+                document.head.append(pageSizeStyle);
 
                 pages.forEach((page) => {
                     const values = [
@@ -551,6 +596,62 @@ try {
                             expected,
                         };
                     }
+
+                    const elements = [...section.querySelectorAll("*")];
+                    if (elements.length !== source.elements.length) {
+                        throw new Error(
+                            "Print layout element count differs on slide " +
+                                (index + 1),
+                        );
+                    }
+
+                    elements.forEach((element, elementIndex) => {
+                        const expectedElement = source.elements[elementIndex];
+                        const elementRect = element.getBoundingClientRect();
+                        const actual = {
+                            x: elementRect.x - rect.x,
+                            y: elementRect.y - rect.y,
+                            width: elementRect.width,
+                            height: elementRect.height,
+                        };
+                        const elementDelta = Math.max(
+                            Math.abs(actual.x - expectedElement.x),
+                            Math.abs(actual.y - expectedElement.y),
+                            Math.abs(actual.width - expectedElement.width),
+                            Math.abs(actual.height - expectedElement.height),
+                        );
+                        const display = getComputedStyle(element).display;
+                        if (
+                            display !== expectedElement.display &&
+                            elementDelta <= maxDelta
+                        ) {
+                            maxDelta = 1;
+                            worst = {
+                                index,
+                                elementIndex,
+                                tag: expectedElement.tag,
+                                className: expectedElement.className,
+                                actualDisplay: display,
+                                expectedDisplay: expectedElement.display,
+                            };
+                        }
+                        if (elementDelta > maxDelta) {
+                            maxDelta = elementDelta;
+                            worst = {
+                                index,
+                                elementIndex,
+                                tag: expectedElement.tag,
+                                className: expectedElement.className,
+                                actual,
+                                expected: {
+                                    x: expectedElement.x,
+                                    y: expectedElement.y,
+                                    width: expectedElement.width,
+                                    height: expectedElement.height,
+                                },
+                            };
+                        }
+                    });
                 });
 
                 return {
@@ -578,7 +679,7 @@ try {
     }
 
     console.log(
-        `Matched desktop layout for ${printLayout.result.value.count} slides`,
+        `Matched complete desktop layout for ${printLayout.result.value.count} slides`,
     );
 
     const { data } = await cdp.send(
@@ -587,6 +688,7 @@ try {
             displayHeaderFooter: false,
             printBackground: true,
             preferCSSPageSize: true,
+            scale: 1,
             marginTop: 0,
             marginBottom: 0,
             marginLeft: 0,

@@ -14,6 +14,15 @@
             href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css"
         />
         <style>
+            @font-face {
+                font-family: "Vuddy Noto Sans JP";
+                font-style: normal;
+                font-weight: 100 900;
+                font-display: block;
+                src: url("../../../assets/fonts/noto-sans-jp-vuddy.woff2")
+                    format("woff2");
+            }
+
             :root {
                 --vuddy-mint: #01bb97;
                 --vuddy-blue: #6fcce4;
@@ -53,15 +62,13 @@
                     var(--vuddy-light);
                 color: var(--vuddy-ink);
                 font-family:
-                    "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN",
-                    sans-serif;
+                    "Vuddy Noto Sans JP", "Noto Sans JP", sans-serif;
             }
 
             .reveal {
                 color: var(--vuddy-ink);
                 font-family:
-                    "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN",
-                    sans-serif;
+                    "Vuddy Noto Sans JP", "Noto Sans JP", sans-serif;
                 font-size: 27px;
                 font-weight: 500;
             }
@@ -79,8 +86,7 @@
             .reveal h4 {
                 color: var(--vuddy-black);
                 font-family:
-                    "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN",
-                    sans-serif;
+                    "Vuddy Noto Sans JP", "Noto Sans JP", sans-serif;
                 font-weight: 850;
                 letter-spacing: 0;
                 line-height: 1.14;
@@ -878,7 +884,7 @@
                 }
             }
 
-            @media (max-width: 900px) {
+            @media screen and (max-width: 900px) {
                 .pdf-download {
                     top: 12px;
                     right: 12px;

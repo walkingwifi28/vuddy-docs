@@ -68,6 +68,7 @@ mkdirSync(siteDir, { recursive: true });
 
 cpSync(join(rootDir, 'assets', 'favicon.png'), join(siteDir, 'favicon.png'));
 cpSync(join(rootDir, 'assets', 'images'), join(siteDir, 'assets', 'images'), { recursive: true });
+cpSync(join(rootDir, 'assets', 'fonts'), join(siteDir, 'assets', 'fonts'), { recursive: true });
 
 const resetCss = readFileSync(join(rootDir, 'assets', 'css', 'reset.css'), 'utf8');
 const styleCss = readFileSync(join(rootDir, 'assets', 'css', 'style.css'), 'utf8')
