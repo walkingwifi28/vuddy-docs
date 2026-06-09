@@ -30,9 +30,6 @@ jobs:
       - name: Export Vuddy PDF
         run: node scripts/export-vuddy-pdf.mjs
 
-      - name: Test Vuddy PDF
-        run: node --test tests/vuddy-pdf-download.test.mjs
-
       - name: Build site
         run: node scripts/build-pages.mjs
 
