@@ -25,3 +25,14 @@ test("the cover logo is centered independently from the title", () => {
     assert.match(titleRule, /top:\s*calc\(50% \+ 174px\);/);
     assert.doesNotMatch(contentRule, /translateY\(/);
 });
+
+test("the cover title explicitly uses the presentation font without changing its size or weight", () => {
+    const titleRule = html.match(/\.cover-title\s*\{([^}]*)\}/s)?.[1] ?? "";
+
+    assert.match(
+        titleRule,
+        /font-family:\s*"Vuddy Noto Sans JP",\s*"Noto Sans JP",\s*sans-serif;/,
+    );
+    assert.match(titleRule, /font-size:\s*34px;/);
+    assert.match(titleRule, /font-weight:\s*500;/);
+});
