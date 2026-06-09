@@ -1,5 +1,12 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import {
+    existsSync,
+    mkdtempSync,
+    readFileSync,
+    rmSync,
+    writeFileSync,
+} from "node:fs";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 import test from "node:test";
@@ -71,34 +78,50 @@ test(
     "PDF exporter creates one 16:9 page per slide",
     { timeout: 60_000 },
     () => {
-        const result = spawnSync(
-            process.execPath,
-            ["scripts/export-vuddy-pdf.mjs"],
-            {
-                cwd: rootDir,
-                encoding: "utf8",
-                timeout: 55_000,
-            },
-        );
+        const outputDir = mkdtempSync(join(tmpdir(), "vuddy-pdf-test-"));
+        const testPdfPath = join(outputDir, "vuddy-service-introduction.pdf");
+        const committedPdf = readFileSync(pdfPath);
 
-        assert.equal(
-            result.status,
-            0,
-            `export failed:\n${result.stdout}\n${result.stderr}`,
-        );
-        assert.equal(existsSync(pdfPath), true);
-
-        const html = readFileSync(presentationPath, "utf8");
-        const slideCount = (html.match(/^\s*<section(?:\s|>)/gm) ?? []).length;
-        const { pageCount, mediaBoxes } = inspectPdf(pdfPath);
-
-        assert.equal(pageCount, slideCount);
-        assert.ok(mediaBoxes.length > 0, "PDF has no readable MediaBox");
-        for (const { width, height } of mediaBoxes) {
-            assert.ok(
-                Math.abs(width / height - 16 / 9) < 0.01,
-                `expected 16:9 page, received ${width} x ${height}`,
+        try {
+            const result = spawnSync(
+                process.execPath,
+                ["scripts/export-vuddy-pdf.mjs"],
+                {
+                    cwd: rootDir,
+                    encoding: "utf8",
+                    env: {
+                        ...process.env,
+                        VUDDY_PDF_OUTPUT: testPdfPath,
+                    },
+                    timeout: 55_000,
+                },
             );
+
+            assert.equal(
+                result.status,
+                0,
+                `export failed:\n${result.stdout}\n${result.stderr}`,
+            );
+            assert.equal(existsSync(testPdfPath), true);
+
+            const html = readFileSync(presentationPath, "utf8");
+            const slideCount = (
+                html.match(/^\s*<section(?:\s|>)/gm) ?? []
+            ).length;
+            const { pageCount, mediaBoxes } = inspectPdf(testPdfPath);
+
+            assert.equal(pageCount, slideCount);
+            assert.ok(mediaBoxes.length > 0, "PDF has no readable MediaBox");
+            for (const { width, height } of mediaBoxes) {
+                assert.ok(
+                    Math.abs(width / height - 16 / 9) < 0.01,
+                    `expected 16:9 page, received ${width} x ${height}`,
+                );
+            }
+            assert.deepEqual(readFileSync(pdfPath), committedPdf);
+        } finally {
+            writeFileSync(pdfPath, committedPdf);
+            rmSync(outputDir, { recursive: true, force: true });
         }
     },
 );

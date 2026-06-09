@@ -29,12 +29,15 @@ if (typeof WebSocket === "undefined") {
 const rootDir = process.cwd();
 const presentationPath =
     "/pages/service-introduction-materials/vuddy/index.html";
-const outputPath = join(
-    rootDir,
-    "pages",
-    "service-introduction-materials",
-    "vuddy",
-    "vuddy-service-introduction.pdf",
+const outputPath = resolve(
+    process.env.VUDDY_PDF_OUTPUT ??
+        join(
+            rootDir,
+            "pages",
+            "service-introduction-materials",
+            "vuddy",
+            "vuddy-service-introduction.pdf",
+        ),
 );
 const temporaryOutputPath = `${outputPath}.tmp`;
 const browserProfileDir = mkdtempSync(
