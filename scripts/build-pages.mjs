@@ -28,6 +28,23 @@ function findIndexMarkdownFiles(dir) {
   return files;
 }
 
+function findStaticHtmlFiles(dir) {
+  const entries = readdirSync(dir, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const fullPath = join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      files.push(...findStaticHtmlFiles(fullPath));
+    } else if (entry.isFile() && entry.name === 'index.html') {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
+}
+
 function toUrlPath(path) {
   return path.split(sep).join('/');
 }
@@ -94,9 +111,16 @@ for (const input of inputs) {
   writeFileSync(output, html);
 }
 
+const staticFiles = findStaticHtmlFiles(pagesDir).sort();
+for (const input of staticFiles) {
+  const output = join(siteDir, relative(pagesDir, input));
+  mkdirSync(dirname(output), { recursive: true });
+  cpSync(input, output);
+}
+
 const legacyImgDir = join(rootDir, 'img');
 if (existsSync(legacyImgDir)) {
   cpSync(legacyImgDir, join(siteDir, 'img'), { recursive: true });
 }
 
-console.log(`Built ${inputs.length} page${inputs.length === 1 ? '' : 's'} into ${relative(rootDir, siteDir).split(sep).join('/')}`);
+console.log(`Built ${inputs.length} markdown page${inputs.length === 1 ? '' : 's'} and copied ${staticFiles.length} static file${staticFiles.length === 1 ? '' : 's'} into ${relative(rootDir, siteDir).split(sep).join('/')}`);

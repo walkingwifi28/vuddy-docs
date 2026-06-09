@@ -1,0 +1,1706 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Vuddy 商品紹介資料 | インタラクティブ動画で顧客の興味を可視化する
+        </title>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css"
+        />
+        <style>
+            :root {
+                --vuddy-mint: #01bb97;
+                --vuddy-blue: #6fcce4;
+                --vuddy-coral: #ff6644;
+                --vuddy-yellow: #ffd166;
+                --vuddy-black: #232323;
+                --vuddy-ink: #303336;
+                --vuddy-muted: #647075;
+                --vuddy-line: #dce4e2;
+                --vuddy-light: #f4f7f6;
+                --vuddy-white: #ffffff;
+                --vuddy-panel: #fafeff;
+                --vuddy-shadow: rgba(1, 187, 151, 0.13);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                background:
+                    radial-gradient(
+                        circle at 12% 12%,
+                        rgba(1, 187, 151, 0.13),
+                        transparent 28%
+                    ),
+                    radial-gradient(
+                        circle at 86% 16%,
+                        rgba(111, 204, 228, 0.18),
+                        transparent 30%
+                    ),
+                    linear-gradient(
+                        135deg,
+                        rgba(1, 187, 151, 0.06),
+                        rgba(111, 204, 228, 0.08)
+                    ),
+                    var(--vuddy-light);
+                color: var(--vuddy-ink);
+                font-family:
+                    "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN",
+                    sans-serif;
+            }
+
+            .reveal {
+                color: var(--vuddy-ink);
+                font-family:
+                    "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN",
+                    sans-serif;
+                font-size: 27px;
+                font-weight: 500;
+            }
+
+            .reveal .slides {
+                text-align: left;
+            }
+            .reveal .slides section {
+                padding: 34px 46px;
+            }
+
+            .reveal h1,
+            .reveal h2,
+            .reveal h3,
+            .reveal h4 {
+                color: var(--vuddy-black);
+                font-family:
+                    "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN",
+                    sans-serif;
+                font-weight: 850;
+                letter-spacing: 0;
+                line-height: 1.14;
+                margin: 0;
+                text-transform: none;
+            }
+
+            .reveal h1 {
+                font-size: clamp(54px, 5.5vw, 84px);
+                max-width: 1020px;
+            }
+            .reveal h2 {
+                font-size: clamp(39px, 4vw, 58px);
+                margin-bottom: 22px;
+            }
+            .reveal h3 {
+                font-size: clamp(25px, 2.5vw, 34px);
+            }
+            .reveal h4 {
+                font-size: 22px;
+            }
+
+            .reveal p,
+            .reveal li,
+            .reveal td,
+            .reveal th {
+                font-size: clamp(18px, 1.62vw, 24px);
+                line-height: 1.55;
+            }
+
+            .reveal p {
+                margin: 0;
+            }
+            .reveal ul,
+            .reveal ol {
+                margin: 0;
+            }
+            .reveal li + li {
+                margin-top: 8px;
+            }
+            .reveal strong {
+                color: var(--vuddy-black);
+                font-weight: 850;
+            }
+
+            .brand {
+                position: absolute;
+                top: 26px;
+                left: 46px;
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                color: var(--vuddy-muted);
+                font-size: 15px;
+                font-weight: 850;
+                letter-spacing: 0.02em;
+            }
+
+            .brand img {
+                height: 30px;
+                margin: 0;
+                width: auto;
+            }
+            .brand-mark {
+                display: inline-grid;
+                width: 32px;
+                height: 32px;
+                place-items: center;
+                border-radius: 10px;
+                background: linear-gradient(
+                    135deg,
+                    var(--vuddy-mint),
+                    var(--vuddy-blue)
+                );
+                color: var(--vuddy-white);
+                font-size: 19px;
+                font-weight: 900;
+            }
+
+            .eyebrow {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                color: var(--vuddy-mint);
+                font-size: 16px;
+                font-weight: 850;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+            }
+
+            .eyebrow::before {
+                display: inline-block;
+                width: 34px;
+                height: 4px;
+                background: linear-gradient(
+                    90deg,
+                    var(--vuddy-mint),
+                    var(--vuddy-blue)
+                );
+                content: "";
+            }
+
+            .lead {
+                max-width: 930px;
+                margin-top: 22px;
+                color: var(--vuddy-muted);
+                font-size: clamp(22px, 2.15vw, 31px);
+                line-height: 1.5;
+            }
+
+            .small {
+                color: var(--vuddy-muted);
+                font-size: 16px !important;
+                line-height: 1.5 !important;
+            }
+            .cover {
+                min-height: 640px;
+                background: var(--vuddy-white);
+            }
+            .reveal .slides section.cover.present {
+                display: grid;
+                align-items: center;
+            }
+            .cover-content {
+                display: grid;
+                gap: 34px;
+                justify-items: start;
+                padding-bottom: 0;
+                transform: translateY(54px);
+            }
+            .cover-logo {
+                width: min(100%, 980px);
+                height: auto;
+                margin: 0;
+            }
+            .cover-title {
+                color: #050505;
+                font-size: 34px;
+                font-weight: 500;
+                letter-spacing: 0;
+                line-height: 1.3;
+            }
+            .slide-footer-logo {
+                position: absolute;
+                bottom: -72px;
+                left: 50%;
+                z-index: 4;
+                transform: translateX(-50%);
+                pointer-events: none;
+            }
+            .slide-footer-logo img {
+                display: block;
+                width: 150px;
+                height: auto;
+                margin: 0;
+            }
+            .hero {
+                display: grid;
+                min-height: 640px;
+                align-content: center;
+                gap: 28px;
+            }
+            .hero-grid {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 380px;
+                align-items: center;
+                gap: 44px;
+            }
+
+            .panel,
+            .step,
+            .kpi,
+            .mini-card,
+            .cta-box,
+            .phone,
+            .dashboard,
+            .quote-box,
+            .price-card {
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.92);
+                box-shadow: 12px 12px 0 var(--vuddy-shadow);
+            }
+
+            .hero-panel {
+                padding: 26px;
+            }
+            .hero-panel h3 {
+                margin-bottom: 18px;
+            }
+            .two-col {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 24px;
+            }
+            .three-col {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 20px;
+            }
+            .four-col {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 16px;
+            }
+            .panel {
+                min-height: 238px;
+                padding: 25px;
+            }
+            .panel.compact {
+                min-height: 0;
+            }
+            .panel h3,
+            .step h3,
+            .mini-card h3,
+            .quote-box h3 {
+                margin-bottom: 13px;
+            }
+            .panel p,
+            .step p,
+            .mini-card p,
+            .quote-box p {
+                color: var(--vuddy-muted);
+            }
+
+            .accent {
+                border-top: 8px solid var(--vuddy-mint);
+            }
+            .accent-blue {
+                border-top: 8px solid var(--vuddy-blue);
+            }
+            .accent-coral {
+                border-top: 8px solid var(--vuddy-coral);
+            }
+            .accent-yellow {
+                border-top: 8px solid var(--vuddy-yellow);
+            }
+
+            .tag-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 22px;
+            }
+            .tag {
+                padding: 8px 13px;
+                border: 1px solid rgba(1, 187, 151, 0.32);
+                border-radius: 999px;
+                background: rgba(1, 187, 151, 0.08);
+                color: var(--vuddy-black);
+                font-size: 17px;
+                font-weight: 850;
+            }
+
+            .stat-row {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 12px;
+            }
+            .stat {
+                padding: 16px 14px;
+                border: 1px solid var(--vuddy-line);
+                border-radius: 10px;
+                background: var(--vuddy-white);
+            }
+            .stat b {
+                display: block;
+                color: var(--vuddy-black);
+                font-size: 28px;
+                line-height: 1;
+                white-space: nowrap;
+            }
+            .stat span {
+                display: block;
+                margin-top: 8px;
+                color: var(--vuddy-muted);
+                font-size: 14px;
+                line-height: 1.4;
+            }
+
+            .pain-list {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+                margin-top: 18px;
+            }
+            .pain {
+                display: flex;
+                gap: 14px;
+                align-items: flex-start;
+                padding: 18px;
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.92);
+            }
+            .pain .icon {
+                display: inline-grid;
+                width: 34px;
+                height: 34px;
+                flex: 0 0 auto;
+                place-items: center;
+                border-radius: 50%;
+                background: rgba(255, 102, 68, 0.12);
+                color: var(--vuddy-coral);
+                font-size: 20px;
+                font-weight: 900;
+            }
+            .pain p {
+                color: var(--vuddy-muted);
+                font-size: 20px;
+            }
+
+            .flow {
+                display: grid;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 14px;
+                margin-top: 10px;
+            }
+            .step {
+                min-height: 218px;
+                padding: 20px;
+            }
+            .step-number {
+                display: inline-grid;
+                width: 38px;
+                height: 38px;
+                place-items: center;
+                margin-bottom: 14px;
+                border-radius: 50%;
+                background: var(--vuddy-mint);
+                color: var(--vuddy-white);
+                font-size: 20px;
+                font-weight: 900;
+            }
+
+            .experience-grid {
+                display: grid;
+                min-height: 610px;
+                grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+                align-items: center;
+                gap: 56px;
+            }
+            .experience-copy {
+                min-width: 0;
+            }
+            .phone {
+                width: clamp(300px, 27vw, 340px);
+                aspect-ratio: 568 / 1010;
+                margin: 0 0 0 auto;
+                padding: 0;
+                overflow: hidden;
+                border: 7px solid #050505;
+                border-radius: 36px;
+                background: #050505;
+                box-shadow: 15px 15px 0 rgba(35, 35, 35, 0.08);
+            }
+            .phone-screen {
+                display: grid;
+                width: 100%;
+                height: 100%;
+                place-items: center;
+                overflow: hidden;
+                border-radius: 28px;
+                background: #050505;
+            }
+            .phone-screen iframe {
+                display: block;
+                width: 100%;
+                height: auto;
+                max-width: 100% !important;
+                max-height: 100% !important;
+                aspect-ratio: 568 / 1010;
+                border: 0;
+            }
+
+            .dashboard {
+                padding: 22px;
+            }
+            .dashboard-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 18px;
+            }
+            .dashboard-title {
+                color: var(--vuddy-black) !important;
+                font-size: 22px !important;
+                font-weight: 850;
+            }
+            .dashboard-date {
+                color: var(--vuddy-muted) !important;
+                font-size: 14px !important;
+            }
+            .bar-row {
+                display: grid;
+                grid-template-columns: 130px 1fr 56px;
+                align-items: center;
+                gap: 12px;
+                margin-top: 13px;
+            }
+            .bar-label,
+            .bar-value {
+                font-size: 16px !important;
+                font-weight: 800;
+            }
+            .bar-label {
+                color: var(--vuddy-black) !important;
+            }
+            .bar-value {
+                color: var(--vuddy-mint) !important;
+                text-align: right;
+            }
+            .bar-track {
+                height: 15px;
+                overflow: hidden;
+                border-radius: 999px;
+                background: #eaf1ef;
+            }
+            .bar-fill {
+                height: 100%;
+                border-radius: 999px;
+                background: linear-gradient(
+                    90deg,
+                    var(--vuddy-mint),
+                    var(--vuddy-blue)
+                );
+            }
+            .insight-box {
+                margin-top: 18px;
+                padding: 16px;
+                border-radius: 12px;
+                background: rgba(1, 187, 151, 0.08);
+                color: var(--vuddy-black);
+                font-size: 18px;
+                font-weight: 850;
+            }
+
+            .feature-grid,
+            .comparison-grid,
+            .before-after-grid {
+                display: grid;
+                gap: 14px;
+            }
+            .feature-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .before-after-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            .comparison-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            .feature-card,
+            .comparison-card,
+            .before-after-card {
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.94);
+                box-shadow: 8px 8px 0 rgba(1, 187, 151, 0.09);
+            }
+            .feature-card {
+                min-height: 190px;
+                padding: 20px;
+            }
+            .feature-card h3,
+            .comparison-card h3,
+            .before-after-card h3 {
+                margin-bottom: 12px;
+                font-size: 23px;
+            }
+            .feature-card p,
+            .comparison-card p,
+            .before-after-card p {
+                color: var(--vuddy-muted);
+                font-size: 16px;
+                line-height: 1.45;
+            }
+            .feature-card .feature-benefit,
+            .comparison-card .vuddy-value,
+            .after-value {
+                color: var(--vuddy-black);
+                font-weight: 850;
+            }
+            .feature-label,
+            .comparison-label,
+            .before-after-label {
+                display: inline-flex;
+                margin-bottom: 8px;
+                color: var(--vuddy-mint);
+                font-size: 13px;
+                font-weight: 900;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+            }
+            .feature-benefit {
+                margin-top: 12px;
+                padding: 12px;
+                border-radius: 10px;
+                background: rgba(1, 187, 151, 0.08);
+            }
+            .comparison-card {
+                min-height: 278px;
+                padding: 18px;
+            }
+            .comparison-card h3 {
+                min-height: 54px;
+            }
+            .comparison-item {
+                padding: 10px 0;
+                border-top: 1px solid var(--vuddy-line);
+            }
+            .comparison-item:first-of-type {
+                margin-top: 4px;
+            }
+            .comparison-item b {
+                display: block;
+                margin-bottom: 4px;
+                color: var(--vuddy-muted);
+                font-size: 13px;
+                font-weight: 850;
+            }
+            .comparison-item p {
+                color: var(--vuddy-black);
+                font-size: 15px;
+                font-weight: 750;
+            }
+            .comparison-item.vuddy {
+                margin-top: 2px;
+                padding: 11px;
+                border: 0;
+                border-radius: 10px;
+                background: rgba(1, 187, 151, 0.08);
+            }
+            .before-after-card {
+                min-height: 0;
+                padding: 16px;
+            }
+            .before-after-pair {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .before-value,
+            .after-value {
+                min-height: 0;
+                padding: 12px;
+                border-radius: 10px;
+            }
+            .before-after-card p {
+                font-size: 15px;
+                line-height: 1.42;
+            }
+            .before-value {
+                background: #f4f7f6;
+            }
+            .after-value {
+                background: rgba(1, 187, 151, 0.08);
+            }
+
+            .kpi-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 16px;
+            }
+            .kpi {
+                min-height: 205px;
+                padding: 21px;
+            }
+            .kpi b {
+                display: block;
+                color: var(--vuddy-mint);
+                font-size: 34px;
+                line-height: 1;
+            }
+            .kpi span {
+                display: block;
+                margin-top: 12px;
+                color: var(--vuddy-black);
+                font-size: 20px;
+                font-weight: 850;
+                line-height: 1.35;
+            }
+            .kpi p {
+                margin-top: 12px;
+                color: var(--vuddy-muted);
+                font-size: 16px;
+                line-height: 1.45;
+            }
+
+            .timeline {
+                display: grid;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 14px;
+                margin-top: 12px;
+            }
+            .timeline-item {
+                min-height: 205px;
+                padding: 19px;
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.92);
+            }
+            .timeline-item b {
+                display: inline-grid;
+                width: 34px;
+                height: 34px;
+                place-items: center;
+                margin-bottom: 12px;
+                border-radius: 50%;
+                background: var(--vuddy-mint);
+                color: var(--vuddy-white);
+                font-size: 17px;
+            }
+            .timeline-item h3 {
+                margin-bottom: 10px;
+                font-size: 23px;
+            }
+            .timeline-item p {
+                color: var(--vuddy-muted);
+                font-size: 16px;
+                line-height: 1.45;
+            }
+
+            .price-card {
+                padding: 28px;
+            }
+            .price-card .price {
+                margin: 16px 0 10px;
+                color: var(--vuddy-black);
+                font-size: 52px;
+                font-weight: 900;
+                line-height: 1;
+            }
+            .price-card .price small {
+                color: var(--vuddy-muted);
+                font-size: 18px;
+                font-weight: 800;
+            }
+            .deliverables {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+            .mini-card {
+                min-height: 125px;
+                padding: 18px;
+                box-shadow: none;
+            }
+            .mini-card h3 {
+                font-size: 22px;
+            }
+            .mini-card p {
+                font-size: 16px;
+                line-height: 1.45;
+            }
+
+            .faq-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+            .faq {
+                padding: 18px;
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.92);
+            }
+            .faq h3 {
+                margin-bottom: 8px;
+                font-size: 21px;
+            }
+            .faq p {
+                color: var(--vuddy-muted);
+                font-size: 16px;
+                line-height: 1.45;
+            }
+
+            .cta {
+                display: grid;
+                grid-template-columns: 1.05fr 0.95fr;
+                align-items: center;
+                gap: 34px;
+            }
+            .cta-box {
+                padding: 30px;
+            }
+            .cta-box p {
+                margin-top: 14px;
+                color: var(--vuddy-muted);
+            }
+            .next-action {
+                margin-top: 22px;
+                padding: 18px 22px;
+                border-radius: 12px;
+                background: var(--vuddy-coral);
+                color: var(--vuddy-white);
+                font-size: 24px;
+                font-weight: 900;
+                text-align: center;
+            }
+            .quote-box {
+                padding: 25px;
+                min-height: 230px;
+            }
+            .quote-box p {
+                font-size: 21px;
+            }
+            .reveal .progress,
+            .reveal .controls {
+                color: var(--vuddy-mint);
+            }
+
+            @media (max-width: 900px) {
+                .reveal .slides section {
+                    padding: 28px 24px;
+                }
+                .cover {
+                    align-items: center;
+                }
+                .cover-content {
+                    gap: 24px;
+                    padding-bottom: 48px;
+                    transform: none;
+                }
+                .cover-title {
+                    font-size: 27px;
+                }
+                .slide-footer-logo {
+                    bottom: -48px;
+                }
+                .slide-footer-logo img {
+                    width: 128px;
+                }
+                .brand {
+                    left: 24px;
+                }
+                .hero-grid,
+                .two-col,
+                .three-col,
+                .four-col,
+                .pain-list,
+                .experience-grid,
+                .cta,
+                .deliverables,
+                .faq-grid {
+                    display: block;
+                }
+                .panel,
+                .step,
+                .phone,
+                .dashboard,
+                .quote-box,
+                .mini-card,
+                .faq,
+                .price-card,
+                .cta-box {
+                    margin-top: 18px;
+                }
+                .flow,
+                .timeline,
+                .kpi-grid,
+                .stat-row {
+                    grid-template-columns: 1fr;
+                }
+                .phone {
+                    width: min(100%, 360px);
+                    height: auto;
+                    margin-right: auto;
+                }
+                .experience-grid {
+                    min-height: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section class="cover">
+                    <div class="cover-content">
+                        <img
+                            class="cover-logo"
+                            src="../../../assets/images/Vuddy_logo-01.png"
+                            alt="Vuddy"
+                            onerror="this.style.display = 'none'"
+                        />
+                        <div class="cover-title">Vuddy サービス紹介資料</div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section class="hero">
+                    <div class="hero-grid">
+                        <div>
+                            <div class="eyebrow">Introduction</div>
+                            <h1>自分を、会社を、<br />もっと伝わる形に。</h1>
+                            <p class="lead">
+                                Vuddyは、名刺やデジタル名刺のQRコードから、プロフィール、サービス内容、実績、相談導線を選びながら見られるインタラクティブ動画を作成・配信・分析できるサービスです。
+                            </p>
+                        </div>
+                        <aside
+                            class="panel hero-panel accent"
+                            aria-label="Vuddyで可視化できる指標"
+                        >
+                            <h3>名刺交換後に見える反応</h3>
+                            <div class="stat-row">
+                                <div class="stat">
+                                    <b>閲覧</b><span>アクセス・再訪</span>
+                                </div>
+                                <div class="stat">
+                                    <b>選択</b><span>関心テーマ</span>
+                                </div>
+                                <div class="stat">
+                                    <b>行動</b><span>SNS・予約</span>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Problem</div>
+                    <h2>
+                        動画や資料を届けても、相手の興味は見えにくいままです。
+                    </h2>
+                    <div class="pain-list">
+                        <div class="pain">
+                            <span class="icon">!</span>
+                            <p>
+                                <strong
+                                    >最後まで見られているか分からない。</strong
+                                ><br />再生数だけでは、どこで離脱したのか判断しにくい。
+                            </p>
+                        </div>
+                        <div class="pain">
+                            <span class="icon">!</span>
+                            <p>
+                                <strong>どこに興味を持ったか分からない。</strong
+                                ><br />営業・採用・LPの改善に必要な関心データが不足しがち。
+                            </p>
+                        </div>
+                        <div class="pain">
+                            <span class="icon">!</span>
+                            <p>
+                                <strong>一方通行の情報提供になりやすい。</strong
+                                ><br />相手の課題や関心に合わせて説明を切り替えにくい。
+                            </p>
+                        </div>
+                        <div class="pain">
+                            <span class="icon">!</span>
+                            <p>
+                                <strong>次のアクションにつながりにくい。</strong
+                                ><br />問い合わせ・資料請求・面談予約への導線が分散しやすい。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Solution</div>
+                    <h2>Vuddyは、選べる動画体験と分析で課題を解決します。</h2>
+                    <div class="two-col">
+                        <div class="panel accent">
+                            <h3>視聴者に合わせた情報提供</h3>
+                            <p>
+                                視聴者が「サービス内容」「事例」「料金」「働く環境」など、知りたい内容を選びながら動画を進められます。
+                            </p>
+                        </div>
+                        <div class="panel accent-blue">
+                            <h3>興味関心をデータ化</h3>
+                            <p>
+                                選択肢のクリック、遷移、視聴完了、離脱、CTA反応を確認し、資料・動画・フォロー内容の改善に活用できます。
+                            </p>
+                        </div>
+                    </div>
+                    <p class="lead">
+                        「見せる動画」から「反応が分かる動画」へ。Vuddyは営業・採用・マーケティングの意思決定を支援します。
+                    </p>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Overview</div>
+                    <h2>作成・配信・分析までを一つの流れで運用できます。</h2>
+                    <div class="flow">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <h3>動画を準備</h3>
+                            <p>
+                                既存動画や新規制作素材をもとに、訴求したい内容を整理します。
+                            </p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <h3>分岐を設計</h3>
+                            <p>
+                                視聴者が選ぶボタン、遷移先、CTAを目的に合わせて設定します。
+                            </p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <h3>公開・埋め込み</h3>
+                            <p>
+                                Webサイト、LP、採用ページ、営業メール、QRコードから配信します。
+                            </p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <h3>反応を分析</h3>
+                            <p>
+                                視聴完了率、選択率、離脱、CTAクリックを確認します。
+                            </p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">5</span>
+                            <h3>改善に活用</h3>
+                            <p>
+                                興味の高いテーマや離脱箇所をもとに、訴求内容を改善します。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section class="viewer-experience">
+                    <div class="experience-grid">
+                        <div class="experience-copy">
+                            <div class="eyebrow">Viewer Experience</div>
+                            <h2>
+                                視聴者は、自分に必要な情報を選びながら進めます。
+                            </h2>
+                            <div class="three-col">
+                                <div class="mini-card">
+                                    <h3>選べる</h3>
+                                    <p>
+                                        関心に合わせて動画の流れを切り替えられます。
+                                    </p>
+                                </div>
+                                <div class="mini-card">
+                                    <h3>分かる</h3>
+                                    <p>
+                                        短い動画で要点を直感的に理解できます。
+                                    </p>
+                                </div>
+                                <div class="mini-card">
+                                    <h3>動ける</h3>
+                                    <p>
+                                        資料請求・予約・問い合わせへすぐ進めます。
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="lead">
+                                長い資料を読ませるのではなく、相手が選びたくなる体験に変えることで、理解促進と行動促進を両立します。
+                            </p>
+                        </div>
+                        <div
+                            class="phone"
+                            aria-label="スマートフォン上のVuddy視聴体験"
+                        >
+                            <div class="phone-screen">
+                                <iframe
+                                    src="https://dev.d8k3e4qlzuz0z.amplifyapp.com/watch/9c67ddfd-f80c-48ca-9765-a34e5198c9b7"
+                                    title="Vuddy視聴体験"
+                                    loading="lazy"
+                                    allow="
+                                        accelerometer;
+                                        autoplay;
+                                        clipboard-write;
+                                        encrypted-media;
+                                        gyroscope;
+                                        picture-in-picture;
+                                        web-share;
+                                    "
+                                    allowfullscreen
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Features</div>
+                    <h2>機能は、顧客の行動を生むために設計されています。</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card accent">
+                            <span class="feature-label">Feature 01</span>
+                            <h3>動画内ボタン</h3>
+                            <p>動画上に選択肢やCTAを配置</p>
+                            <p class="feature-benefit">
+                                視聴者の関心に合わせた導線を作れる
+                            </p>
+                        </div>
+                        <div class="feature-card accent-blue">
+                            <span class="feature-label">Feature 02</span>
+                            <h3>分岐シナリオ</h3>
+                            <p>選択内容に応じて次の動画へ遷移</p>
+                            <p class="feature-benefit">
+                                営業・採用・LPで情報を出し分けられる
+                            </p>
+                        </div>
+                        <div class="feature-card accent-coral">
+                            <span class="feature-label">Feature 03</span>
+                            <h3>視聴分析</h3>
+                            <p>視聴完了率・離脱・クリックを確認</p>
+                            <p class="feature-benefit">
+                                改善すべき箇所をデータで判断できる
+                            </p>
+                        </div>
+                        <div class="feature-card accent-yellow">
+                            <span class="feature-label">Feature 04</span>
+                            <h3>埋め込み配信</h3>
+                            <p>WebサイトやLPへ動画を設置</p>
+                            <p class="feature-benefit">
+                                既存ページの訴求力を高められる
+                            </p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Analytics</div>
+                    <h2>
+                        視聴・選択データをもとに、改善の優先順位を明確にします。
+                    </h2>
+                    <div class="two-col">
+                        <div
+                            class="dashboard"
+                            aria-label="Vuddyの分析画面イメージ"
+                        >
+                            <div class="dashboard-header">
+                                <p class="dashboard-title">関心テーマ分析</p>
+                                <p class="dashboard-date">Sample</p>
+                            </div>
+                            <div class="bar-row">
+                                <p class="bar-label">導入事例</p>
+                                <div class="bar-track">
+                                    <div
+                                        class="bar-fill"
+                                        style="width: 78%"
+                                    ></div>
+                                </div>
+                                <p class="bar-value">78%</p>
+                            </div>
+                            <div class="bar-row">
+                                <p class="bar-label">費用感</p>
+                                <div class="bar-track">
+                                    <div
+                                        class="bar-fill"
+                                        style="width: 64%"
+                                    ></div>
+                                </div>
+                                <p class="bar-value">64%</p>
+                            </div>
+                            <div class="bar-row">
+                                <p class="bar-label">機能概要</p>
+                                <div class="bar-track">
+                                    <div
+                                        class="bar-fill"
+                                        style="width: 52%"
+                                    ></div>
+                                </div>
+                                <p class="bar-value">52%</p>
+                            </div>
+                            <div class="bar-row">
+                                <p class="bar-label">会社紹介</p>
+                                <div class="bar-track">
+                                    <div
+                                        class="bar-fill"
+                                        style="width: 36%"
+                                    ></div>
+                                </div>
+                                <p class="bar-value">36%</p>
+                            </div>
+                            <div class="insight-box">
+                                関心の高いテーマを次回提案・資料改善に反映
+                            </div>
+                        </div>
+                        <div class="panel accent-blue compact">
+                            <h3>主な確認指標</h3>
+                            <ul>
+                                <li>
+                                    <strong>視聴完了率</strong
+                                    >：内容が最後まで届いているか
+                                </li>
+                                <li>
+                                    <strong>選択肢クリック率</strong
+                                    >：どのテーマに興味があるか
+                                </li>
+                                <li>
+                                    <strong>離脱ポイント</strong
+                                    >：どこで説明が弱くなっているか
+                                </li>
+                                <li>
+                                    <strong>CTA反応</strong
+                                    >：問い合わせ・予約につながっているか
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Use Cases</div>
+                    <h2>営業・採用・マーケティングの各接点で活用できます。</h2>
+                    <div class="four-col">
+                        <div class="quote-box accent">
+                            <h3>営業資料</h3>
+                            <p>
+                                顧客の関心に応じて、サービス説明・導入事例・費用感を切り替え。
+                            </p>
+                        </div>
+                        <div class="quote-box accent-blue">
+                            <h3>採用サイト</h3>
+                            <p>
+                                会社概要、働く環境、社員インタビュー、募集職種へ分岐。
+                            </p>
+                        </div>
+                        <div class="quote-box accent-coral">
+                            <h3>LP改善</h3>
+                            <p>
+                                訪問者の課題別に説明を出し分け、問い合わせ導線へ接続。
+                            </p>
+                        </div>
+                        <div class="quote-box accent-yellow">
+                            <h3>展示会・イベント</h3>
+                            <p>
+                                QRから視聴体験へ誘導し、関心度の高い相手を優先フォロー。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Benefits</div>
+                    <h2>
+                        導入メリットは、資料改善と成果改善の両方にあります。
+                    </h2>
+                    <div class="kpi-grid">
+                        <div class="kpi">
+                            <b>01</b><span>興味関心を把握</span>
+                            <p>
+                                視聴者が選んだ内容から、関心テーマを可視化できます。
+                            </p>
+                        </div>
+                        <div class="kpi">
+                            <b>02</b><span>訴求内容を改善</span>
+                            <p>
+                                離脱やクリック状況を見て、動画・資料・LPを改善できます。
+                            </p>
+                        </div>
+                        <div class="kpi">
+                            <b>03</b><span>次の行動へ誘導</span>
+                            <p>
+                                問い合わせ、資料請求、面談予約などのCTAにつなげます。
+                            </p>
+                        </div>
+                        <div class="kpi">
+                            <b>04</b><span>説明を個別最適化</span>
+                            <p>
+                                相手の課題に合わせた情報提供で、理解度を高めます。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Comparison</div>
+                    <h2>
+                        通常の動画やPDFでは拾いにくい「選択」と「反応」を取得できます。
+                    </h2>
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <span class="comparison-label">Experience</span>
+                            <h3>視聴体験</h3>
+                            <div class="comparison-item">
+                                <b>通常の動画</b>
+                                <p>一方通行</p>
+                            </div>
+                            <div class="comparison-item">
+                                <b>PDF・資料</b>
+                                <p>読む人に依存</p>
+                            </div>
+                            <div class="comparison-item vuddy">
+                                <b>Vuddy</b>
+                                <p class="vuddy-value">
+                                    視聴者が選択しながら進む
+                                </p>
+                            </div>
+                        </div>
+                        <div class="comparison-card">
+                            <span class="comparison-label">Interest</span>
+                            <h3>興味把握</h3>
+                            <div class="comparison-item">
+                                <b>通常の動画</b>
+                                <p>再生数・視聴時間中心</p>
+                            </div>
+                            <div class="comparison-item">
+                                <b>PDF・資料</b>
+                                <p>読まれた箇所が分かりにくい</p>
+                            </div>
+                            <div class="comparison-item vuddy">
+                                <b>Vuddy</b>
+                                <p class="vuddy-value">
+                                    選択肢ごとの関心を可視化
+                                </p>
+                            </div>
+                        </div>
+                        <div class="comparison-card">
+                            <span class="comparison-label">Improve</span>
+                            <h3>改善材料</h3>
+                            <div class="comparison-item">
+                                <b>通常の動画</b>
+                                <p>離脱箇所中心</p>
+                            </div>
+                            <div class="comparison-item">
+                                <b>PDF・資料</b>
+                                <p>定性的な反応に頼りやすい</p>
+                            </div>
+                            <div class="comparison-item vuddy">
+                                <b>Vuddy</b>
+                                <p class="vuddy-value">離脱・遷移・CTAを分析</p>
+                            </div>
+                        </div>
+                        <div class="comparison-card">
+                            <span class="comparison-label">Use Cases</span>
+                            <h3>活用範囲</h3>
+                            <div class="comparison-item">
+                                <b>通常の動画</b>
+                                <p>PR・説明</p>
+                            </div>
+                            <div class="comparison-item">
+                                <b>PDF・資料</b>
+                                <p>情報提供</p>
+                            </div>
+                            <div class="comparison-item vuddy">
+                                <b>Vuddy</b>
+                                <p class="vuddy-value">
+                                    営業・採用・マーケティング改善
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Example</div>
+                    <h2>想定活用例：採用サイトの会社紹介動画を改善する場合</h2>
+                    <div class="before-after-grid">
+                        <div class="before-after-card">
+                            <span class="before-after-label">Information</span>
+                            <h3>情報提供</h3>
+                            <div class="before-after-pair">
+                                <div class="before-value">
+                                    <span class="before-after-label"
+                                        >導入前</span
+                                    >
+                                    <p>会社紹介動画を一方通行で掲載</p>
+                                </div>
+                                <div class="after-value">
+                                    <span class="before-after-label"
+                                        >導入後</span
+                                    >
+                                    <p>
+                                        会社概要・働く環境・社員インタビュー・募集職種へ分岐
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="before-after-card">
+                            <span class="before-after-label">Analytics</span>
+                            <h3>分析</h3>
+                            <div class="before-after-pair">
+                                <div class="before-value">
+                                    <span class="before-after-label"
+                                        >導入前</span
+                                    >
+                                    <p>再生数やページ閲覧数が中心</p>
+                                </div>
+                                <div class="after-value">
+                                    <span class="before-after-label"
+                                        >導入後</span
+                                    >
+                                    <p>候補者がどの情報を選んだかを確認</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="before-after-card">
+                            <span class="before-after-label">Improve</span>
+                            <h3>改善</h3>
+                            <div class="before-after-pair">
+                                <div class="before-value">
+                                    <span class="before-after-label"
+                                        >導入前</span
+                                    >
+                                    <p>どこを直すべきか判断しづらい</p>
+                                </div>
+                                <div class="after-value">
+                                    <span class="before-after-label"
+                                        >導入後</span
+                                    >
+                                    <p>
+                                        興味が高い項目・離脱箇所をもとにコンテンツ改善
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="before-after-card">
+                            <span class="before-after-label">Action</span>
+                            <h3>行動</h3>
+                            <div class="before-after-pair">
+                                <div class="before-value">
+                                    <span class="before-after-label"
+                                        >導入前</span
+                                    >
+                                    <p>応募・面談予約への導線が弱い</p>
+                                </div>
+                                <div class="after-value">
+                                    <span class="before-after-label"
+                                        >導入後</span
+                                    >
+                                    <p>
+                                        動画内CTAからカジュアル面談や応募へ誘導
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="small" style="margin-top: 18px">
+                        ※実績数値がある場合は、本ページを導入事例として差し替えできます。
+                    </p>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Price</div>
+                    <h2>
+                        料金は、制作範囲と運用範囲に応じて個別に設計します。
+                    </h2>
+                    <div class="two-col">
+                        <div class="price-card accent">
+                            <h3>初期制作費</h3>
+                            <p class="price">
+                                個別見積
+                                <small>／構成・素材・分岐数に応じて</small>
+                            </p>
+                            <p class="lead" style="font-size: 23px">
+                                動画構成、シナリオ設計、素材整理、分岐設定、公開準備までを支援します。
+                            </p>
+                        </div>
+                        <div class="price-card accent-blue">
+                            <h3>月額利用料</h3>
+                            <p class="price">
+                                個別見積 <small>／利用規模に応じて</small>
+                            </p>
+                            <p class="lead" style="font-size: 23px">
+                                配信、管理、視聴分析、改善レポート、運用サポートなど必要範囲を調整します。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Implementation</div>
+                    <h2>導入は、目的整理から公開後の改善まで伴走します。</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <b>1</b>
+                            <h3>ヒアリング</h3>
+                            <p>
+                                目的、対象顧客、掲載先、成果指標を整理します。
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <b>2</b>
+                            <h3>構成設計</h3>
+                            <p>
+                                動画内容、選択肢、分岐、CTAの流れを設計します。
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <b>3</b>
+                            <h3>制作・設定</h3>
+                            <p>
+                                動画素材や画像、テキストをもとにVuddy上で構成します。
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <b>4</b>
+                            <h3>公開</h3>
+                            <p>
+                                Webサイト、LP、メール、QRコードなどに設置します。
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <b>5</b>
+                            <h3>分析・改善</h3>
+                            <p>
+                                視聴データを確認し、訴求内容や導線を改善します。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">FAQ</div>
+                    <h2>よくある質問</h2>
+                    <div class="faq-grid">
+                        <div class="faq">
+                            <h3>既存のWebサイトに埋め込めますか？</h3>
+                            <p>
+                                はい。LP、採用サイト、サービスサイトなど、既存ページへの設置を想定しています。
+                            </p>
+                        </div>
+                        <div class="faq">
+                            <h3>既存動画を活用できますか？</h3>
+                            <p>
+                                はい。既存動画をもとに、分岐構成やCTA導線を設計できます。
+                            </p>
+                        </div>
+                        <div class="faq">
+                            <h3>スマートフォンでも見られますか？</h3>
+                            <p>
+                                はい。スマートフォンからの視聴を前提に、短く選びやすい体験を設計できます。
+                            </p>
+                        </div>
+                        <div class="faq">
+                            <h3>分析データは何を確認できますか？</h3>
+                            <p>
+                                視聴完了率、選択肢クリック、遷移、CTAクリック、離脱などを確認できます。
+                            </p>
+                        </div>
+                        <div class="faq">
+                            <h3>動画制作も依頼できますか？</h3>
+                            <p>
+                                素材の有無や制作範囲に応じて、構成作成から制作支援までご相談可能です。
+                            </p>
+                        </div>
+                        <div class="faq">
+                            <h3>導入までどれくらいかかりますか？</h3>
+                            <p>
+                                構成・素材・分岐数により変動します。まずは小さな構成から開始できます。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Company</div>
+                    <h2>会社情報</h2>
+                    <div class="two-col">
+                        <div class="panel accent compact">
+                            <h3>株式会社VARISTA</h3>
+                            <p>
+                                インタラクティブ動画プラットフォーム「Vuddy」の企画・開発・運用支援を行っています。
+                            </p>
+                        </div>
+                        <div class="panel accent-blue compact">
+                            <h3>お問い合わせ</h3>
+                            <ul>
+                                <li>サービスサイト：vuddy.jp</li>
+                                <li>会社サイト：m-varista.com</li>
+                                <li>デモ作成・導入相談・見積相談に対応</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div class="eyebrow">Next Action</div>
+                    <div class="cta">
+                        <div>
+                            <h2>
+                                まずは、貴社の商談・採用・LPに合わせたデモをご提案します。
+                            </h2>
+                            <p class="lead">
+                                Vuddyの効果は、実際の顧客接点に合わせて設計すると具体化しやすくなります。既存動画や資料をもとに、小さな構成から検証できます。
+                            </p>
+                        </div>
+                        <div class="cta-box accent-coral">
+                            <h3>ご用意いただくもの</h3>
+                            <ul>
+                                <li>活用したい用途・対象顧客</li>
+                                <li>既存の動画・画像・サービス資料</li>
+                                <li>問い合わせ先・予約URL</li>
+                                <li>重視したい成果指標</li>
+                            </ul>
+                            <div class="next-action">Vuddyのデモを相談する</div>
+                        </div>
+                    </div>
+                    <div class="slide-footer-logo">
+                        <img
+                            src="../../../assets/images/VARISTA_logo.png"
+                            alt="VARISTA"
+                            onerror="this.style.display = 'none'"
+                        />
+                    </div>
+                </section>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+                hash: true,
+                slideNumber: true,
+                transition: "slide",
+                backgroundTransition: "fade",
+                width: 1280,
+                height: 720,
+                margin: 0.05,
+            });
+        </script>
+    </body>
+</html>
