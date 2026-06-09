@@ -75,7 +75,9 @@
             .reveal .slides {
                 text-align: left;
             }
-            .reveal .slides section {
+            .reveal .slides > section {
+                height: 720px;
+                min-height: 720px;
                 padding: 34px 46px;
             }
 
@@ -209,18 +211,21 @@
                 align-items: center;
             }
             .cover-content {
-                display: grid;
-                gap: 34px;
-                justify-items: start;
-                padding-bottom: 0;
-                transform: translateY(54px);
+                position: static;
             }
-            .cover-logo {
+            .reveal .cover-logo {
+                position: absolute;
+                top: 50%;
+                left: 46px;
                 width: min(100%, 980px);
                 height: auto;
                 margin: 0;
+                transform: translateY(-50%);
             }
             .cover-title {
+                position: absolute;
+                top: calc(50% + 174px);
+                left: 46px;
                 color: #050505;
                 font-size: 34px;
                 font-weight: 500;
@@ -229,7 +234,7 @@
             }
             .slide-footer-logo {
                 position: absolute;
-                bottom: -72px;
+                bottom: 24px;
                 left: 50%;
                 z-index: 4;
                 transform: translateX(-50%);
@@ -889,22 +894,16 @@
                     height: 40px;
                     padding: 0 12px;
                 }
-                .reveal .slides section {
+                .reveal .slides > section {
                     padding: 28px 24px;
                 }
-                .cover {
-                    align-items: center;
-                }
-                .cover-content {
-                    gap: 24px;
-                    padding-bottom: 48px;
-                    transform: none;
+                .reveal .cover-logo {
+                    left: 24px;
                 }
                 .cover-title {
+                    top: calc(50% + 164px);
+                    left: 24px;
                     font-size: 27px;
-                }
-                .slide-footer-logo {
-                    bottom: -48px;
                 }
                 .slide-footer-logo img {
                     width: 128px;

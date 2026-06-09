@@ -531,7 +531,7 @@ try {
                                 "px",
                         ],
                         ["width", source.width + "px"],
-                        ["height", "auto"],
+                        ["height", source.height + "px"],
                         ["min-height", "0"],
                         ["padding", source.padding],
                         ["margin", "0"],
