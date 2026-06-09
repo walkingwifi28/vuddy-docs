@@ -285,7 +285,7 @@ try {
         throw new Error("Could not determine the local server port.");
     }
 
-    const url = `http://127.0.0.1:${address.port}${presentationPath}?print-pdf`;
+    const baseUrl = `http://127.0.0.1:${address.port}${presentationPath}`;
     const launched = launchBrowser(browserPath);
     browserProcess = launched.browser;
     cdp = new CdpConnection(await launched.endpoint);
@@ -301,16 +301,26 @@ try {
     await cdp.send("Page.enable", {}, sessionId);
     await cdp.send("Runtime.enable", {}, sessionId);
     await cdp.send(
+        "Emulation.setDeviceMetricsOverride",
+        {
+            width: 1280,
+            height: 720,
+            deviceScaleFactor: 1,
+            mobile: false,
+        },
+        sessionId,
+    );
+    await cdp.send(
         "Emulation.setEmulatedMedia",
-        { media: "print" },
+        { media: "screen" },
         sessionId,
     );
 
-    const loaded = cdp.waitFor("Page.loadEventFired", sessionId);
-    await cdp.send("Page.navigate", { url }, sessionId);
+    let loaded = cdp.waitFor("Page.loadEventFired", sessionId);
+    await cdp.send("Page.navigate", { url: baseUrl }, sessionId);
     await loaded;
 
-    const ready = await cdp.send(
+    const desktopLayout = await cdp.send(
         "Runtime.evaluate",
         {
             expression: `(async () => {
@@ -340,11 +350,36 @@ try {
                     ),
                 );
                 await new Promise((resolve) => setTimeout(resolve, 500));
+                const config = Reveal.getConfig();
+                const slides = document.querySelector(".reveal .slides");
+                const slidesRect = slides.getBoundingClientRect();
+                const scale = slidesRect.width / config.width;
+                const allSlides = Reveal.getSlides();
+                const slideLayouts = [];
+                Reveal.configure({ transition: "none" });
+                for (let index = 0; index < allSlides.length; index += 1) {
+                    Reveal.slide(index);
+                    await new Promise((resolve) =>
+                        requestAnimationFrame(() =>
+                            requestAnimationFrame(resolve),
+                        ),
+                    );
+                    const slide = allSlides[index];
+                    slideLayouts.push({
+                        top: Number.parseFloat(slide.style.top) || 0,
+                        width: slide.offsetWidth,
+                        height: slide.offsetHeight,
+                        padding: getComputedStyle(slide).padding,
+                    });
+                }
+                Reveal.slide(0);
                 return {
-                    count: document.querySelectorAll(".reveal section").length,
-                    href: location.href,
-                    title: document.title,
-                    bodyStart: document.body?.innerText.slice(0, 160) ?? "",
+                    width: config.width,
+                    height: config.height,
+                    scale,
+                    offsetX: slidesRect.x,
+                    offsetY: slidesRect.y,
+                    slides: slideLayouts,
                 };
             })()`,
             awaitPromise: true,
@@ -353,17 +388,198 @@ try {
         sessionId,
     );
 
-    if (ready.exceptionDetails) {
+    if (desktopLayout.exceptionDetails) {
         throw new Error(
-            ready.exceptionDetails.exception?.description ??
-                "Presentation readiness check failed.",
+            desktopLayout.exceptionDetails.exception?.description ??
+                "Desktop layout capture failed.",
         );
     }
-    if (ready.result.value.count === 0) {
+    if (desktopLayout.result.value.slides.length === 0) {
+        throw new Error("Presentation contains no slides.");
+    }
+
+    await cdp.send(
+        "Emulation.setEmulatedMedia",
+        { media: "print" },
+        sessionId,
+    );
+
+    loaded = cdp.waitFor("Page.loadEventFired", sessionId);
+    await cdp.send("Page.navigate", { url: `${baseUrl}?print-pdf` }, sessionId);
+    await loaded;
+
+    const printLayout = await cdp.send(
+        "Runtime.evaluate",
+        {
+            expression: `(async () => {
+                const desktop = ${JSON.stringify(desktopLayout.result.value)};
+                const deadline = Date.now() + 20000;
+                while (
+                    (!(window.Reveal && Reveal.isReady())) &&
+                    Date.now() < deadline
+                ) {
+                    await new Promise((resolve) => setTimeout(resolve, 100));
+                }
+                if (!(window.Reveal && Reveal.isReady())) {
+                    throw new Error("Reveal.js did not initialize");
+                }
+                await document.fonts.ready;
+                await Promise.all(
+                    [...document.images].map((image) =>
+                        image.complete
+                            ? undefined
+                            : new Promise((resolve) => {
+                                  image.addEventListener("load", resolve, {
+                                      once: true,
+                                  });
+                                  image.addEventListener("error", resolve, {
+                                      once: true,
+                                  });
+                              }),
+                    ),
+                );
+
+                while (
+                    document.querySelectorAll(".pdf-page").length !==
+                        desktop.slides.length &&
+                    Date.now() < deadline
+                ) {
+                    await new Promise((resolve) => setTimeout(resolve, 100));
+                }
+
+                const pages = [...document.querySelectorAll(".pdf-page")];
+                const sections = pages.map((page) =>
+                    page.querySelector(":scope > section"),
+                );
+                if (
+                    pages.length !== desktop.slides.length ||
+                    sections.some((section) => !section)
+                ) {
+                    throw new Error(
+                        "Print layout slide count does not match desktop layout",
+                    );
+                }
+
+                pages.forEach((page) => {
+                    const values = [
+                        ["position", "relative"],
+                        ["width", desktop.width + "px"],
+                        ["height", desktop.height + "px"],
+                        ["min-height", desktop.height + "px"],
+                        ["margin", "0"],
+                        ["overflow", "hidden"],
+                    ];
+                    for (const [property, value] of values) {
+                        page.style.setProperty(property, value, "important");
+                    }
+                });
+
+                sections.forEach((section, index) => {
+                    const source = desktop.slides[index];
+                    const values = [
+                        ["position", "absolute"],
+                        ["left", desktop.offsetX + "px"],
+                        [
+                            "top",
+                            desktop.offsetY +
+                                source.top * desktop.scale +
+                                "px",
+                        ],
+                        ["width", source.width + "px"],
+                        ["height", "auto"],
+                        ["min-height", "0"],
+                        ["padding", source.padding],
+                        ["margin", "0"],
+                        ["opacity", "1"],
+                        ["visibility", "visible"],
+                        ["transform", "scale(" + desktop.scale + ")"],
+                        ["transform-origin", "top left"],
+                    ];
+                    for (const [property, value] of values) {
+                        section.style.setProperty(
+                            property,
+                            value,
+                            "important",
+                        );
+                    }
+                });
+
+                document
+                    .querySelectorAll(
+                        ".pdf-download, .controls, .progress, .slide-number, .speaker-notes",
+                    )
+                    .forEach((element) =>
+                        element.style.setProperty(
+                            "display",
+                            "none",
+                            "important",
+                        ),
+                    );
+
+                await new Promise((resolve) => setTimeout(resolve, 100));
+
+                let maxDelta = 0;
+                let worst = null;
+                sections.forEach((section, index) => {
+                    const source = desktop.slides[index];
+                    const pageRect = pages[index].getBoundingClientRect();
+                    const rect = section.getBoundingClientRect();
+                    const expected = {
+                        x: desktop.offsetX,
+                        y:
+                            desktop.offsetY +
+                            source.top * desktop.scale,
+                        width: source.width * desktop.scale,
+                        height: source.height * desktop.scale,
+                    };
+                    const delta = Math.max(
+                        Math.abs(rect.x - pageRect.x - expected.x),
+                        Math.abs(rect.y - pageRect.y - expected.y),
+                        Math.abs(rect.width - expected.width),
+                        Math.abs(rect.height - expected.height),
+                    );
+                    if (delta > maxDelta) {
+                        maxDelta = delta;
+                        worst = {
+                            index,
+                            actual: {
+                                x: rect.x - pageRect.x,
+                                y: rect.y - pageRect.y,
+                                width: rect.width,
+                                height: rect.height,
+                            },
+                            expected,
+                        };
+                    }
+                });
+
+                return {
+                    count: sections.length,
+                    maxDelta,
+                    worst,
+                };
+            })()`,
+            awaitPromise: true,
+            returnByValue: true,
+        },
+        sessionId,
+    );
+
+    if (printLayout.exceptionDetails) {
         throw new Error(
-            `Presentation contains no slides: ${JSON.stringify(ready.result.value)}`,
+            printLayout.exceptionDetails.exception?.description ??
+                "Print layout application failed.",
         );
     }
+    if (printLayout.result.value.maxDelta > 0.5) {
+        throw new Error(
+            `Print layout differs from desktop by ${printLayout.result.value.maxDelta}px: ${JSON.stringify(printLayout.result.value.worst)}.`,
+        );
+    }
+
+    console.log(
+        `Matched desktop layout for ${printLayout.result.value.count} slides`,
+    );
 
     const { data } = await cdp.send(
         "Page.printToPDF",

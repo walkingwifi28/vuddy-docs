@@ -102,6 +102,10 @@ test(
                 0,
                 `export failed:\n${result.stdout}\n${result.stderr}`,
             );
+            assert.match(
+                result.stdout,
+                /Matched desktop layout for 17 slides/,
+            );
             assert.equal(existsSync(testPdfPath), true);
 
             const html = readFileSync(presentationPath, "utf8");
