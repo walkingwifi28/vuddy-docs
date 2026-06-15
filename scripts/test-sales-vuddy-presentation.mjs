@@ -50,3 +50,15 @@ test("sales presentation is self-contained and excludes business-card artifacts"
     assert.doesNotMatch(html, /<iframe\b/);
     assert.match(html, /class="sales-demo"/);
 });
+
+test("sales mockup uses compact spacing inside the phone frame", async () => {
+    const html = await readPresentation();
+    const demoRule = html.match(/\.sales-demo\s*\{([^}]*)\}/s)?.[1] ?? "";
+    const optionRule =
+        html.match(/\.sales-demo-option\s*\{([^}]*)\}/s)?.[1] ?? "";
+
+    assert.match(demoRule, /gap:\s*7px;/);
+    assert.match(demoRule, /padding:\s*16px 15px 14px;/);
+    assert.match(optionRule, /padding:\s*7px 10px;/);
+    assert.match(optionRule, /font-size:\s*12px;/);
+});
