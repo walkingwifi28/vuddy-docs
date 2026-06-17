@@ -637,17 +637,28 @@
             .before-after-card {
                 min-height: 0;
                 padding: 16px;
+                display: flex;
+                flex-direction: column;
             }
             .before-after-pair {
                 display: grid;
                 grid-template-columns: 1fr;
+                grid-template-rows: repeat(2, minmax(82px, 1fr));
                 gap: 10px;
+                flex: 1;
             }
             .before-value,
             .after-value {
+                display: grid;
+                grid-template-rows: auto 1fr;
+                align-items: start;
                 min-height: 0;
                 padding: 12px;
                 border-radius: 10px;
+            }
+            .before-value p,
+            .after-value p {
+                align-self: start;
             }
             .before-after-card p {
                 font-size: 15px;
