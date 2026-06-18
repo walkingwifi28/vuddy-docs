@@ -46,3 +46,10 @@ test("対象ページの主要寸法をprofile-vuddyに合わせる", () => {
     assert.match(html, /\.profile-layout \.price-card\s*\{[^}]*min-height:\s*330px;/s);
     assert.equal(slides[12].match(/font-size:\s*22px !important/g)?.length, 2);
 });
+
+test("スライド7の4カードは同じ細い枠線を使用する", () => {
+    assert.match(
+        html,
+        /\.profile-feature-layout \.feature-card\s*\{[^}]*border-top:\s*1px solid var\(--vuddy-line\);/s,
+    );
+});
