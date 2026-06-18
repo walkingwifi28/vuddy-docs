@@ -131,7 +131,7 @@ test("スライド抽出はコンテナ欠落や不正なタグ構造を明示�
     );
 });
 
-test("統合資料は既存の17枚構成と配布機能を維持する", () => {
+test("統合資料は16枚構成と配布機能を維持する", () => {
     const slides = extractTopLevelSlides(html);
     const invalidFooterCounts = slides.flatMap((slide, index) => {
         const count = slide.match(/VARISTA_logo\.png/g)?.length ?? 0;
@@ -139,11 +139,11 @@ test("統合資料は既存の17枚構成と配布機能を維持する", () => 
     });
     const footerFailures = invalidFooterCounts.join(", ");
 
-    assert.equal(slides.length, 17);
+    assert.equal(slides.length, 16);
     assert.match(html, /Reveal\.initialize\(/);
     assert.match(html, /class="pdf-download"/);
     assert.match(html, /Vuddy_logo-01\.png/);
-    assert.equal(html.match(/VARISTA_logo\.png/g)?.length, 17);
+    assert.equal(html.match(/VARISTA_logo\.png/g)?.length, 16);
     assert.deepEqual(
         invalidFooterCounts,
         [],
@@ -206,8 +206,8 @@ const slideExpectations = [
         terms: [
             "法人営業",
             "ホームページ",
-            "展示会",
-            "交流会",
+            "展示",
+            "交流",
             "採用",
             "案内",
         ],
@@ -219,26 +219,23 @@ const slideExpectations = [
     },
     {
         number: 11,
-        label: "従来手法との比較",
+        label: "導入前後の比較",
         terms: [
             "一律",
             "動画",
             "資料",
-            "Webページ",
-            "Vuddy",
+            "URL",
+            "QR",
+            "Web",
             "選択",
-            "反応",
+            "分析",
             "CTA",
             "改善",
+            "フォロー",
         ],
     },
     {
-        number: 12,
-        label: "活用例",
-        terms: ["配信", "視聴", "選択", "分析", "フォロー", "改善"],
-    },
-    {
-        number: 17,
+        number: 16,
         label: "次の行動",
         terms: [
             "デモ",

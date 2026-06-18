@@ -942,9 +942,6 @@
                 display: flex;
                 flex-direction: column;
             }
-            .profile-feature-layout .feature-card h3 {
-                min-height: 2.28em;
-            }
             .profile-layout .comparison-card {
                 min-height: 410px;
                 padding: 20px;
@@ -1455,7 +1452,7 @@
                         </div>
                         <div class="feature-card accent-yellow">
                             <span class="feature-label">Feature 04</span>
-                            <h3>URL・QR・Web配信</h3>
+                            <h3>QR・Web配信</h3>
                             <p>公開URL、QRコード、Webページで配信</p>
                             <p class="feature-benefit">
                                 接点に合わせた方法で手軽に案内できる
@@ -1581,7 +1578,7 @@
                             </p>
                         </div>
                         <div class="quote-box accent-coral">
-                            <h3>展示会・交流会</h3>
+                            <h3>展示・交流</h3>
                             <p>
                                 会話を補う情報をQRで配信し、終了後のフォローに活用する。
                             </p>
@@ -1640,159 +1637,65 @@
                     </div>
                 </section>
 
-                <section class="profile-layout profile-comparison-layout">
-                    <div class="eyebrow">Comparison</div>
-                    <h2>
-                        一律の動画・資料・Webページを、選択と反応が分かる体験へ変えます。
-                    </h2>
-                    <div class="comparison-grid">
-                        <div class="comparison-card">
-                            <span class="comparison-label">Experience</span>
-                            <h3>視聴体験</h3>
-                            <div class="comparison-item">
-                                <b>一律の動画・資料／通常のWebページ</b>
-                                <p>
-                                    決められた順番で情報を提示<br />情報の探索を視聴者に委ねる
-                                </p>
-                            </div>
-                            <div class="comparison-item vuddy">
-                                <b>Vuddy</b>
-                                <p class="vuddy-value">
-                                    視聴者が選択しながら進む
-                                </p>
-                            </div>
-                        </div>
-                        <div class="comparison-card">
-                            <span class="comparison-label">Interest</span>
-                            <h3>興味把握</h3>
-                            <div class="comparison-item">
-                                <b>一律の動画・資料／通常のWebページ</b>
-                                <p>
-                                    視聴後の反応が見えにくい<br />閲覧箇所と関心を結び付けにくい
-                                </p>
-                            </div>
-                            <div class="comparison-item vuddy">
-                                <b>Vuddy</b>
-                                <p class="vuddy-value">
-                                    選択肢ごとの関心を可視化
-                                </p>
-                            </div>
-                        </div>
-                        <div class="comparison-card">
-                            <span class="comparison-label">Improve</span>
-                            <h3>改善材料</h3>
-                            <div class="comparison-item">
-                                <b>一律の動画・資料／通常のWebページ</b>
-                                <p>
-                                    改善データを取得しにくい<br />アクセスやクリックが中心
-                                </p>
-                            </div>
-                            <div class="comparison-item vuddy">
-                                <b>Vuddy</b>
-                                <p class="vuddy-value">離脱・遷移・CTAを分析</p>
-                            </div>
-                        </div>
-                        <div class="comparison-card">
-                            <span class="comparison-label">Follow Up</span>
-                            <h3>次の行動</h3>
-                            <div class="comparison-item">
-                                <b>一律の動画・資料／通常のWebページ</b>
-                                <p>
-                                    CTAが説明と分かれやすい<br />CTAまでの導線が長くなりやすい
-                                </p>
-                            </div>
-                            <div class="comparison-item vuddy">
-                                <b>Vuddy</b>
-                                <p class="vuddy-value">
-                                    問い合わせ・予約・資料請求へ接続
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
-                </section>
-
                 <section>
-                    <div class="eyebrow">Example</div>
+                    <div class="eyebrow">Before / After</div>
                     <h2>
-                        配信からフォローまで、データを次の改善につなげます。
+                        配信からフォローまで、導入前後の変化を一目で比較。
                     </h2>
                     <div class="before-after-grid">
                         <div class="before-after-card">
-                            <span class="before-after-label">Information</span>
+                            <span class="before-after-label">Distribution</span>
                             <h3>配信</h3>
                             <div class="before-after-pair">
                                 <div class="before-value">
-                                    <span class="before-after-label"
-                                        >導入前</span
-                                    >
-                                    <p>一律の動画や資料を送付</p>
+                                    <span class="before-after-label">Before</span>
+                                    <p>一律の動画・資料を送付</p>
                                 </div>
                                 <div class="after-value">
-                                    <span class="before-after-label"
-                                        >導入後</span
-                                    >
-                                    <p>URL・QR・Webから選べる動画を配信</p>
+                                    <span class="before-after-label">After</span>
+                                    <p>URL・QR・Webで選べる動画を配信</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="before-after-card">
+                            <span class="before-after-label">Viewing</span>
+                            <h3>視聴</h3>
+                            <div class="before-after-pair">
+                                <div class="before-value">
+                                    <span class="before-after-label">Before</span>
+                                    <p>決められた情報を受動的に閲覧</p>
+                                </div>
+                                <div class="after-value">
+                                    <span class="before-after-label">After</span>
+                                    <p>関心に応じて情報を選択</p>
                                 </div>
                             </div>
                         </div>
                         <div class="before-after-card">
                             <span class="before-after-label">Analytics</span>
-                            <h3>視聴・選択</h3>
-                            <div class="before-after-pair">
-                                <div class="before-value">
-                                    <span class="before-after-label"
-                                        >導入前</span
-                                    >
-                                    <p>視聴者の関心や反応が分からない</p>
-                                </div>
-                                <div class="after-value">
-                                    <span class="before-after-label"
-                                        >導入後</span
-                                    >
-                                    <p>相手が知りたい情報を選びながら視聴</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="before-after-card">
-                            <span class="before-after-label">Improve</span>
                             <h3>分析</h3>
                             <div class="before-after-pair">
                                 <div class="before-value">
-                                    <span class="before-after-label"
-                                        >導入前</span
-                                    >
-                                    <p>担当者の感覚だけで反応を判断</p>
+                                    <span class="before-after-label">Before</span>
+                                    <p>反応が見えず感覚で判断</p>
                                 </div>
                                 <div class="after-value">
-                                    <span class="before-after-label"
-                                        >導入後</span
-                                    >
-                                    <p>選択率・離脱・CTAクリックを確認</p>
+                                    <span class="before-after-label">After</span>
+                                    <p>選択率・離脱・遷移・CTAを分析</p>
                                 </div>
                             </div>
                         </div>
                         <div class="before-after-card">
-                            <span class="before-after-label">Action</span>
-                            <h3>フォロー・改善</h3>
+                            <span class="before-after-label">Follow Up</span>
+                            <h3>フォロー</h3>
                             <div class="before-after-pair">
                                 <div class="before-value">
-                                    <span class="before-after-label"
-                                        >導入前</span
-                                    >
-                                    <p>全員に同じ内容でフォロー</p>
+                                    <span class="before-after-label">Before</span>
+                                    <p>全員に同じ内容で対応</p>
                                 </div>
                                 <div class="after-value">
-                                    <span class="before-after-label"
-                                        >導入後</span
-                                    >
-                                    <p>関心に合わせて提案とコンテンツを改善</p>
+                                    <span class="before-after-label">After</span>
+                                    <p>関心に応じた提案・CTA・改善へ接続</p>
                                 </div>
                             </div>
                         </div>
@@ -1818,10 +1721,7 @@
                                 個別見積もり
                                 <small>／構成・素材・分岐数に応じて</small>
                             </p>
-                                <p
-                                    class="lead"
-                                    style="font-size: 22px !important"
-                                >
+                            <p class="lead" style="font-size: 22px !important">
                                 動画構成、シナリオ設計、素材整理、分岐設定、公開準備までを支援します。
                             </p>
                         </div>
@@ -1830,10 +1730,7 @@
                             <p class="price">
                                 個別見積もり <small>／利用規模に応じて</small>
                             </p>
-                                <p
-                                    class="lead"
-                                    style="font-size: 22px !important"
-                                >
+                            <p class="lead" style="font-size: 22px !important">
                                 配信、管理、視聴分析、改善レポート、運用サポートなど必要範囲を調整します。
                             </p>
                         </div>
