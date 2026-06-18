@@ -819,6 +819,190 @@
             .quote-box p {
                 font-size: 21px;
             }
+
+            .profile-stat-panel {
+                width: 390px;
+                padding: 24px;
+                background: rgba(255, 255, 255, 0.94);
+                box-shadow: 10px 10px 0 var(--vuddy-shadow);
+            }
+            .profile-stat-panel h3 {
+                max-width: 280px;
+                margin-bottom: 12px;
+            }
+            .profile-stat-panel .stat-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-top: 20px;
+            }
+            .profile-stat-panel .stat {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 14px 16px;
+                border: 0;
+                border-radius: 9px;
+                background: var(--vuddy-light);
+            }
+            .profile-stat-panel .stat b {
+                color: var(--vuddy-mint);
+                font-size: 25px;
+            }
+            .profile-stat-panel .stat span {
+                margin-top: 0;
+                color: var(--vuddy-muted);
+                font-size: 16px;
+            }
+
+            .reveal .slides > section.profile-layout {
+                background: transparent;
+            }
+            .profile-layout h2 {
+                margin-bottom: 22px;
+                font-size: clamp(38px, 3.7vw, 55px);
+            }
+            .profile-layout h3 {
+                font-size: clamp(24px, 2.3vw, 32px);
+            }
+            .profile-layout p,
+            .profile-layout li {
+                font-size: clamp(18px, 1.55vw, 23px);
+                line-height: 1.5;
+            }
+            .profile-layout p,
+            .profile-layout ul {
+                margin: 12px 0;
+            }
+            .profile-layout .eyebrow {
+                margin-bottom: 12px;
+                letter-spacing: 0.06em;
+            }
+            .profile-layout .eyebrow + h2 {
+                margin-top: 0;
+            }
+            .profile-layout .lead {
+                margin-top: 22px !important;
+                color: var(--vuddy-muted);
+                font-size: clamp(21px, 2vw, 29px) !important;
+                line-height: 1.5 !important;
+            }
+            .profile-layout .panel,
+            .profile-layout .mini-card,
+            .profile-layout .feature-card,
+            .profile-layout .comparison-card,
+            .profile-layout .price-card,
+            .profile-layout .cta-box {
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.94);
+                box-shadow: 10px 10px 0 var(--vuddy-shadow);
+            }
+            .profile-layout .panel,
+            .profile-layout .price-card {
+                padding: 24px;
+            }
+            .profile-layout .panel {
+                min-height: 0;
+            }
+            .profile-layout .panel h3,
+            .profile-layout .feature-card h3,
+            .profile-layout .comparison-card h3 {
+                min-height: 0;
+                margin-bottom: 12px;
+            }
+            .profile-layout .panel p,
+            .profile-layout .mini-card p,
+            .profile-layout .feature-card p,
+            .profile-layout .comparison-card p {
+                color: var(--vuddy-muted);
+            }
+            .profile-solution-layout .two-col,
+            .profile-price-layout .two-col {
+                gap: 20px;
+            }
+            .profile-viewer-layout .three-col {
+                gap: 15px;
+                margin-top: 24px;
+            }
+            .profile-layout .mini-card {
+                min-height: 180px;
+                padding: 20px;
+                box-shadow: 10px 10px 0 var(--vuddy-shadow);
+            }
+            .profile-layout .feature-grid,
+            .profile-layout .comparison-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 14px;
+            }
+            .profile-layout .feature-card {
+                min-height: 410px;
+                padding: 20px;
+            }
+            .profile-layout .comparison-card {
+                min-height: 410px;
+                padding: 20px;
+            }
+            .profile-layout .feature-label,
+            .profile-layout .comparison-label {
+                margin-bottom: 18px;
+            }
+            .profile-layout .feature-benefit {
+                margin-top: auto !important;
+                padding: 16px 0 0;
+                border-top: 1px solid var(--vuddy-line);
+                border-radius: 0;
+                background: transparent;
+            }
+            .profile-layout .comparison-item {
+                margin-top: 14px;
+                padding: 12px;
+                border: 0;
+                border-radius: 8px;
+                background: var(--vuddy-light);
+            }
+            .profile-layout .comparison-item:first-of-type {
+                margin-top: 14px;
+            }
+            .profile-layout .comparison-item b {
+                margin-bottom: 5px;
+                color: var(--vuddy-black);
+                font-size: 16px;
+            }
+            .profile-layout .comparison-item p {
+                color: var(--vuddy-muted);
+                font-size: 16px !important;
+                font-weight: 500;
+                line-height: 1.35 !important;
+            }
+            .profile-layout .comparison-item.vuddy {
+                margin-top: 14px;
+                padding: 12px;
+                background: rgba(1, 187, 151, 0.1);
+            }
+            .profile-layout .comparison-item.vuddy p {
+                color: #087c66;
+                font-weight: 750;
+            }
+            .profile-layout .price-card {
+                min-height: 330px;
+            }
+            .profile-layout .price-card .price {
+                margin: 28px 0 20px !important;
+                font-size: 42px !important;
+            }
+            .profile-layout .price-card .price small {
+                display: block;
+                margin-top: 8px;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .profile-cta-layout .cta {
+                align-items: start;
+                margin-top: 14px;
+            }
+            .profile-layout .cta-box {
+                padding: 30px;
+            }
             .reveal .progress,
             .reveal .controls {
                 color: var(--vuddy-mint);
@@ -1025,7 +1209,7 @@
                             </p>
                         </div>
                         <aside
-                            class="panel hero-panel accent"
+                            class="panel hero-panel accent profile-stat-panel"
                             aria-label="Vuddyで可視化できる指標"
                         >
                             <h3>選べる体験が生む変化</h3>
@@ -1095,7 +1279,7 @@
                     </div>
                 </section>
 
-                <section>
+                <section class="profile-layout profile-solution-layout">
                     <div class="eyebrow">Solution</div>
                     <h2>選べる情報、関心分析、CTAを一つの体験に。</h2>
                     <div class="two-col">
@@ -1169,7 +1353,9 @@
                     </div>
                 </section>
 
-                <section class="viewer-experience">
+                <section
+                    class="viewer-experience profile-layout profile-viewer-layout"
+                >
                     <div class="experience-grid">
                         <div class="experience-copy">
                             <div class="eyebrow">Viewer Experience</div>
@@ -1232,7 +1418,7 @@
                     </div>
                 </section>
 
-                <section>
+                <section class="profile-layout profile-feature-layout">
                     <div class="eyebrow">Features</div>
                     <h2>選択、分岐、分析、配信を一つの仕組みで提供します。</h2>
                     <div class="feature-grid">
@@ -1447,7 +1633,7 @@
                     </div>
                 </section>
 
-                <section>
+                <section class="profile-layout profile-comparison-layout">
                     <div class="eyebrow">Comparison</div>
                     <h2>
                         一律の動画・資料・Webページを、選択と反応が分かる体験へ変えます。
@@ -1457,12 +1643,10 @@
                             <span class="comparison-label">Experience</span>
                             <h3>視聴体験</h3>
                             <div class="comparison-item">
-                                <b>一律の動画・資料</b>
-                                <p>決められた順番で情報を提示</p>
-                            </div>
-                            <div class="comparison-item">
-                                <b>通常のWebページ</b>
-                                <p>情報の探索を視聴者に委ねる</p>
+                                <b>一律の動画・資料／通常のWebページ</b>
+                                <p>
+                                    決められた順番で情報を提示<br />情報の探索を視聴者に委ねる
+                                </p>
                             </div>
                             <div class="comparison-item vuddy">
                                 <b>Vuddy</b>
@@ -1475,12 +1659,10 @@
                             <span class="comparison-label">Interest</span>
                             <h3>興味把握</h3>
                             <div class="comparison-item">
-                                <b>一律の動画・資料</b>
-                                <p>視聴後の反応が見えにくい</p>
-                            </div>
-                            <div class="comparison-item">
-                                <b>通常のWebページ</b>
-                                <p>閲覧箇所と関心を結び付けにくい</p>
+                                <b>一律の動画・資料／通常のWebページ</b>
+                                <p>
+                                    視聴後の反応が見えにくい<br />閲覧箇所と関心を結び付けにくい
+                                </p>
                             </div>
                             <div class="comparison-item vuddy">
                                 <b>Vuddy</b>
@@ -1493,12 +1675,10 @@
                             <span class="comparison-label">Improve</span>
                             <h3>改善材料</h3>
                             <div class="comparison-item">
-                                <b>一律の動画・資料</b>
-                                <p>改善データを取得しにくい</p>
-                            </div>
-                            <div class="comparison-item">
-                                <b>通常のWebページ</b>
-                                <p>アクセスやクリックが中心</p>
+                                <b>一律の動画・資料／通常のWebページ</b>
+                                <p>
+                                    改善データを取得しにくい<br />アクセスやクリックが中心
+                                </p>
                             </div>
                             <div class="comparison-item vuddy">
                                 <b>Vuddy</b>
@@ -1509,12 +1689,10 @@
                             <span class="comparison-label">Follow Up</span>
                             <h3>次の行動</h3>
                             <div class="comparison-item">
-                                <b>一律の動画・資料</b>
-                                <p>CTAが説明と分かれやすい</p>
-                            </div>
-                            <div class="comparison-item">
-                                <b>通常のWebページ</b>
-                                <p>CTAまでの導線が長くなりやすい</p>
+                                <b>一律の動画・資料／通常のWebページ</b>
+                                <p>
+                                    CTAが説明と分かれやすい<br />CTAまでの導線が長くなりやすい
+                                </p>
                             </div>
                             <div class="comparison-item vuddy">
                                 <b>Vuddy</b>
@@ -1621,7 +1799,7 @@
                     </div>
                 </section>
 
-                <section>
+                <section class="profile-layout profile-price-layout">
                     <div class="eyebrow">Price</div>
                     <h2>
                         料金は、制作範囲と運用範囲に応じて個別に設計します。
@@ -1633,7 +1811,10 @@
                                 個別見積もり
                                 <small>／構成・素材・分岐数に応じて</small>
                             </p>
-                            <p class="lead" style="font-size: 23px">
+                                <p
+                                    class="lead"
+                                    style="font-size: 22px !important"
+                                >
                                 動画構成、シナリオ設計、素材整理、分岐設定、公開準備までを支援します。
                             </p>
                         </div>
@@ -1642,7 +1823,10 @@
                             <p class="price">
                                 個別見積もり <small>／利用規模に応じて</small>
                             </p>
-                            <p class="lead" style="font-size: 23px">
+                                <p
+                                    class="lead"
+                                    style="font-size: 22px !important"
+                                >
                                 配信、管理、視聴分析、改善レポート、運用サポートなど必要範囲を調整します。
                             </p>
                         </div>
@@ -1781,7 +1965,7 @@
                     </div>
                 </section>
 
-                <section>
+                <section class="profile-layout profile-cta-layout">
                     <div class="eyebrow">Next Action</div>
                     <div class="cta">
                         <div>

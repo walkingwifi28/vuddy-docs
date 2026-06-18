@@ -42,11 +42,11 @@ test("sales presentation contains the source use case and KPIs", async () => {
     }
 });
 
-test("sales presentation is self-contained and excludes business-card artifacts", async () => {
+test("sales presentation keeps distribution controls and excludes business-card artifacts", async () => {
     const html = await readPresentation();
 
     assert.doesNotMatch(html, /名刺交換|紙の名刺|デジタル名刺/);
-    assert.doesNotMatch(html, /class="pdf-download"/);
+    assert.match(html, /class="pdf-download"/);
     assert.doesNotMatch(html, /<iframe\b/);
     assert.match(html, /class="sales-demo"/);
 });

@@ -84,6 +84,6 @@ test("FAQ cards fit two rows inside a 720px slide", async () => {
     const html = await readPresentation();
     const faqRule = html.match(/\.faq\s*\{([^}]*)\}/s)?.[1] ?? "";
 
-    assert.match(faqRule, /min-height:\s*165px;/);
-    assert.match(faqRule, /padding:\s*14px 18px;/);
+    assert.match(faqRule, /min-height:\s*145px;/);
+    assert.match(faqRule, /padding:\s*12px 16px;/);
 });

@@ -155,7 +155,7 @@ const slideExpectations = [
     {
         number: 2,
         label: "導入メッセージ",
-        terms: ["一方的", "選べる"],
+        terms: ["もっと伝わる形に", "選べる"],
     },
     {
         number: 3,
