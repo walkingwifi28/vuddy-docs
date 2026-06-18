@@ -197,10 +197,10 @@
                 line-height: 1.5;
             }
 
-            .small {
+            .reveal .small {
                 color: var(--vuddy-muted);
-                font-size: 16px !important;
-                line-height: 1.5 !important;
+                font-size: 16px;
+                line-height: 1.5;
             }
             .cover {
                 min-height: 640px;
@@ -470,8 +470,8 @@
                 display: block;
                 width: 100%;
                 height: auto;
-                max-width: 100% !important;
-                max-height: 100% !important;
+                max-width: 100%;
+                max-height: 100%;
                 aspect-ratio: 568 / 1010;
                 border: 0;
             }
@@ -486,31 +486,31 @@
                 margin-bottom: 18px;
             }
             .dashboard-title {
-                color: var(--vuddy-black) !important;
-                font-size: 22px !important;
+                color: var(--vuddy-black);
+                font-size: 22px;
                 font-weight: 850;
             }
             .dashboard-date {
-                color: var(--vuddy-muted) !important;
-                font-size: 14px !important;
+                color: var(--vuddy-muted);
+                font-size: 14px;
             }
             .bar-row {
                 display: grid;
-                grid-template-columns: 130px 1fr 56px;
+                grid-template-columns: 150px 1fr 56px;
                 align-items: center;
                 gap: 12px;
                 margin-top: 13px;
             }
             .bar-label,
             .bar-value {
-                font-size: 16px !important;
+                font-size: 16px;
                 font-weight: 800;
             }
             .bar-label {
-                color: var(--vuddy-black) !important;
+                color: var(--vuddy-black);
             }
             .bar-value {
-                color: var(--vuddy-mint) !important;
+                color: var(--vuddy-mint);
                 text-align: right;
             }
             .bar-track {
@@ -881,10 +881,10 @@
                 margin-top: 0;
             }
             .profile-layout .lead {
-                margin-top: 22px !important;
+                margin-top: 22px;
                 color: var(--vuddy-muted);
-                font-size: clamp(21px, 2vw, 29px) !important;
-                line-height: 1.5 !important;
+                font-size: clamp(21px, 2vw, 29px);
+                line-height: 1.5;
             }
             .profile-layout .panel,
             .profile-layout .mini-card,
@@ -951,7 +951,7 @@
                 margin-bottom: 18px;
             }
             .profile-layout .feature-benefit {
-                margin-top: auto !important;
+                margin-top: auto;
                 padding: 16px 0 0;
                 border-top: 1px solid var(--vuddy-line);
                 border-radius: 0;
@@ -974,9 +974,9 @@
             }
             .profile-layout .comparison-item p {
                 color: var(--vuddy-muted);
-                font-size: 16px !important;
+                font-size: 16px;
                 font-weight: 500;
-                line-height: 1.35 !important;
+                line-height: 1.35;
             }
             .profile-layout .comparison-item.vuddy {
                 margin-top: 14px;
@@ -991,8 +991,8 @@
                 min-height: 330px;
             }
             .profile-layout .price-card .price {
-                margin: 28px 0 20px !important;
-                font-size: 42px !important;
+                margin: 28px 0 20px;
+                font-size: 42px;
             }
             .profile-layout .price-card .price small {
                 display: block;
@@ -1085,10 +1085,10 @@
             .profile-price-layout .lead,
             .profile-cta-layout .lead {
                 max-width: none;
-                margin-top: 22px !important;
+                margin-top: 22px;
                 color: var(--vuddy-muted);
-                font-size: clamp(21px, 2vw, 29px) !important;
-                line-height: 1.5 !important;
+                font-size: clamp(21px, 2vw, 29px);
+                line-height: 1.5;
             }
             .profile-solution-layout .two-col,
             .profile-price-layout .two-col {
@@ -1169,21 +1169,21 @@
                 text-transform: uppercase;
             }
             .profile-feature-layout .feature-benefit {
-                margin-top: auto !important;
+                margin-top: auto;
                 padding: 16px 0 0;
                 border-top: 1px solid var(--vuddy-line);
                 border-radius: 0;
                 background: transparent;
-                color: var(--vuddy-black) !important;
+                color: var(--vuddy-black);
                 font-weight: 750;
             }
             .profile-price-layout .price-card {
                 min-height: 330px;
             }
             .profile-price-layout .price {
-                margin: 28px 0 20px !important;
+                margin: 28px 0 20px;
                 color: var(--vuddy-black);
-                font-size: 42px !important;
+                font-size: 42px;
                 font-weight: 900;
                 line-height: 1.5;
             }
@@ -1268,43 +1268,43 @@
                     margin: 0;
                 }
 
-                html,
-                body {
-                    width: 1280px !important;
-                    height: auto !important;
-                    overflow: visible !important;
-                    background: var(--vuddy-white) !important;
+                html:not(.print-pdf),
+                html:not(.print-pdf) body {
+                    width: 1280px;
+                    height: auto;
+                    overflow: visible;
+                    background: var(--vuddy-white);
                 }
 
                 .pdf-download {
-                    display: none !important;
+                    display: none;
                 }
 
                 .reveal {
-                    width: 1280px !important;
-                    height: auto !important;
-                    overflow: visible !important;
+                    width: 1280px;
+                    height: auto;
+                    overflow: visible;
                 }
 
                 .reveal .slides {
-                    position: static !important;
-                    width: 1280px !important;
-                    height: auto !important;
-                    inset: auto !important;
-                    transform: none !important;
+                    position: static;
+                    width: 1280px;
+                    height: auto;
+                    inset: auto;
+                    transform: none;
                 }
 
                 .reveal .slides > section {
-                    position: relative !important;
-                    display: block !important;
-                    width: 1280px !important;
-                    height: 720px !important;
-                    min-height: 720px !important;
-                    margin: 0 !important;
+                    position: relative;
+                    display: block;
+                    width: 1280px;
+                    height: 720px;
+                    min-height: 720px;
+                    margin: 0;
                     break-after: page;
-                    opacity: 1 !important;
-                    transform: none !important;
-                    visibility: visible !important;
+                    opacity: 1;
+                    transform: none;
+                    visibility: visible;
                 }
             }
 
@@ -1827,21 +1827,29 @@
 
                 <section>
                     <div class="eyebrow">Before / After</div>
-                    <h2>
-                        BENEFITSの四つの視点で、導入前後の変化を比較。
-                    </h2>
+                    <h2>BENEFITSの四つの視点で、導入前後の変化を比較。</h2>
                     <div class="before-after-grid">
                         <div class="before-after-card">
-                            <span class="before-after-label">Understanding</span>
+                            <span class="before-after-label"
+                                >Understanding</span
+                            >
                             <h3>理解促進</h3>
                             <div class="before-after-pair">
                                 <div class="before-value">
-                                    <span class="before-after-label">Before</span>
-                                    <p>一方通行の説明では、要点が伝わりにくい</p>
+                                    <span class="before-after-label"
+                                        >Before</span
+                                    >
+                                    <p>
+                                        一方通行の説明では、要点が伝わりにくい
+                                    </p>
                                 </div>
                                 <div class="after-value">
-                                    <span class="before-after-label">After</span>
-                                    <p>必要な情報を選んで視聴し、理解が深まる</p>
+                                    <span class="before-after-label"
+                                        >After</span
+                                    >
+                                    <p>
+                                        必要な情報を選んで視聴し、理解が深まる
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1850,11 +1858,15 @@
                             <h3>関心把握</h3>
                             <div class="before-after-pair">
                                 <div class="before-value">
-                                    <span class="before-after-label">Before</span>
+                                    <span class="before-after-label"
+                                        >Before</span
+                                    >
                                     <p>どのテーマに関心があるか見えにくい</p>
                                 </div>
                                 <div class="after-value">
-                                    <span class="before-after-label">After</span>
+                                    <span class="before-after-label"
+                                        >After</span
+                                    >
                                     <p>選択・遷移・離脱から関心テーマを把握</p>
                                 </div>
                             </div>
@@ -1864,11 +1876,17 @@
                             <h3>行動促進</h3>
                             <div class="before-after-pair">
                                 <div class="before-value">
-                                    <span class="before-after-label">Before</span>
-                                    <p>視聴後の導線が弱く、次の行動に進みにくい</p>
+                                    <span class="before-after-label"
+                                        >Before</span
+                                    >
+                                    <p>
+                                        視聴後の導線が弱く、次の行動に進みにくい
+                                    </p>
                                 </div>
                                 <div class="after-value">
-                                    <span class="before-after-label">After</span>
+                                    <span class="before-after-label"
+                                        >After</span
+                                    >
                                     <p>関心に合うCTAで問い合わせ・予約へ誘導</p>
                                 </div>
                             </div>
@@ -1878,11 +1896,17 @@
                             <h3>継続改善</h3>
                             <div class="before-after-pair">
                                 <div class="before-value">
-                                    <span class="before-after-label">Before</span>
-                                    <p>反応を検証しづらく、改善が属人的になりやすい</p>
+                                    <span class="before-after-label"
+                                        >Before</span
+                                    >
+                                    <p>
+                                        反応を検証しづらく、改善が属人的になりやすい
+                                    </p>
                                 </div>
                                 <div class="after-value">
-                                    <span class="before-after-label">After</span>
+                                    <span class="before-after-label"
+                                        >After</span
+                                    >
                                     <p>視聴データをもとに内容と導線を改善</p>
                                 </div>
                             </div>
@@ -1909,7 +1933,7 @@
                                 個別見積もり
                                 <small>／構成・素材・分岐数に応じて</small>
                             </p>
-                            <p class="lead" style="font-size: 22px !important">
+                            <p class="lead" style="font-size: 22px">
                                 動画構成、シナリオ設計、素材整理、分岐設定、公開準備までを支援します。
                             </p>
                         </div>
@@ -1918,7 +1942,7 @@
                             <p class="price">
                                 個別見積もり <small>／利用規模に応じて</small>
                             </p>
-                            <p class="lead" style="font-size: 22px !important">
+                            <p class="lead" style="font-size: 22px">
                                 配信、管理、視聴分析、改善レポート、運用サポートなど必要範囲を調整します。
                             </p>
                         </div>

@@ -9,6 +9,10 @@ const html = await readFile(
 
 const slides = html.match(/<section(?:\s[^>]*)?>[\s\S]*?<\/section>/g) ?? [];
 
+test("Vuddy資料のCSSは!importantに依存しない", () => {
+    assert.doesNotMatch(html, /!important/);
+});
+
 test("指定スライドだけがprofile-vuddyレイアウトを使用する", () => {
     const expectedClasses = new Map([
         [4, "profile-solution-layout"],
@@ -53,7 +57,7 @@ test("対象ページの主要寸法をprofile-vuddyに合わせる", () => {
     assert.match(html, /\.profile-layout \.feature-card\s*\{[^}]*min-height:\s*410px;[^}]*padding:\s*20px;/s);
     assert.match(html, /\.profile-layout \.comparison-item\s*\{[^}]*margin-top:\s*14px;[^}]*padding:\s*12px;/s);
     assert.match(html, /\.profile-layout \.price-card\s*\{[^}]*min-height:\s*330px;/s);
-    assert.equal(slides[11].match(/font-size:\s*22px !important/g)?.length, 2);
+    assert.equal(html.match(/style="font-size:\s*22px"/g)?.length, 2);
 });
 
 test("スライド7のカード内区切り線を同じ高さにそろえる", () => {
@@ -63,6 +67,6 @@ test("スライド7のカード内区切り線を同じ高さにそろえる", (
     );
     assert.match(
         html,
-        /\.profile-layout \.feature-benefit\s*\{[^}]*margin-top:\s*auto !important;[^}]*border-top:\s*1px solid var\(--vuddy-line\);/s,
+        /\.profile-layout \.feature-benefit\s*\{[^}]*margin-top:\s*auto;[^}]*border-top:\s*1px solid var\(--vuddy-line\);/s,
     );
 });
