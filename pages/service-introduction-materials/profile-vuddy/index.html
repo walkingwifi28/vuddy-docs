@@ -25,17 +25,18 @@
             }
 
             :root {
-                --mint: #01bb97;
-                --blue: #6fcce4;
-                --coral: #ff6644;
-                --yellow: #ffd166;
-                --black: #232323;
-                --ink: #303336;
-                --muted: #647075;
-                --line: #dce4e2;
-                --light: #f4f7f6;
-                --white: #ffffff;
-                --shadow: rgba(1, 187, 151, 0.13);
+                --vuddy-mint: #01bb97;
+                --vuddy-blue: #6fcce4;
+                --vuddy-coral: #ff6644;
+                --vuddy-yellow: #ffd166;
+                --vuddy-black: #232323;
+                --vuddy-ink: #303336;
+                --vuddy-muted: #647075;
+                --vuddy-line: #dce4e2;
+                --vuddy-light: #f4f7f6;
+                --vuddy-white: #ffffff;
+                --vuddy-panel: #fafeff;
+                --vuddy-shadow: rgba(1, 187, 151, 0.13);
             }
 
             * {
@@ -54,13 +55,18 @@
                         rgba(111, 204, 228, 0.18),
                         transparent 30%
                     ),
-                    var(--light);
-                color: var(--ink);
+                    linear-gradient(
+                        135deg,
+                        rgba(1, 187, 151, 0.06),
+                        rgba(111, 204, 228, 0.08)
+                    ),
+                    var(--vuddy-light);
+                color: var(--vuddy-ink);
                 font-family: "Vuddy Noto Sans JP", "Noto Sans JP", sans-serif;
             }
 
             .reveal {
-                color: var(--ink);
+                color: var(--vuddy-ink);
                 font-family: "Vuddy Noto Sans JP", "Noto Sans JP", sans-serif;
                 font-size: 27px;
                 font-weight: 500;
@@ -69,7 +75,6 @@
             .reveal .slides {
                 text-align: left;
             }
-
             .reveal .slides > section {
                 height: 720px;
                 min-height: 720px;
@@ -78,95 +83,136 @@
 
             .reveal h1,
             .reveal h2,
-            .reveal h3 {
-                margin: 0;
-                color: var(--black);
+            .reveal h3,
+            .reveal h4 {
+                color: var(--vuddy-black);
                 font-family: "Vuddy Noto Sans JP", "Noto Sans JP", sans-serif;
                 font-weight: 850;
                 letter-spacing: 0;
                 line-height: 1.14;
+                margin: 0;
                 text-transform: none;
             }
 
             .reveal h1 {
-                max-width: 800px;
-                font-size: clamp(54px, 5.4vw, 82px);
+                font-size: clamp(54px, 5.5vw, 84px);
+                max-width: 1020px;
             }
-
             .reveal h2 {
+                font-size: clamp(39px, 4vw, 58px);
                 margin-bottom: 22px;
-                font-size: clamp(38px, 3.7vw, 55px);
             }
-
             .reveal h3 {
-                font-size: clamp(24px, 2.3vw, 32px);
+                font-size: clamp(25px, 2.5vw, 34px);
+            }
+            .reveal h4 {
+                font-size: 22px;
             }
 
             .reveal p,
-            .reveal li {
-                font-size: clamp(18px, 1.55vw, 23px);
-                line-height: 1.5;
+            .reveal li,
+            .reveal td,
+            .reveal th {
+                font-size: clamp(18px, 1.62vw, 24px);
+                line-height: 1.55;
             }
 
-            .reveal p,
-            .reveal ul {
-                margin: 12px 0;
+            .reveal p {
+                margin: 0;
             }
-
+            .reveal ul,
+            .reveal ol {
+                margin: 0;
+            }
             .reveal li + li {
-                margin-top: 7px;
+                margin-top: 8px;
+            }
+            .reveal strong {
+                color: var(--vuddy-black);
+                font-weight: 850;
             }
 
-            .reveal strong {
-                color: var(--black);
+            .brand {
+                position: absolute;
+                top: 26px;
+                left: 46px;
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                color: var(--vuddy-muted);
+                font-size: 15px;
                 font-weight: 850;
+                letter-spacing: 0.02em;
+            }
+
+            .brand img {
+                height: 30px;
+                margin: 0;
+                width: auto;
+            }
+            .brand-mark {
+                display: inline-grid;
+                width: 32px;
+                height: 32px;
+                place-items: center;
+                border-radius: 10px;
+                background: linear-gradient(
+                    135deg,
+                    var(--vuddy-mint),
+                    var(--vuddy-blue)
+                );
+                color: var(--vuddy-white);
+                font-size: 19px;
+                font-weight: 900;
             }
 
             .eyebrow {
                 display: inline-flex;
                 align-items: center;
                 gap: 10px;
-                margin-bottom: 12px;
-                color: var(--mint);
+                color: var(--vuddy-mint);
                 font-size: 16px;
                 font-weight: 850;
-                letter-spacing: 0.06em;
+                letter-spacing: 0.04em;
                 text-transform: uppercase;
             }
 
             .eyebrow::before {
+                display: inline-block;
                 width: 34px;
                 height: 4px;
-                background: linear-gradient(90deg, var(--mint), var(--blue));
+                background: linear-gradient(
+                    90deg,
+                    var(--vuddy-mint),
+                    var(--vuddy-blue)
+                );
                 content: "";
             }
 
             .lead {
-                margin-top: 22px !important;
-                color: var(--muted);
-                font-size: clamp(21px, 2vw, 29px) !important;
-                line-height: 1.5 !important;
+                max-width: 930px;
+                margin-top: 22px;
+                color: var(--vuddy-muted);
+                font-size: clamp(22px, 2.15vw, 31px);
+                line-height: 1.5;
             }
 
-            .small {
-                color: var(--muted);
-                font-size: 15px !important;
+            .reveal .small {
+                color: var(--vuddy-muted);
+                font-size: 16px;
+                line-height: 1.5;
             }
-
             .cover {
                 min-height: 640px;
-                background: var(--white);
+                background: var(--vuddy-white);
             }
-
             .reveal .slides section.cover.present {
                 display: grid;
                 align-items: center;
             }
-
             .cover-content {
                 position: static;
             }
-
             .reveal .cover-logo {
                 position: absolute;
                 top: 50%;
@@ -176,7 +222,6 @@
                 margin: 0;
                 transform: translateY(-50%);
             }
-
             .cover-title {
                 position: absolute;
                 top: calc(50% + 174px);
@@ -188,7 +233,6 @@
                 letter-spacing: 0;
                 line-height: 1.3;
             }
-
             .slide-footer-logo {
                 position: absolute;
                 bottom: 24px;
@@ -197,227 +241,211 @@
                 transform: translateX(-50%);
                 pointer-events: none;
             }
-
             .slide-footer-logo img {
                 display: block;
                 width: 150px;
                 height: auto;
                 margin: 0;
             }
-
             .hero {
-                display: grid !important;
-                align-content: center;
-            }
-
-            .hero-grid,
-            .experience-grid {
                 display: grid;
-                grid-template-columns: minmax(0, 1fr) 390px;
+                min-height: 640px;
+                align-content: center;
+                gap: 28px;
+            }
+            .hero-grid {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 380px;
                 align-items: center;
-                gap: 42px;
+                gap: 44px;
+            }
+            .eyebrow + :is(h1, h2, .cta) {
+                margin-top: 14px;
+            }
+            .eyebrow + .cta {
+                align-items: start;
+            }
+            .hero .lead {
+                margin-top: 38px;
             }
 
             .panel,
             .step,
+            .kpi,
             .mini-card,
-            .feature-card,
-            .metric-card,
-            .scene-card,
-            .benefit-card,
-            .comparison-card,
-            .example-card,
-            .quote-box,
-            .price-card,
-            .faq,
             .cta-box,
             .phone,
-            .dashboard {
-                border: 1px solid var(--line);
+            .dashboard,
+            .quote-box,
+            .price-card {
+                border: 1px solid var(--vuddy-line);
                 border-radius: 12px;
-                background: rgba(255, 255, 255, 0.94);
-                box-shadow: 10px 10px 0 var(--shadow);
+                background: rgba(255, 255, 255, 0.92);
+                box-shadow: 12px 12px 0 var(--vuddy-shadow);
             }
 
-            .accent {
-                border-top: 8px solid var(--mint);
+            .hero-panel {
+                padding: 26px;
             }
-
-            .accent-blue {
-                border-top: 8px solid var(--blue);
+            .hero-panel h3 {
+                margin-bottom: 18px;
             }
-
-            .accent-coral {
-                border-top: 8px solid var(--coral);
+            .two-col {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 24px;
             }
-
-            .accent-yellow {
-                border-top: 8px solid var(--yellow);
+            .three-col {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 20px;
             }
-
-            .hero-panel,
-            .panel,
-            .price-card,
-            .cta-box {
-                padding: 24px;
+            .four-col {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 16px;
             }
-
+            .panel {
+                min-height: 238px;
+                padding: 25px;
+            }
             .panel.compact {
                 min-height: 0;
             }
-
-            .hero-panel h3,
             .panel h3,
-            .feature-card h3,
-            .scene-card h3,
-            .benefit-card h3,
-            .comparison-card h3,
-            .example-card h3,
-            .quote-box h3,
-            .faq h3 {
-                margin-bottom: 12px;
+            .step h3,
+            .mini-card h3,
+            .quote-box h3 {
+                margin-bottom: 13px;
+            }
+            .panel p,
+            .step p,
+            .mini-card p,
+            .quote-box p {
+                color: var(--vuddy-muted);
+            }
+
+            .accent {
+                border-top: 8px solid var(--vuddy-mint);
+            }
+            .accent-blue {
+                border-top: 8px solid var(--vuddy-blue);
+            }
+            .accent-coral {
+                border-top: 8px solid var(--vuddy-coral);
+            }
+            .accent-yellow {
+                border-top: 8px solid var(--vuddy-yellow);
+            }
+
+            .tag-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 22px;
+            }
+            .tag {
+                padding: 8px 13px;
+                border: 1px solid rgba(1, 187, 151, 0.32);
+                border-radius: 999px;
+                background: rgba(1, 187, 151, 0.08);
+                color: var(--vuddy-black);
+                font-size: 17px;
+                font-weight: 850;
             }
 
             .stat-row {
                 display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
                 gap: 12px;
-                margin-top: 20px;
             }
-
             .stat {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 14px 16px;
-                border-radius: 9px;
-                background: var(--light);
+                padding: 16px 14px;
+                border: 1px solid var(--vuddy-line);
+                border-radius: 10px;
+                background: var(--vuddy-white);
             }
-
             .stat b {
-                color: var(--mint);
-                font-size: 25px;
+                display: block;
+                color: var(--vuddy-black);
+                font-size: 28px;
+                line-height: 1;
+                white-space: nowrap;
             }
-
             .stat span {
-                color: var(--muted);
-                font-size: 16px;
-            }
-
-            .two-col,
-            .four-col,
-            .feature-grid,
-            .benefit-grid,
-            .comparison-grid,
-            .example-grid,
-            .faq-grid {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 20px;
+                display: block;
+                margin-top: 8px;
+                color: var(--vuddy-muted);
+                font-size: 14px;
+                line-height: 1.4;
             }
 
             .pain-list {
                 display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 17px;
+                gap: 14px;
+                margin-top: 18px;
             }
-
             .pain {
                 display: flex;
-                min-height: 150px;
+                gap: 14px;
                 align-items: flex-start;
-                gap: 16px;
-                padding: 21px;
-                border: 1px solid var(--line);
+                padding: 18px;
+                border: 1px solid var(--vuddy-line);
                 border-radius: 12px;
                 background: rgba(255, 255, 255, 0.92);
             }
-
             .pain .icon {
-                display: grid;
-                width: 38px;
-                height: 38px;
+                display: inline-grid;
+                width: 34px;
+                height: 34px;
                 flex: 0 0 auto;
                 place-items: center;
                 border-radius: 50%;
-                background: rgba(255, 102, 68, 0.13);
-                color: var(--coral);
+                background: rgba(255, 102, 68, 0.12);
+                color: var(--vuddy-coral);
+                font-size: 20px;
                 font-weight: 900;
             }
-
             .pain p {
-                margin: 0;
-            }
-
-            .pain p,
-            .panel p,
-            .step p,
-            .mini-card p,
-            .feature-card p,
-            .metric-card p,
-            .scene-card p,
-            .benefit-card p,
-            .comparison-card p,
-            .example-card p,
-            .faq p {
-                color: var(--muted);
+                color: var(--vuddy-muted);
+                font-size: 20px;
             }
 
             .flow {
                 display: grid;
                 grid-template-columns: repeat(5, minmax(0, 1fr));
-                gap: 12px;
+                gap: 14px;
+                margin-top: 10px;
             }
-
             .step {
-                min-height: 330px;
-                padding: 20px 17px;
+                min-height: 218px;
+                padding: 20px;
             }
-
             .step-number {
-                display: grid;
-                width: 42px;
-                height: 42px;
-                margin-bottom: 20px;
+                display: inline-grid;
+                width: 38px;
+                height: 38px;
                 place-items: center;
-                border-radius: 12px;
-                background: linear-gradient(135deg, var(--mint), var(--blue));
-                color: var(--white);
+                margin-bottom: 14px;
+                border-radius: 50%;
+                background: var(--vuddy-mint);
+                color: var(--vuddy-white);
+                font-size: 20px;
                 font-weight: 900;
             }
 
-            .step h3 {
-                min-height: 72px;
-                margin-bottom: 10px;
-            }
-
-            .three-col {
-                display: grid;
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 15px;
-                margin-top: 24px;
-            }
-
-            .four-col {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 16px;
-            }
-
-            .mini-card {
-                min-height: 180px;
-                padding: 20px;
-            }
-
             .experience-grid {
+                display: grid;
                 min-height: 610px;
                 grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+                align-items: center;
                 gap: 56px;
             }
-
             .experience-copy {
                 min-width: 0;
                 align-self: start;
             }
-
             .phone {
                 width: clamp(300px, 27vw, 340px);
                 aspect-ratio: 568 / 1010;
@@ -429,7 +457,6 @@
                 background: #050505;
                 box-shadow: 15px 15px 0 rgba(35, 35, 35, 0.08);
             }
-
             .phone-screen {
                 display: grid;
                 width: 100%;
@@ -439,297 +466,327 @@
                 border-radius: 28px;
                 background: #050505;
             }
-
             .phone-screen iframe {
                 display: block;
                 width: 100%;
                 height: auto;
-                max-width: 100% !important;
-                max-height: 100% !important;
+                max-width: 100%;
+                max-height: 100%;
                 aspect-ratio: 568 / 1010;
                 border: 0;
             }
 
-            .feature-grid,
-            .benefit-grid,
-            .comparison-grid,
-            .example-grid {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 14px;
-            }
-
-            .feature-card,
-            .benefit-card,
-            .comparison-card,
-            .example-card {
-                min-height: 410px;
-                padding: 20px;
-            }
-
-            .feature-card {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .feature-label,
-            .comparison-label,
-            .example-label {
-                display: block;
-                margin-bottom: 18px;
-                color: var(--mint);
-                font-size: 14px;
-                font-weight: 850;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-            }
-
-            .feature-benefit {
-                margin-top: auto !important;
-                padding-top: 16px;
-                border-top: 1px solid var(--line);
-                color: var(--black) !important;
-                font-weight: 750;
-            }
-
-            .analytics-grid {
-                display: grid;
-                grid-template-columns: 1.2fr 0.8fr;
-                gap: 24px;
-            }
-
             .dashboard {
-                padding: 24px;
+                padding: 22px;
             }
-
             .dashboard-header {
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: 20px;
+                align-items: center;
+                margin-bottom: 18px;
             }
-
             .dashboard-title {
-                color: var(--black);
+                color: var(--vuddy-black);
+                font-size: 22px;
+                font-weight: 850;
+            }
+            .dashboard-date {
+                color: var(--vuddy-muted);
+                font-size: 14px;
+            }
+            .bar-row {
+                display: grid;
+                grid-template-columns: 150px 1fr 56px;
+                align-items: center;
+                gap: 12px;
+                margin-top: 13px;
+            }
+            .bar-label,
+            .bar-value {
+                font-size: 16px;
+                font-weight: 800;
+            }
+            .bar-label {
+                color: var(--vuddy-black);
+            }
+            .bar-value {
+                color: var(--vuddy-mint);
+                text-align: right;
+            }
+            .bar-track {
+                height: 15px;
+                overflow: hidden;
+                border-radius: 999px;
+                background: #eaf1ef;
+            }
+            .bar-fill {
+                height: 100%;
+                border-radius: 999px;
+                background: linear-gradient(
+                    90deg,
+                    var(--vuddy-mint),
+                    var(--vuddy-blue)
+                );
+            }
+            .insight-box {
+                margin-top: 18px;
+                padding: 16px;
+                border-radius: 12px;
+                background: rgba(1, 187, 151, 0.08);
+                color: var(--vuddy-black);
+                font-size: 18px;
                 font-weight: 850;
             }
 
-            .dashboard-date {
-                color: var(--muted);
-                font-size: 15px !important;
-            }
-
-            .bar-row {
+            .feature-grid,
+            .comparison-grid,
+            .before-after-grid {
                 display: grid;
-                grid-template-columns: 140px 1fr 58px;
-                align-items: center;
-                gap: 12px;
-                margin-top: 17px;
-            }
-
-            .bar-label,
-            .bar-value {
-                font-size: 17px !important;
-                font-weight: 750;
-            }
-
-            .bar-track {
-                overflow: hidden;
-                height: 15px;
-                border-radius: 999px;
-                background: #e8eeec;
-            }
-
-            .bar-fill {
-                height: 100%;
-                border-radius: inherit;
-                background: linear-gradient(90deg, var(--mint), var(--blue));
-            }
-
-            .insight-box {
-                margin-top: 24px;
-                padding: 16px;
-                border-radius: 9px;
-                background: rgba(1, 187, 151, 0.09);
-                color: #087c66;
-                font-size: 18px;
-                font-weight: 750;
-            }
-
-            .metric-list {
-                display: grid;
-                gap: 10px;
-                padding: 0;
-                list-style: none;
-            }
-
-            .metric-list li {
-                padding: 12px 14px;
-                border-left: 4px solid var(--blue);
-                background: var(--light);
-                font-size: 18px;
-            }
-
-            .scene-grid {
-                display: grid;
-                grid-template-columns: repeat(4, minmax(0, 1fr));
                 gap: 14px;
             }
-
-            .scene-card {
-                min-height: 380px;
-                padding: 21px;
+            .feature-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-
-            .scene-icon {
-                display: grid;
-                width: 60px;
-                height: 60px;
-                margin-bottom: 22px;
-                place-items: center;
-                border-radius: 16px;
-                background: linear-gradient(
-                    135deg,
-                    rgba(1, 187, 151, 0.16),
-                    rgba(111, 204, 228, 0.2)
-                );
-                color: var(--mint);
-                font-size: 29px;
+            .before-after-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            .comparison-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            .feature-card,
+            .comparison-card,
+            .before-after-card {
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.94);
+                box-shadow: 8px 8px 0 rgba(1, 187, 151, 0.09);
+            }
+            .feature-card {
+                min-height: 190px;
+                padding: 20px;
+            }
+            .feature-card h3,
+            .comparison-card h3,
+            .before-after-card h3 {
+                margin-bottom: 12px;
+                font-size: 23px;
+            }
+            .feature-card p,
+            .comparison-card p,
+            .before-after-card p {
+                color: var(--vuddy-muted);
+                font-size: 16px;
+                line-height: 1.45;
+            }
+            .feature-card .feature-benefit,
+            .comparison-card .vuddy-value,
+            .after-value {
+                color: var(--vuddy-black);
+                font-weight: 850;
+            }
+            .feature-label,
+            .comparison-label,
+            .before-after-label {
+                display: inline-flex;
+                margin-bottom: 8px;
+                color: var(--vuddy-mint);
+                font-size: 13px;
                 font-weight: 900;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
             }
-
-            .benefit-card {
-                min-height: 390px;
-            }
-
-            .benefit-number {
-                color: var(--mint);
-                font-size: 50px;
-                font-weight: 900;
-            }
-
-            .comparison-item {
-                margin-top: 14px;
+            .feature-benefit {
+                margin-top: 12px;
                 padding: 12px;
-                border-radius: 8px;
-                background: var(--light);
+                border-radius: 10px;
+                background: rgba(1, 187, 151, 0.08);
             }
-
+            .comparison-card {
+                min-height: 278px;
+                padding: 18px;
+            }
+            .comparison-card h3 {
+                min-height: 54px;
+            }
+            .comparison-item {
+                padding: 10px 0;
+                border-top: 1px solid var(--vuddy-line);
+            }
+            .comparison-item:first-of-type {
+                margin-top: 4px;
+            }
             .comparison-item b {
                 display: block;
-                margin-bottom: 5px;
-                font-size: 16px;
+                margin-bottom: 4px;
+                color: var(--vuddy-muted);
+                font-size: 13px;
+                font-weight: 850;
             }
-
             .comparison-item p {
-                font-size: 16px !important;
-                line-height: 1.35 !important;
-            }
-
-            .comparison-item.vuddy {
-                background: rgba(1, 187, 151, 0.1);
-            }
-
-            .comparison-item.vuddy p {
-                color: #087c66;
+                color: var(--vuddy-black);
+                font-size: 15px;
                 font-weight: 750;
             }
-
-            .quote-box {
-                min-height: 230px;
-                padding: 25px;
+            .comparison-item.vuddy {
+                margin-top: 2px;
+                padding: 11px;
+                border: 0;
+                border-radius: 10px;
+                background: rgba(1, 187, 151, 0.08);
             }
-
-            .quote-box p {
-                font-size: 21px;
+            .before-after-card {
+                min-height: 0;
+                padding: 16px;
+                display: flex;
+                flex-direction: column;
             }
-
-            .before,
-            .after {
-                margin-top: 14px;
-                padding: 14px;
-                border-radius: 9px;
+            .before-after-pair {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(2, minmax(82px, 1fr));
+                gap: 10px;
+                flex: 1;
             }
-
-            .before {
-                background: #f4f5f5;
+            .before-value,
+            .after-value {
+                display: grid;
+                grid-template-rows: auto 1fr;
+                align-items: start;
+                min-height: 0;
+                padding: 12px;
+                border-radius: 10px;
             }
-
-            .after {
-                background: rgba(1, 187, 151, 0.1);
+            .before-value p,
+            .after-value p {
+                align-self: start;
             }
-
-            .before b,
-            .after b {
-                display: block;
-                margin-bottom: 7px;
+            .before-after-card p {
                 font-size: 15px;
+                line-height: 1.42;
+            }
+            .before-value {
+                background: #f4f7f6;
+            }
+            .after-value {
+                background: rgba(1, 187, 151, 0.08);
             }
 
-            .before p,
-            .after p {
-                font-size: 17px !important;
+            .kpi-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 16px;
             }
-
-            .price-card {
-                min-height: 330px;
+            .kpi {
+                min-height: 205px;
+                padding: 21px;
             }
-
-            .price {
-                margin: 28px 0 20px !important;
-                color: var(--black);
-                font-size: 42px !important;
-                font-weight: 900;
-            }
-
-            .price small {
+            .kpi b {
                 display: block;
-                margin-top: 8px;
-                color: var(--muted);
+                color: var(--vuddy-mint);
+                font-size: 34px;
+                line-height: 1;
+            }
+            .kpi span {
+                display: block;
+                margin-top: 12px;
+                color: var(--vuddy-black);
+                font-size: 20px;
+                font-weight: 850;
+                line-height: 1.35;
+            }
+            .kpi p {
+                margin-top: 12px;
+                color: var(--vuddy-muted);
                 font-size: 16px;
-                font-weight: 500;
+                line-height: 1.45;
             }
 
             .timeline {
                 display: grid;
                 grid-template-columns: repeat(5, minmax(0, 1fr));
-                gap: 12px;
+                gap: 14px;
+                margin-top: 12px;
             }
-
             .timeline-item {
-                min-height: 330px;
-                padding: 20px 16px;
-                border-top: 5px solid var(--mint);
-                background: rgba(255, 255, 255, 0.78);
+                min-height: 205px;
+                padding: 19px;
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.92);
             }
-
-            .timeline-item > b {
-                display: block;
-                margin-bottom: 20px;
-                color: var(--mint);
-                font-size: 44px;
+            .timeline-item b {
+                display: inline-grid;
+                width: 34px;
+                height: 34px;
+                place-items: center;
+                margin-bottom: 12px;
+                border-radius: 50%;
+                background: var(--vuddy-mint);
+                color: var(--vuddy-white);
+                font-size: 17px;
             }
-
             .timeline-item h3 {
-                min-height: 72px;
                 margin-bottom: 10px;
+                font-size: 23px;
             }
-
             .timeline-item p {
-                color: var(--muted);
+                color: var(--vuddy-muted);
+                font-size: 16px;
+                line-height: 1.45;
             }
 
+            .price-card {
+                padding: 28px;
+            }
+            .price-card .price {
+                margin: 16px 0 10px;
+                color: var(--vuddy-black);
+                font-size: 52px;
+                font-weight: 900;
+                line-height: 1;
+            }
+            .price-card .price small {
+                color: var(--vuddy-muted);
+                font-size: 18px;
+                font-weight: 800;
+            }
+            .deliverables {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+            .mini-card {
+                min-height: 125px;
+                padding: 18px;
+                box-shadow: none;
+            }
+            .mini-card h3 {
+                font-size: 22px;
+            }
+            .mini-card p {
+                font-size: 16px;
+                line-height: 1.45;
+            }
+
+            .faq-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
             .faq {
-                min-height: 145px;
-                padding: 12px 16px;
+                padding: 18px;
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.92);
             }
-
             .faq h3 {
                 margin-bottom: 8px;
                 font-size: 21px;
             }
-
             .faq p {
+                color: var(--vuddy-muted);
                 font-size: 16px;
-                line-height: 1.42 !important;
+                line-height: 1.45;
             }
 
             .cta {
@@ -738,30 +795,432 @@
                 align-items: center;
                 gap: 34px;
             }
-
-            .eyebrow + .cta {
-                align-items: start;
-                margin-top: 14px;
-            }
-
             .cta-box {
                 padding: 30px;
             }
-
             .cta-box p {
                 margin-top: 14px;
-                color: var(--muted);
+                color: var(--vuddy-muted);
             }
-
             .next-action {
                 margin-top: 22px;
                 padding: 18px 22px;
                 border-radius: 12px;
-                background: var(--coral);
-                color: var(--white);
+                background: var(--vuddy-coral);
+                color: var(--vuddy-white);
                 font-size: 24px;
                 font-weight: 900;
                 text-align: center;
+            }
+            .quote-box {
+                padding: 25px;
+                min-height: 230px;
+            }
+            .quote-box p {
+                font-size: 21px;
+            }
+
+            .profile-stat-panel {
+                width: 390px;
+                padding: 24px;
+                background: rgba(255, 255, 255, 0.94);
+                box-shadow: 10px 10px 0 var(--vuddy-shadow);
+            }
+            .profile-stat-panel h3 {
+                max-width: 280px;
+                margin-bottom: 12px;
+            }
+            .profile-stat-panel .stat-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-top: 20px;
+            }
+            .profile-stat-panel .stat {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 14px 16px;
+                border: 0;
+                border-radius: 9px;
+                background: var(--vuddy-light);
+            }
+            .profile-stat-panel .stat b {
+                color: var(--vuddy-mint);
+                font-size: 25px;
+            }
+            .profile-stat-panel .stat span {
+                margin-top: 0;
+                color: var(--vuddy-muted);
+                font-size: 16px;
+            }
+
+            .reveal .slides > section.profile-layout {
+                background: transparent;
+            }
+            .profile-layout h2 {
+                margin-bottom: 22px;
+                font-size: clamp(38px, 3.7vw, 55px);
+            }
+            .profile-layout h3 {
+                font-size: clamp(24px, 2.3vw, 32px);
+            }
+            .profile-layout p,
+            .profile-layout li {
+                font-size: clamp(18px, 1.55vw, 23px);
+                line-height: 1.5;
+            }
+            .profile-layout p,
+            .profile-layout ul {
+                margin: 12px 0;
+            }
+            .profile-layout .eyebrow {
+                margin-bottom: 12px;
+                letter-spacing: 0.06em;
+            }
+            .profile-layout .eyebrow + h2 {
+                margin-top: 0;
+            }
+            .profile-layout .lead {
+                margin-top: 22px;
+                color: var(--vuddy-muted);
+                font-size: clamp(21px, 2vw, 29px);
+                line-height: 1.5;
+            }
+            .profile-layout .panel,
+            .profile-layout .mini-card,
+            .profile-layout .feature-card,
+            .profile-layout .comparison-card,
+            .profile-layout .price-card,
+            .profile-layout .cta-box {
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.94);
+                box-shadow: 10px 10px 0 var(--vuddy-shadow);
+            }
+            .profile-layout .panel,
+            .profile-layout .price-card {
+                padding: 24px;
+            }
+            .profile-layout .panel {
+                min-height: 0;
+            }
+            .profile-layout .panel h3,
+            .profile-layout .feature-card h3,
+            .profile-layout .comparison-card h3 {
+                min-height: 0;
+                margin-bottom: 12px;
+            }
+            .profile-layout .panel p,
+            .profile-layout .mini-card p,
+            .profile-layout .feature-card p,
+            .profile-layout .comparison-card p {
+                color: var(--vuddy-muted);
+            }
+            .profile-solution-layout .two-col,
+            .profile-price-layout .two-col {
+                gap: 20px;
+            }
+            .profile-viewer-layout .three-col {
+                gap: 15px;
+                margin-top: 24px;
+            }
+            .profile-layout .mini-card {
+                min-height: 180px;
+                padding: 20px;
+                box-shadow: 10px 10px 0 var(--vuddy-shadow);
+            }
+            .profile-layout .feature-grid,
+            .profile-layout .comparison-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 14px;
+            }
+            .profile-layout .feature-card {
+                min-height: 410px;
+                padding: 20px;
+            }
+            .profile-feature-layout .feature-card {
+                display: flex;
+                flex-direction: column;
+            }
+            .profile-layout .comparison-card {
+                min-height: 410px;
+                padding: 20px;
+            }
+            .profile-layout .feature-label,
+            .profile-layout .comparison-label {
+                margin-bottom: 18px;
+            }
+            .profile-layout .feature-benefit {
+                margin-top: auto;
+                padding: 16px 0 0;
+                border-top: 1px solid var(--vuddy-line);
+                border-radius: 0;
+                background: transparent;
+            }
+            .profile-layout .comparison-item {
+                margin-top: 14px;
+                padding: 12px;
+                border: 0;
+                border-radius: 8px;
+                background: var(--vuddy-light);
+            }
+            .profile-layout .comparison-item:first-of-type {
+                margin-top: 14px;
+            }
+            .profile-layout .comparison-item b {
+                margin-bottom: 5px;
+                color: var(--vuddy-black);
+                font-size: 16px;
+            }
+            .profile-layout .comparison-item p {
+                color: var(--vuddy-muted);
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1.35;
+            }
+            .profile-layout .comparison-item.vuddy {
+                margin-top: 14px;
+                padding: 12px;
+                background: rgba(1, 187, 151, 0.1);
+            }
+            .profile-layout .comparison-item.vuddy p {
+                color: #087c66;
+                font-weight: 750;
+            }
+            .profile-layout .price-card {
+                min-height: 330px;
+            }
+            .profile-layout .price-card .price {
+                margin: 28px 0 20px;
+                font-size: 42px;
+            }
+            .profile-layout .price-card .price small {
+                display: block;
+                margin-top: 8px;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .profile-cta-layout .cta {
+                align-items: start;
+                margin-top: 14px;
+            }
+            .profile-layout .cta-box {
+                padding: 30px;
+            }
+            .reveal .slides > section.profile-solution-layout,
+            .reveal .slides > section.profile-feature-layout,
+            .reveal .slides > section.profile-price-layout,
+            .reveal .slides > section.profile-cta-layout {
+                background: transparent;
+            }
+            .profile-solution-layout h2,
+            .profile-feature-layout h2,
+            .profile-price-layout h2,
+            .profile-cta-layout h2 {
+                margin-bottom: 22px;
+                color: var(--vuddy-black);
+                font-size: clamp(38px, 3.7vw, 55px);
+            }
+            .profile-solution-layout h3,
+            .profile-feature-layout h3,
+            .profile-price-layout h3,
+            .profile-cta-layout h3 {
+                color: var(--vuddy-black);
+                font-size: clamp(24px, 2.3vw, 32px);
+            }
+            .profile-solution-layout p,
+            .profile-solution-layout li,
+            .profile-feature-layout p,
+            .profile-feature-layout li,
+            .profile-price-layout p,
+            .profile-price-layout li,
+            .profile-cta-layout p,
+            .profile-cta-layout li {
+                font-size: clamp(18px, 1.55vw, 23px);
+                line-height: 1.5;
+            }
+            .profile-solution-layout p,
+            .profile-solution-layout ul,
+            .profile-feature-layout p,
+            .profile-feature-layout ul,
+            .profile-price-layout p,
+            .profile-price-layout ul,
+            .profile-cta-layout p,
+            .profile-cta-layout ul {
+                margin: 12px 0;
+            }
+            .profile-solution-layout .eyebrow,
+            .profile-feature-layout .eyebrow,
+            .profile-price-layout .eyebrow,
+            .profile-cta-layout .eyebrow {
+                gap: 10px;
+                margin-bottom: 12px;
+                color: var(--vuddy-mint);
+                font-size: 16px;
+                font-weight: 850;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+            }
+            .profile-solution-layout .eyebrow::before,
+            .profile-feature-layout .eyebrow::before,
+            .profile-price-layout .eyebrow::before,
+            .profile-cta-layout .eyebrow::before {
+                width: 34px;
+                height: 4px;
+                background: linear-gradient(
+                    90deg,
+                    var(--vuddy-mint),
+                    var(--vuddy-blue)
+                );
+                content: "";
+            }
+            .profile-solution-layout .eyebrow + h2,
+            .profile-feature-layout .eyebrow + h2,
+            .profile-price-layout .eyebrow + h2,
+            .profile-cta-layout .eyebrow + h2 {
+                margin-top: 0;
+            }
+            .profile-solution-layout .lead,
+            .profile-feature-layout .lead,
+            .profile-price-layout .lead,
+            .profile-cta-layout .lead {
+                max-width: none;
+                margin-top: 22px;
+                color: var(--vuddy-muted);
+                font-size: clamp(21px, 2vw, 29px);
+                line-height: 1.5;
+            }
+            .profile-solution-layout .two-col,
+            .profile-price-layout .two-col {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+            }
+            .profile-solution-layout .panel,
+            .profile-feature-layout .feature-card,
+            .profile-price-layout .price-card,
+            .profile-cta-layout .cta-box {
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.94);
+                box-shadow: 10px 10px 0 var(--vuddy-shadow);
+            }
+            .profile-solution-layout .accent,
+            .profile-viewer-layout .accent,
+            .profile-feature-layout .accent,
+            .profile-price-layout .accent,
+            .profile-cta-layout .accent {
+                border-top: 8px solid var(--vuddy-mint);
+            }
+            .profile-solution-layout .accent-blue,
+            .profile-viewer-layout .accent-blue,
+            .profile-feature-layout .accent-blue,
+            .profile-price-layout .accent-blue,
+            .profile-cta-layout .accent-blue {
+                border-top: 8px solid var(--vuddy-blue);
+            }
+            .profile-solution-layout .accent-coral,
+            .profile-viewer-layout .accent-coral,
+            .profile-feature-layout .accent-coral,
+            .profile-price-layout .accent-coral,
+            .profile-cta-layout .accent-coral {
+                border-top: 8px solid var(--vuddy-coral);
+            }
+            .profile-solution-layout .accent-yellow,
+            .profile-feature-layout .accent-yellow,
+            .profile-price-layout .accent-yellow,
+            .profile-cta-layout .accent-yellow {
+                border-top: 8px solid var(--vuddy-yellow);
+            }
+            .profile-solution-layout .panel,
+            .profile-price-layout .price-card {
+                padding: 24px;
+            }
+            .profile-solution-layout .panel {
+                min-height: 0;
+            }
+            .profile-solution-layout .panel h3,
+            .profile-feature-layout .feature-card h3 {
+                min-height: 0;
+                margin-bottom: 12px;
+            }
+            .profile-solution-layout .panel p,
+            .profile-feature-layout .feature-card p {
+                color: var(--vuddy-muted);
+            }
+            .profile-feature-layout .feature-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 14px;
+            }
+            .profile-feature-layout .feature-card {
+                display: flex;
+                min-height: 410px;
+                flex-direction: column;
+                padding: 20px;
+            }
+            .profile-feature-layout .feature-label {
+                display: block;
+                margin-bottom: 18px;
+                color: var(--vuddy-mint);
+                font-size: 14px;
+                font-weight: 850;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+            .profile-feature-layout .feature-benefit {
+                margin-top: auto;
+                padding: 16px 0 0;
+                border-top: 1px solid var(--vuddy-line);
+                border-radius: 0;
+                background: transparent;
+                color: var(--vuddy-black);
+                font-weight: 750;
+            }
+            .profile-price-layout .price-card {
+                min-height: 330px;
+            }
+            .profile-price-layout .price {
+                margin: 28px 0 20px;
+                color: var(--vuddy-black);
+                font-size: 42px;
+                font-weight: 900;
+                line-height: 1.5;
+            }
+            .profile-price-layout .price small {
+                display: block;
+                margin-top: 8px;
+                color: var(--vuddy-muted);
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .profile-cta-layout .cta {
+                display: grid;
+                grid-template-columns: 1.05fr 0.95fr;
+                align-items: start;
+                gap: 34px;
+                margin-top: 14px;
+            }
+            .profile-cta-layout .cta-box {
+                padding: 30px;
+            }
+            .profile-cta-layout .cta-box p {
+                margin-top: 14px;
+                color: var(--vuddy-muted);
+            }
+            .profile-cta-layout .next-action {
+                margin-top: 22px;
+                padding: 18px 22px;
+                border-radius: 12px;
+                background: var(--vuddy-coral);
+                color: var(--vuddy-white);
+                font-size: 24px;
+                font-weight: 900;
+                text-align: center;
+            }
+            .reveal .progress,
+            .reveal .controls {
+                color: var(--vuddy-mint);
             }
 
             .pdf-download {
@@ -774,11 +1233,11 @@
                 align-items: center;
                 gap: 8px;
                 padding: 0 15px;
-                border: 1px solid var(--line);
+                border: 1px solid var(--vuddy-line);
                 border-radius: 12px;
-                background: var(--white);
+                background: var(--vuddy-white);
                 box-shadow: 0 5px 14px rgba(35, 35, 35, 0.12);
-                color: var(--black);
+                color: var(--vuddy-black);
                 font-size: 14px;
                 font-weight: 850;
                 line-height: 1;
@@ -788,27 +1247,19 @@
                     box-shadow 160ms ease,
                     transform 160ms ease;
             }
-
             .pdf-download svg {
                 width: 20px;
                 height: 20px;
                 flex: 0 0 auto;
             }
-
             .pdf-download:hover {
                 border-color: rgba(1, 187, 151, 0.58);
                 box-shadow: 0 7px 18px rgba(1, 187, 151, 0.18);
                 transform: translateY(-1px);
             }
-
             .pdf-download:focus-visible {
                 outline: 3px solid rgba(1, 187, 151, 0.32);
                 outline-offset: 3px;
-            }
-
-            .reveal .progress,
-            .reveal .controls {
-                color: var(--mint);
             }
 
             @media print {
@@ -817,8 +1268,43 @@
                     margin: 0;
                 }
 
+                html:not(.print-pdf),
+                html:not(.print-pdf) body {
+                    width: 1280px;
+                    height: auto;
+                    overflow: visible;
+                    background: var(--vuddy-white);
+                }
+
                 .pdf-download {
-                    display: none !important;
+                    display: none;
+                }
+
+                .reveal {
+                    width: 1280px;
+                    height: auto;
+                    overflow: visible;
+                }
+
+                .reveal .slides {
+                    position: static;
+                    width: 1280px;
+                    height: auto;
+                    inset: auto;
+                    transform: none;
+                }
+
+                .reveal .slides > section {
+                    position: relative;
+                    display: block;
+                    width: 1280px;
+                    height: 720px;
+                    min-height: 720px;
+                    margin: 0;
+                    break-after: page;
+                    opacity: 1;
+                    transform: none;
+                    visibility: visible;
                 }
             }
 
@@ -829,21 +1315,73 @@
                     height: 40px;
                     padding: 0 12px;
                 }
-
                 .reveal .slides > section {
                     padding: 28px 24px;
                 }
-
+                .reveal .cover-logo {
+                    left: 24px;
+                }
+                .cover-title {
+                    top: calc(50% + 164px);
+                    left: 24px;
+                    font-size: 27px;
+                }
+                .slide-footer-logo img {
+                    width: 128px;
+                }
+                .brand {
+                    left: 24px;
+                }
                 .hero-grid,
-                .experience-grid,
+                .two-col,
+                .three-col,
                 .four-col,
-                .analytics-grid,
-                .cta {
+                .pain-list,
+                .experience-grid,
+                .cta,
+                .deliverables,
+                .faq-grid {
+                    display: block;
+                }
+                .panel,
+                .step,
+                .phone,
+                .dashboard,
+                .quote-box,
+                .mini-card,
+                .faq,
+                .price-card,
+                .cta-box {
+                    margin-top: 18px;
+                }
+                .flow,
+                .timeline,
+                .kpi-grid,
+                .stat-row {
                     grid-template-columns: 1fr;
                 }
-
                 .phone {
-                    display: none;
+                    width: min(100%, 360px);
+                    height: auto;
+                    margin-right: auto;
+                }
+                .experience-grid {
+                    min-height: 0;
+                }
+                .profile-solution-layout .two-col,
+                .profile-price-layout .two-col {
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 20px;
+                }
+                .profile-cta-layout .cta {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                }
+                .profile-solution-layout .panel,
+                .profile-price-layout .price-card,
+                .profile-cta-layout .cta-box {
+                    margin-top: 0;
                 }
             }
         </style>
@@ -874,22 +1412,11 @@
             <div class="slides">
                 <section class="cover">
                     <div class="cover-content">
-                        <img
-                            class="cover-logo"
-                            src="../../../assets/images/Vuddy_logo-01.png"
-                            alt="Vuddy"
-                            onerror="this.style.display = 'none'"
-                        />
-                        <div class="cover-title">
-                            Profile Vuddy サービス紹介資料
-                        </div>
+                        <img class="cover-logo" src="../../../assets/images/Vuddy_logo-01.png" alt="Vuddy" onerror="this.style.display = 'none'">
+                        <div class="cover-title">Profile Vuddy サービス紹介資料</div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
@@ -897,12 +1424,12 @@
                     <div class="hero-grid">
                         <div>
                             <div class="eyebrow">Introduction</div>
-                            <h1>自分を、会社を、<br />もっと伝わる形に。</h1>
+                            <h1>自分を、会社を、<br>もっと伝わる形に。</h1>
                             <p class="lead">
                                 Vuddyは、動画・音声・分岐・CTAを組み合わせ、文章と静止画中心のホームページより豊かな表現力と強い第一印象を生み出すインタラクティブ動画サービスです。
                             </p>
                         </div>
-                        <aside class="panel hero-panel accent">
+                        <aside class="panel hero-panel accent profile-stat-panel" aria-label="Vuddyで可視化できる指標">
                             <h3>ホームページで生まれる変化</h3>
                             <div class="stat-row">
                                 <div class="stat">
@@ -918,65 +1445,49 @@
                         </aside>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
                 <section>
                     <div class="eyebrow">Problem</div>
-                    <h2>ホームページの情報は、届く前に離脱されがちです。</h2>
+                    <h2>
+                        ホームページの情報は、届く前に離脱されがちです。
+                    </h2>
                     <div class="pain-list">
                         <div class="pain">
                             <span class="icon">!</span>
                             <p>
-                                <strong>第一印象で違いを出しにくい。</strong
-                                ><br />
-                                テンプレート型の構成では、サービスの世界観や人柄が埋もれやすい。
+                                <strong>第一印象で違いを出しにくい。</strong><br>テンプレート型の構成では、サービスの世界観や人柄が埋もれやすい。
                             </p>
                         </div>
                         <div class="pain">
                             <span class="icon">!</span>
                             <p>
-                                <strong>文章だけでは魅力が伝わりにくい。</strong
-                                ><br />
-                                接客の雰囲気、技術、利用後のイメージを静止画だけで説明しきれない。
+                                <strong>文章だけでは魅力が伝わりにくい。</strong><br>接客の雰囲気、技術、利用後のイメージを静止画だけで説明しきれない。
                             </p>
                         </div>
                         <div class="pain">
                             <span class="icon">!</span>
                             <p>
-                                <strong>訪問者が情報を探し疲れる。</strong
-                                ><br />
-                                サービス、料金、事例、よくある質問が別ページに分散している。
+                                <strong>訪問者が情報を探し疲れる。</strong><br>サービス、料金、事例、よくある質問が別ページに分散している。
                             </p>
                         </div>
                         <div class="pain">
                             <span class="icon">!</span>
                             <p>
-                                <strong>興味と離脱理由が見えにくい。</strong
-                                ><br />
-                                アクセス数だけでは、何が響き、なぜ予約されないか判断しにくい。
+                                <strong>興味と離脱理由が見えにくい。</strong><br>アクセス数だけでは、何が響き、なぜ予約されないか判断しにくい。
                             </p>
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
-                <section>
+                <section class="profile-layout profile-solution-layout">
                     <div class="eyebrow">Solution</div>
-                    <h2>
-                        Vuddyなら「伝わる・選べる・動ける」を一つにできます。
-                    </h2>
+                    <h2>Vuddyなら「伝わる・選べる・動ける」を一つにできます。</h2>
                     <div class="two-col">
                         <div class="panel accent">
                             <h3>表現力で惹きつける</h3>
@@ -995,11 +1506,7 @@
                         一方的に読ませるページから、一人ひとりの関心に応えるホームページへ変わります。
                     </p>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
@@ -1010,9 +1517,7 @@
                         <div class="step">
                             <span class="step-number">1</span>
                             <h3>魅力を整理</h3>
-                            <p>
-                                サービス、人柄、事例、店内など、伝えたい価値を絞ります。
-                            </p>
+                            <p>サービス、人柄、事例、店内など、伝えたい価値を絞ります。</p>
                         </div>
                         <div class="step">
                             <span class="step-number">2</span>
@@ -1024,9 +1529,7 @@
                         <div class="step">
                             <span class="step-number">3</span>
                             <h3>分岐を設計</h3>
-                            <p>
-                                選択肢、次の動画、予約や問い合わせのCTAを設定します。
-                            </p>
+                            <p>選択肢、次の動画、予約や問い合わせのCTAを設定します。</p>
                         </div>
                         <div class="step">
                             <span class="step-number">4</span>
@@ -1044,15 +1547,11 @@
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
-                <section class="viewer-experience">
+                <section class="viewer-experience profile-layout profile-viewer-layout">
                     <div class="experience-grid">
                         <div class="experience-copy">
                             <div class="eyebrow">Viewer Experience</div>
@@ -1060,19 +1559,19 @@
                                 訪問者は、知りたいことを選びながら進めます。
                             </h2>
                             <div class="three-col">
-                                <div class="mini-card">
+                                <div class="mini-card accent">
                                     <h3>惹かれる</h3>
                                     <p>
                                         動画と音声で、サービスの雰囲気を短時間で感じられます。
                                     </p>
                                 </div>
-                                <div class="mini-card">
+                                <div class="mini-card accent-blue">
                                     <h3>選べる</h3>
                                     <p>
                                         料金、事例、スタッフなど、関心のある情報へ進めます。
                                     </p>
                                 </div>
-                                <div class="mini-card">
+                                <div class="mini-card accent-coral">
                                     <h3>動ける</h3>
                                     <p>
                                         予約、体験申込、相談、問い合わせをその場で行えます。
@@ -1083,13 +1582,9 @@
                                 情報を探す負担を減らし、理解から行動までを一つの体験にします。
                             </p>
                         </div>
-                        <div class="phone" aria-label="Vuddy視聴体験">
+                        <div class="phone" aria-label="スマートフォン上のVuddy視聴体験">
                             <div class="phone-screen">
-                                <iframe
-                                    src="https://dev.d8k3e4qlzuz0z.amplifyapp.com/watch/9c67ddfd-f80c-48ca-9765-a34e5198c9b7"
-                                    title="Vuddy視聴体験"
-                                    loading="lazy"
-                                    allow="
+                                <iframe src="https://dev.d8k3e4qlzuz0z.amplifyapp.com/watch/9c67ddfd-f80c-48ca-9765-a34e5198c9b7" title="Vuddy視聴体験" loading="lazy" allow="
                                         accelerometer;
                                         autoplay;
                                         clipboard-write;
@@ -1097,22 +1592,16 @@
                                         gyroscope;
                                         picture-in-picture;
                                         web-share;
-                                    "
-                                    allowfullscreen
-                                ></iframe>
+                                    " allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
-                <section>
+                <section class="profile-layout profile-feature-layout">
                     <div class="eyebrow">Features</div>
                     <h2>ホームページの接客力を高める4つの機能。</h2>
                     <div class="feature-grid">
@@ -1150,63 +1639,48 @@
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
                 <section>
                     <div class="eyebrow">Analytics</div>
-                    <h2>訪問者の関心を、次の改善に使えるデータへ。</h2>
-                    <div class="analytics-grid">
-                        <div
-                            class="dashboard"
-                            aria-label="Vuddy分析画面イメージ"
-                        >
+                    <h2>
+                        訪問者の関心を、次の改善に使えるデータへ。
+                    </h2>
+                    <div class="two-col">
+                        <div class="dashboard" aria-label="Vuddyの分析画面イメージ">
                             <div class="dashboard-header">
-                                <p class="dashboard-title">関心テーマ分析</p>
+                                <p class="dashboard-title">
+                                    関心テーマ分析
+                                </p>
                                 <p class="dashboard-date">Sample</p>
                             </div>
                             <div class="bar-row">
                                 <p class="bar-label">サービス内容</p>
                                 <div class="bar-track">
-                                    <div
-                                        class="bar-fill"
-                                        style="width: 82%"
-                                    ></div>
+                                    <div class="bar-fill" style="width: 78%"></div>
                                 </div>
                                 <p class="bar-value">82%</p>
                             </div>
                             <div class="bar-row">
                                 <p class="bar-label">料金・プラン</p>
                                 <div class="bar-track">
-                                    <div
-                                        class="bar-fill"
-                                        style="width: 68%"
-                                    ></div>
+                                    <div class="bar-fill" style="width: 64%"></div>
                                 </div>
                                 <p class="bar-value">68%</p>
                             </div>
                             <div class="bar-row">
                                 <p class="bar-label">事例・お客様</p>
                                 <div class="bar-track">
-                                    <div
-                                        class="bar-fill"
-                                        style="width: 57%"
-                                    ></div>
+                                    <div class="bar-fill" style="width: 52%"></div>
                                 </div>
                                 <p class="bar-value">57%</p>
                             </div>
                             <div class="bar-row">
                                 <p class="bar-label">スタッフ紹介</p>
                                 <div class="bar-track">
-                                    <div
-                                        class="bar-fill"
-                                        style="width: 41%"
-                                    ></div>
+                                    <div class="bar-fill" style="width: 36%"></div>
                                 </div>
                                 <p class="bar-value">41%</p>
                             </div>
@@ -1218,36 +1692,30 @@
                             <h3>主な確認指標</h3>
                             <ul>
                                 <li>
-                                    <strong>視聴完了率</strong
-                                    >：最後まで届いたか
+                                    <strong>視聴完了率</strong>：最後まで届いたか
                                 </li>
                                 <li>
-                                    <strong>選択肢クリック率</strong
-                                    >：何に興味があるか
+                                    <strong>選択肢クリック率</strong>：何に興味があるか
                                 </li>
                                 <li>
-                                    <strong>離脱ポイント</strong
-                                    >：どこで関心を失ったか
+                                    <strong>離脱ポイント</strong>：どこで関心を失ったか
                                 </li>
                                 <li>
-                                    <strong>CTAクリック率</strong
-                                    >：行動につながったか
+                                    <strong>CTAクリック率</strong>：行動につながったか
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
                 <section>
                     <div class="eyebrow">Use Cases</div>
-                    <h2>BtoC・小規模事業者の「選ばれる理由」を伝えます。</h2>
+                    <h2>
+                        BtoC・小規模事業者の「選ばれる理由」を伝えます。
+                    </h2>
                     <div class="four-col">
                         <div class="quote-box accent">
                             <h3>サロン・店舗</h3>
@@ -1275,81 +1743,89 @@
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
                 <section>
                     <div class="eyebrow">Before / After</div>
-                    <h2>
-                        通常のホームページから、Vuddyで伝わる・選べる・改善できる体験へ。
-                    </h2>
-                    <div class="example-grid">
-                        <div class="example-card">
-                            <span class="example-label">Impression</span>
+                    <h2>通常のホームページから、Vuddyで伝わる・選べる・改善できる体験へ。</h2>
+                    <div class="before-after-grid">
+                        <div class="before-after-card">
+                            <span class="before-after-label">Impression</span>
                             <h3>第一印象</h3>
-                            <div class="before">
-                                <b>Before</b>
-                                <p>文章と写真だけでは雰囲気や人柄が伝わりにくい</p>
-                            </div>
-                            <div class="after">
-                                <b>After</b>
-                                <p>動き、声、表情で世界観を届け、訪問直後に印象を残す</p>
+                            <div class="before-after-pair">
+                                <div class="before-value">
+                                    <span class="before-after-label">Before</span>
+                                    <p>
+                                        文章と写真だけでは雰囲気や人柄が伝わりにくい
+                                    </p>
+                                </div>
+                                <div class="after-value">
+                                    <span class="before-after-label">After</span>
+                                    <p>
+                                        動き、声、表情で世界観を届け、訪問直後に印象を残す
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="example-card">
-                            <span class="example-label">Understanding</span>
+                        <div class="before-after-card">
+                            <span class="before-after-label">Understanding</span>
                             <h3>理解</h3>
-                            <div class="before">
-                                <b>Before</b>
-                                <p>技術、こだわり、利用シーンを読む側の想像に任せている</p>
-                            </div>
-                            <div class="after">
-                                <b>After</b>
-                                <p>動画と選択肢で魅力を直感的に伝え、理解を深める</p>
+                            <div class="before-after-pair">
+                                <div class="before-value">
+                                    <span class="before-after-label">Before</span>
+                                    <p>技術、こだわり、利用シーンを読む側の想像に任せている</p>
+                                </div>
+                                <div class="after-value">
+                                    <span class="before-after-label">After</span>
+                                    <p>動画と選択肢で魅力を直感的に伝え、理解を深める</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="example-card">
-                            <span class="example-label">Action</span>
+                        <div class="before-after-card">
+                            <span class="before-after-label">Action</span>
                             <h3>行動</h3>
-                            <div class="before">
-                                <b>Before</b>
-                                <p>問い合わせや予約の導線を探すうちに関心が薄れる</p>
-                            </div>
-                            <div class="after">
-                                <b>After</b>
-                                <p>納得した瞬間に動画内から予約、申込、相談へつなげる</p>
+                            <div class="before-after-pair">
+                                <div class="before-value">
+                                    <span class="before-after-label">Before</span>
+                                    <p>
+                                        問い合わせや予約の導線を探すうちに関心が薄れる
+                                    </p>
+                                </div>
+                                <div class="after-value">
+                                    <span class="before-after-label">After</span>
+                                    <p>納得した瞬間に動画内から予約、申込、相談へつなげる</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="example-card">
-                            <span class="example-label">Improvement</span>
+                        <div class="before-after-card">
+                            <span class="before-after-label">Improvement</span>
                             <h3>改善</h3>
-                            <div class="before">
-                                <b>Before</b>
-                                <p>どこで迷われたか分からず、改善が感覚頼みになる</p>
-                            </div>
-                            <div class="after">
-                                <b>After</b>
-                                <p>選択、離脱、CTA反応を見て、優先して直す箇所を判断する</p>
+                            <div class="before-after-pair">
+                                <div class="before-value">
+                                    <span class="before-after-label">Before</span>
+                                    <p>
+                                        どこで迷われたか分からず、改善が感覚頼みになる
+                                    </p>
+                                </div>
+                                <div class="after-value">
+                                    <span class="before-after-label">After</span>
+                                    <p>選択、離脱、CTA反応を見て、優先して直す箇所を判断する</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
-                <section>
+                <section class="profile-layout profile-price-layout">
                     <div class="eyebrow">Price</div>
-                    <h2>料金は、制作範囲と運用範囲に応じて設計します。</h2>
+                    <h2>
+                        料金は、制作範囲と運用範囲に応じて設計します。
+                    </h2>
                     <div class="two-col">
                         <div class="price-card accent">
                             <h3>初期制作費</h3>
@@ -1357,29 +1833,22 @@
                                 個別見積
                                 <small>構成・撮影・素材・分岐数に応じて</small>
                             </p>
-                            <p class="lead" style="font-size: 22px !important">
+                            <p class="lead" style="font-size: 22px">
                                 目的整理、動画構成、素材整理、シナリオ設計、掲載準備まで支援します。
                             </p>
                         </div>
                         <div class="price-card accent-blue">
                             <h3>月額利用料</h3>
                             <p class="price">
-                                個別見積
-                                <small
-                                    >公開数・視聴規模・支援範囲に応じて</small
-                                >
+                                個別見積 <small>公開数・視聴規模・支援範囲に応じて</small>
                             </p>
-                            <p class="lead" style="font-size: 22px !important">
+                            <p class="lead" style="font-size: 22px">
                                 配信、管理、視聴分析、改善レポート、運用支援を必要に応じて調整します。
                             </p>
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
@@ -1422,11 +1891,7 @@
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
@@ -1472,11 +1937,7 @@
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
@@ -1484,13 +1945,13 @@
                     <div class="eyebrow">Company</div>
                     <h2>会社情報</h2>
                     <div class="two-col">
-                        <div class="panel accent">
+                        <div class="panel accent compact">
                             <h3>株式会社VARISTA</h3>
                             <p>
                                 インタラクティブ動画プラットフォーム「Vuddy」の企画・開発・制作・運用支援を行っています。
                             </p>
                         </div>
-                        <div class="panel accent-blue">
+                        <div class="panel accent-blue compact">
                             <h3>お問い合わせ</h3>
                             <ul>
                                 <li>サービスサイト：vuddy.jp</li>
@@ -1500,21 +1961,15 @@
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
 
-                <section>
+                <section class="profile-layout profile-cta-layout">
                     <div class="eyebrow">Next Action</div>
                     <div class="cta">
                         <div>
-                            <h2>
-                                あなたのホームページに合う体験を、デモで確認しませんか。
-                            </h2>
+                            <h2>あなたのホームページに合う体験を、デモで確認しませんか。</h2>
                             <p class="lead">
                                 まずは一つのサービスや予約導線から。事業の魅力がどのような動画体験になるか、具体的にご提案します。
                             </p>
@@ -1524,18 +1979,18 @@
                             <ul>
                                 <li>ホームページURL</li>
                                 <li>伝えたいサービス・商品</li>
-                                <li>写真・動画などの既存素材</li>
-                                <li>予約・体験申込・相談・問い合わせ先</li>
+                                <li>
+                                    写真・動画などの既存素材
+予約・体験申込・相談・問い合わせ先
+                                </li>
                             </ul>
-                            <div class="next-action">Vuddyのデモを相談する</div>
+                            <div class="next-action">
+                                Vuddyのデモを相談する
+                            </div>
                         </div>
                     </div>
                     <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
+                        <img src="../../../assets/images/VARISTA_logo.png" alt="VARISTA" onerror="this.style.display = 'none'">
                     </div>
                 </section>
             </div>
