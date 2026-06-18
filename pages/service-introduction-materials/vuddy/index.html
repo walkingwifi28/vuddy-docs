@@ -1007,6 +1007,214 @@
             .profile-layout .cta-box {
                 padding: 30px;
             }
+            .reveal .slides > section.profile-solution-layout,
+            .reveal .slides > section.profile-feature-layout,
+            .reveal .slides > section.profile-price-layout,
+            .reveal .slides > section.profile-cta-layout {
+                background: transparent;
+            }
+            .profile-solution-layout h2,
+            .profile-feature-layout h2,
+            .profile-price-layout h2,
+            .profile-cta-layout h2 {
+                margin-bottom: 22px;
+                color: var(--vuddy-black);
+                font-size: clamp(38px, 3.7vw, 55px);
+            }
+            .profile-solution-layout h3,
+            .profile-feature-layout h3,
+            .profile-price-layout h3,
+            .profile-cta-layout h3 {
+                color: var(--vuddy-black);
+                font-size: clamp(24px, 2.3vw, 32px);
+            }
+            .profile-solution-layout p,
+            .profile-solution-layout li,
+            .profile-feature-layout p,
+            .profile-feature-layout li,
+            .profile-price-layout p,
+            .profile-price-layout li,
+            .profile-cta-layout p,
+            .profile-cta-layout li {
+                font-size: clamp(18px, 1.55vw, 23px);
+                line-height: 1.5;
+            }
+            .profile-solution-layout p,
+            .profile-solution-layout ul,
+            .profile-feature-layout p,
+            .profile-feature-layout ul,
+            .profile-price-layout p,
+            .profile-price-layout ul,
+            .profile-cta-layout p,
+            .profile-cta-layout ul {
+                margin: 12px 0;
+            }
+            .profile-solution-layout .eyebrow,
+            .profile-feature-layout .eyebrow,
+            .profile-price-layout .eyebrow,
+            .profile-cta-layout .eyebrow {
+                gap: 10px;
+                margin-bottom: 12px;
+                color: var(--vuddy-mint);
+                font-size: 16px;
+                font-weight: 850;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+            }
+            .profile-solution-layout .eyebrow::before,
+            .profile-feature-layout .eyebrow::before,
+            .profile-price-layout .eyebrow::before,
+            .profile-cta-layout .eyebrow::before {
+                width: 34px;
+                height: 4px;
+                background: linear-gradient(
+                    90deg,
+                    var(--vuddy-mint),
+                    var(--vuddy-blue)
+                );
+                content: "";
+            }
+            .profile-solution-layout .eyebrow + h2,
+            .profile-feature-layout .eyebrow + h2,
+            .profile-price-layout .eyebrow + h2,
+            .profile-cta-layout .eyebrow + h2 {
+                margin-top: 0;
+            }
+            .profile-solution-layout .lead,
+            .profile-feature-layout .lead,
+            .profile-price-layout .lead,
+            .profile-cta-layout .lead {
+                max-width: none;
+                margin-top: 22px !important;
+                color: var(--vuddy-muted);
+                font-size: clamp(21px, 2vw, 29px) !important;
+                line-height: 1.5 !important;
+            }
+            .profile-solution-layout .two-col,
+            .profile-price-layout .two-col {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 20px;
+            }
+            .profile-solution-layout .panel,
+            .profile-feature-layout .feature-card,
+            .profile-price-layout .price-card,
+            .profile-cta-layout .cta-box {
+                border: 1px solid var(--vuddy-line);
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.94);
+                box-shadow: 10px 10px 0 var(--vuddy-shadow);
+            }
+            .profile-solution-layout .accent,
+            .profile-feature-layout .accent,
+            .profile-price-layout .accent,
+            .profile-cta-layout .accent {
+                border-top: 8px solid var(--vuddy-mint);
+            }
+            .profile-solution-layout .accent-blue,
+            .profile-feature-layout .accent-blue,
+            .profile-price-layout .accent-blue,
+            .profile-cta-layout .accent-blue {
+                border-top: 8px solid var(--vuddy-blue);
+            }
+            .profile-solution-layout .accent-coral,
+            .profile-feature-layout .accent-coral,
+            .profile-price-layout .accent-coral,
+            .profile-cta-layout .accent-coral {
+                border-top: 8px solid var(--vuddy-coral);
+            }
+            .profile-solution-layout .accent-yellow,
+            .profile-feature-layout .accent-yellow,
+            .profile-price-layout .accent-yellow,
+            .profile-cta-layout .accent-yellow {
+                border-top: 8px solid var(--vuddy-yellow);
+            }
+            .profile-solution-layout .panel,
+            .profile-price-layout .price-card {
+                padding: 24px;
+            }
+            .profile-solution-layout .panel {
+                min-height: 0;
+            }
+            .profile-solution-layout .panel h3,
+            .profile-feature-layout .feature-card h3 {
+                min-height: 0;
+                margin-bottom: 12px;
+            }
+            .profile-solution-layout .panel p,
+            .profile-feature-layout .feature-card p {
+                color: var(--vuddy-muted);
+            }
+            .profile-feature-layout .feature-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 14px;
+            }
+            .profile-feature-layout .feature-card {
+                display: flex;
+                min-height: 410px;
+                flex-direction: column;
+                padding: 20px;
+            }
+            .profile-feature-layout .feature-label {
+                display: block;
+                margin-bottom: 18px;
+                color: var(--vuddy-mint);
+                font-size: 14px;
+                font-weight: 850;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+            .profile-feature-layout .feature-benefit {
+                margin-top: auto !important;
+                padding: 16px 0 0;
+                border-top: 1px solid var(--vuddy-line);
+                border-radius: 0;
+                background: transparent;
+                color: var(--vuddy-black) !important;
+                font-weight: 750;
+            }
+            .profile-price-layout .price-card {
+                min-height: 330px;
+            }
+            .profile-price-layout .price {
+                margin: 28px 0 20px !important;
+                color: var(--vuddy-black);
+                font-size: 42px !important;
+                font-weight: 900;
+                line-height: 1.5;
+            }
+            .profile-price-layout .price small {
+                display: block;
+                margin-top: 8px;
+                color: var(--vuddy-muted);
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .profile-cta-layout .cta {
+                display: grid;
+                grid-template-columns: 1.05fr 0.95fr;
+                align-items: start;
+                gap: 34px;
+                margin-top: 14px;
+            }
+            .profile-cta-layout .cta-box {
+                padding: 30px;
+            }
+            .profile-cta-layout .cta-box p {
+                margin-top: 14px;
+                color: var(--vuddy-muted);
+            }
+            .profile-cta-layout .next-action {
+                margin-top: 22px;
+                padding: 18px 22px;
+                border-radius: 12px;
+                background: var(--vuddy-coral);
+                color: var(--vuddy-white);
+                font-size: 24px;
+                font-weight: 900;
+                text-align: center;
+            }
             .reveal .progress,
             .reveal .controls {
                 color: var(--vuddy-mint);
@@ -1156,6 +1364,21 @@
                 }
                 .experience-grid {
                     min-height: 0;
+                }
+                .profile-solution-layout .two-col,
+                .profile-price-layout .two-col {
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 20px;
+                }
+                .profile-cta-layout .cta {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                }
+                .profile-solution-layout .panel,
+                .profile-price-layout .price-card,
+                .profile-cta-layout .cta-box {
+                    margin-top: 0;
                 }
             }
         </style>
@@ -1600,102 +1823,64 @@
                 </section>
 
                 <section>
-                    <div class="eyebrow">Benefits</div>
-                    <h2>伝達から成果まで、四つの効果を生み出します。</h2>
-                    <div class="kpi-grid">
-                        <div class="kpi">
-                            <b>01</b><span>理解促進</span>
-                            <p>
-                                相手が必要な情報を選ぶことで、要点を理解しやすくします。
-                            </p>
-                        </div>
-                        <div class="kpi">
-                            <b>02</b><span>関心把握</span>
-                            <p>
-                                選択や遷移から、相手が注目したテーマを把握できます。
-                            </p>
-                        </div>
-                        <div class="kpi">
-                            <b>03</b><span>行動促進</span>
-                            <p>
-                                問い合わせ、予約、資料請求などのCTAにつなげます。
-                            </p>
-                        </div>
-                        <div class="kpi">
-                            <b>04</b><span>継続改善</span>
-                            <p>
-                                視聴データをもとに、情報と導線を継続的に改善できます。
-                            </p>
-                        </div>
-                    </div>
-                    <div class="slide-footer-logo">
-                        <img
-                            src="../../../assets/images/VARISTA_logo.png"
-                            alt="VARISTA"
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
-                </section>
-
-                <section>
                     <div class="eyebrow">Before / After</div>
                     <h2>
-                        配信からフォローまで、導入前後の変化を一目で比較。
+                        BENEFITSの四つの視点で、導入前後の変化を比較。
                     </h2>
                     <div class="before-after-grid">
                         <div class="before-after-card">
-                            <span class="before-after-label">Distribution</span>
-                            <h3>配信</h3>
+                            <span class="before-after-label">Understanding</span>
+                            <h3>理解促進</h3>
                             <div class="before-after-pair">
                                 <div class="before-value">
                                     <span class="before-after-label">Before</span>
-                                    <p>一律の動画・資料を送付</p>
+                                    <p>一方通行の説明では、要点が伝わりにくい</p>
                                 </div>
                                 <div class="after-value">
                                     <span class="before-after-label">After</span>
-                                    <p>URL・QR・Webで選べる動画を配信</p>
+                                    <p>必要な情報を選んで視聴し、理解が深まる</p>
                                 </div>
                             </div>
                         </div>
                         <div class="before-after-card">
-                            <span class="before-after-label">Viewing</span>
-                            <h3>視聴</h3>
+                            <span class="before-after-label">Interest</span>
+                            <h3>関心把握</h3>
                             <div class="before-after-pair">
                                 <div class="before-value">
                                     <span class="before-after-label">Before</span>
-                                    <p>決められた情報を受動的に閲覧</p>
+                                    <p>どのテーマに関心があるか見えにくい</p>
                                 </div>
                                 <div class="after-value">
                                     <span class="before-after-label">After</span>
-                                    <p>関心に応じて情報を選択</p>
+                                    <p>選択・遷移・離脱から関心テーマを把握</p>
                                 </div>
                             </div>
                         </div>
                         <div class="before-after-card">
-                            <span class="before-after-label">Analytics</span>
-                            <h3>分析</h3>
+                            <span class="before-after-label">Action</span>
+                            <h3>行動促進</h3>
                             <div class="before-after-pair">
                                 <div class="before-value">
                                     <span class="before-after-label">Before</span>
-                                    <p>反応が見えず感覚で判断</p>
+                                    <p>視聴後の導線が弱く、次の行動に進みにくい</p>
                                 </div>
                                 <div class="after-value">
                                     <span class="before-after-label">After</span>
-                                    <p>選択率・離脱・遷移・CTAを分析</p>
+                                    <p>関心に合うCTAで問い合わせ・予約へ誘導</p>
                                 </div>
                             </div>
                         </div>
                         <div class="before-after-card">
-                            <span class="before-after-label">Follow Up</span>
-                            <h3>フォロー</h3>
+                            <span class="before-after-label">Improvement</span>
+                            <h3>継続改善</h3>
                             <div class="before-after-pair">
                                 <div class="before-value">
                                     <span class="before-after-label">Before</span>
-                                    <p>全員に同じ内容で対応</p>
+                                    <p>反応を検証しづらく、改善が属人的になりやすい</p>
                                 </div>
                                 <div class="after-value">
                                     <span class="before-after-label">After</span>
-                                    <p>関心に応じた提案・CTA・改善へ接続</p>
+                                    <p>視聴データをもとに内容と導線を改善</p>
                                 </div>
                             </div>
                         </div>
