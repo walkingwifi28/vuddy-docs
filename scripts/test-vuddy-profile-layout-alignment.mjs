@@ -57,3 +57,10 @@ test("スライド7のカード内区切り線を同じ高さにそろえる", (
         /\.profile-layout \.feature-benefit\s*\{[^}]*margin-top:\s*auto !important;[^}]*border-top:\s*1px solid var\(--vuddy-line\);/s,
     );
 });
+
+test("スライド7の説明文は同じ高さから始まる", () => {
+    assert.match(
+        html,
+        /\.profile-feature-layout \.feature-card h3\s*\{[^}]*min-height:\s*2\.28em;/s,
+    );
+});
