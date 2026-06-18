@@ -47,9 +47,13 @@ test("対象ページの主要寸法をprofile-vuddyに合わせる", () => {
     assert.equal(slides[12].match(/font-size:\s*22px !important/g)?.length, 2);
 });
 
-test("スライド7の4カードは同じ細い枠線を使用する", () => {
+test("スライド7のカード内区切り線を同じ高さにそろえる", () => {
     assert.match(
         html,
-        /\.profile-feature-layout \.feature-card\s*\{[^}]*border-top:\s*1px solid var\(--vuddy-line\);/s,
+        /\.profile-feature-layout \.feature-card\s*\{[^}]*display:\s*flex;[^}]*flex-direction:\s*column;/s,
+    );
+    assert.match(
+        html,
+        /\.profile-layout \.feature-benefit\s*\{[^}]*margin-top:\s*auto !important;[^}]*border-top:\s*1px solid var\(--vuddy-line\);/s,
     );
 });
