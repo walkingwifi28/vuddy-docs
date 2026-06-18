@@ -4,7 +4,7 @@ import test from "node:test";
 
 const html = await readFile(
     new URL(
-        "../pages/service-introduction-materials/vuddy/index.html",
+        "../pages/service-guide/vuddy/index.html",
         import.meta.url,
     ),
     "utf8",

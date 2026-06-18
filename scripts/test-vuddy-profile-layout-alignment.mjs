@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const html = await readFile(
-    new URL("../pages/service-introduction-materials/vuddy/index.html", import.meta.url),
+    new URL("../pages/service-guide/vuddy/index.html", import.meta.url),
     "utf8",
 );
 
@@ -18,8 +18,8 @@ test("指定スライドだけがprofile-vuddyレイアウトを使用する", (
         [4, "profile-solution-layout"],
         [6, "profile-viewer-layout"],
         [7, "profile-feature-layout"],
-        [12, "profile-price-layout"],
-        [16, "profile-cta-layout"],
+        [11, "profile-price-layout"],
+        [15, "profile-cta-layout"],
     ]);
 
     for (const [number, pageClass] of expectedClasses) {
@@ -38,15 +38,15 @@ test("スライド2の右図だけがprofile-vuddyの縦並び指標を使用す
     assert.match(html, /\.profile-stat-panel \.stat\s*\{[^}]*display:\s*flex;[^}]*justify-content:\s*space-between;/s);
 });
 
-test("スライド11は業務フローに沿ったBeforeとAfterを表示する", () => {
-    assert.equal(slides.length, 16);
-    assert.match(slides[10], /class="eyebrow">Before \/ After</);
-    assert.equal(slides[10].match(/class="before-after-card"/g)?.length, 4);
-    assert.equal(slides[10].match(/>Before<|>導入前</g)?.length, 4);
-    assert.equal(slides[10].match(/>After<|>導入後</g)?.length, 4);
+test("スライド10は導入メリットごとのBeforeとAfterを表示する", () => {
+    assert.equal(slides.length, 15);
+    assert.match(slides[9], /class="eyebrow">Before \/ After</);
+    assert.equal(slides[9].match(/class="before-after-card"/g)?.length, 4);
+    assert.equal(slides[9].match(/>Before<|>導入前</g)?.length, 4);
+    assert.equal(slides[9].match(/>After<|>導入後</g)?.length, 4);
 
-    for (const heading of ["配信", "視聴", "分析", "フォロー"]) {
-        assert.match(slides[10], new RegExp(`<h3>${heading}</h3>`));
+    for (const heading of ["理解促進", "関心把握", "行動促進", "継続改善"]) {
+        assert.match(slides[9], new RegExp(`<h3>${heading}</h3>`));
     }
 
     assert.doesNotMatch(html, /class="eyebrow">Comparison</);

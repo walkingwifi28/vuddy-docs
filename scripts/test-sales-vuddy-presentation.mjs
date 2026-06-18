@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const presentationUrl = new URL(
-    "../pages/service-introduction-materials/sales-vuddy/index.html",
+    "../pages/service-guide/sales-vuddy/index.html",
     import.meta.url,
 );
 

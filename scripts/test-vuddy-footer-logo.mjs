@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const presentationPath = new URL(
-    "../pages/service-introduction-materials/vuddy/index.html",
+    "../pages/service-guide/vuddy/index.html",
     import.meta.url,
 );
 const html = await readFile(presentationPath, "utf8");

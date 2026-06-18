@@ -28,13 +28,13 @@ if (typeof WebSocket === "undefined") {
 
 const rootDir = process.cwd();
 const presentationPath =
-    "/pages/service-introduction-materials/vuddy/index.html";
+    "/pages/service-guide/vuddy/index.html";
 const outputPath = resolve(
     process.env.VUDDY_PDF_OUTPUT ??
         join(
             rootDir,
             "pages",
-            "service-introduction-materials",
+            "service-guide",
             "vuddy",
             "vuddy-service-introduction.pdf",
         ),
