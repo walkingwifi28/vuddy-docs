@@ -17,7 +17,7 @@ test("profile-vuddy presentation exists and keeps the 15-slide Reveal structure"
         html.match(/<section(?:\s[^>]*)?>[\s\S]*?<\/section>/g) ?? [];
 
     assert.equal(slides.length, 15);
-    assert.match(html, /<title>Vuddy ホームページ活用紹介資料<\/title>/);
+    assert.match(html, /<title>Profile Vuddy サービス紹介資料<\/title>/);
     assert.match(html, /Reveal\.initialize\(/);
     assert.match(html, /Vuddy_logo-01\.png/);
     assert.equal(html.match(/VARISTA_logo\.png/g)?.length, 15);
@@ -76,7 +76,7 @@ test("profile-vuddy presentation excludes business-card messaging and retains ke
     assert.match(html, /class="pdf-download"/);
     assert.match(html, /<iframe\b/);
     assert.match(html, /class="[^"]*\bviewer-experience\b[^"]*"/);
-    assert.match(html, /\.\.\/\.\.\/\.\.\/assets\/fonts\/noto-sans-jp-vuddy\.woff2/);
+    assert.match(html, /family=BIZ\+UDPGothic:wght@400;700&display=swap/);
     assert.match(html, /\.\.\/\.\.\/\.\.\/assets\/images\/Vuddy_logo-01\.png/);
 });
 

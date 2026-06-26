@@ -11,9 +11,13 @@ import {
 import { createServer } from "node:http";
 import { tmpdir } from "node:os";
 import { extname, join, normalize, relative, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
-if (typeof WebSocket === "undefined") {
+const isMain = Boolean(
+    process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href,
+);
+
+if (isMain && typeof WebSocket === "undefined") {
     const result = spawnSync(
         process.execPath,
         ["--experimental-websocket", fileURLToPath(import.meta.url)],
@@ -40,9 +44,7 @@ const outputPath = resolve(
         ),
 );
 const temporaryOutputPath = `${outputPath}.tmp`;
-const browserProfileDir = mkdtempSync(
-    join(tmpdir(), "vuddy-pdf-browser-profile-"),
-);
+export const defaultBrowserStartTimeoutMs = 60_000;
 
 const mimeTypes = new Map([
     [".css", "text/css; charset=utf-8"],
@@ -178,6 +180,30 @@ function findBrowser() {
     return browser;
 }
 
+export function getBrowserLaunchArgs({
+    platform = process.platform,
+    profileDir,
+} = {}) {
+    const args = [
+        "--headless=new",
+        "--disable-gpu",
+        "--hide-scrollbars",
+        "--remote-debugging-port=0",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "--disable-background-networking",
+        "--disable-dev-shm-usage",
+        `--user-data-dir=${profileDir}`,
+        "about:blank",
+    ];
+
+    if (platform === "linux") {
+        args.splice(1, 0, "--no-sandbox", "--disable-setuid-sandbox");
+    }
+
+    return args;
+}
+
 function resolveRequestPath(url) {
     const pathname = decodeURIComponent(new URL(url, "http://localhost").pathname);
     const requestedPath = resolve(rootDir, `.${pathname}`);
@@ -207,17 +233,13 @@ function createStaticServer() {
     });
 }
 
-function launchBrowser(browserPath) {
+function launchBrowser(
+    browserPath,
+    { profileDir, startTimeoutMs = defaultBrowserStartTimeoutMs } = {},
+) {
     const browser = spawn(
         browserPath,
-        [
-            "--headless",
-            "--disable-gpu",
-            "--hide-scrollbars",
-            "--remote-debugging-port=0",
-            `--user-data-dir=${browserProfileDir}`,
-            "about:blank",
-        ],
+        getBrowserLaunchArgs({ profileDir }),
         { stdio: ["ignore", "ignore", "pipe"] },
     );
 
@@ -225,7 +247,7 @@ function launchBrowser(browserPath) {
         let stderr = "";
         const timeout = setTimeout(() => {
             reject(new Error(`Timed out starting browser.\n${stderr.trim()}`));
-        }, 15_000);
+        }, startTimeoutMs);
 
         browser.stderr.on("data", (chunk) => {
             stderr += chunk;
@@ -268,9 +290,13 @@ async function closeServer(server) {
     await new Promise((resolvePromise) => server.close(resolvePromise));
 }
 
-const server = createStaticServer();
-let browserProcess;
-let cdp;
+async function main() {
+    const browserProfileDir = mkdtempSync(
+        join(tmpdir(), "vuddy-pdf-browser-profile-"),
+    );
+    const server = createStaticServer();
+    let browserProcess;
+    let cdp;
 
 try {
     const browserPath = findBrowser();
@@ -287,7 +313,9 @@ try {
     }
 
     const baseUrl = `http://127.0.0.1:${address.port}${presentationPath}`;
-    const launched = launchBrowser(browserPath);
+    const launched = launchBrowser(browserPath, {
+        profileDir: browserProfileDir,
+    });
     browserProcess = launched.browser;
     cdp = new CdpConnection(await launched.endpoint);
 
@@ -723,4 +751,9 @@ try {
     } catch {
         // Chrome crash reporting may briefly retain a file handle on Windows.
     }
+}
+}
+
+if (isMain) {
+    await main();
 }
